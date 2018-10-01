@@ -148,7 +148,7 @@ $$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
 - $\overline{z+z'} = \overline{z} + \overline{z'}$
 - $\overline{zz'} = \overline{z}\overline{z'}$
 
-![Shéma d'un complexe représenté sut un repère](res/mathTC1.png)
+![Shéma d'un complexe représenté sut un repère](res/mathTC2.png)
 
 $$|z| = \sqrt{a^2 + b^2} = \sqrt{z\overline{z}}$$
 $$arg(z) = (\overrightarrow{u}; \overrightarrow{OM})\ modulo\ 2\pi$$
@@ -221,7 +221,7 @@ $$
 \right.
 $$
 
-![Schéma des deux droites représentées par le système et leur intersection]
+![Schéma des deux droites représentées par le système et leur intersection](res/mathTC1.png)
 
 Résoude un système avec deux variables revient à chercher l'intersection de droites du plan, donc un nt ou une droite.
 
@@ -236,7 +236,7 @@ $$
 \right.
 $$
 
-![Schéma des deux plans représentées par le système et leur interction]
+![Schéma des deux plans représentées par le système et leur interction](res/mathTC3.png)
 
 Résoude un système avec trois variables revient à chercher l'intersection de plans de l'espace $\mathbb{R}^3$, donc une droite ou un plan.
 
@@ -244,28 +244,28 @@ Résoude un système avec trois variables revient à chercher l'intersection de 
 
 - Avec des équations :
 
-*Exemple.*
-$$
-\left \{
-\begin{array}{c @{=} c}
-    x + y + z + t = 1\\
-    x - y + t = 0 \\
-	x - z + 2t = 2
-\end{array}
-\right.
-$$
+  *Exemple.*
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y + z + t = 1\\
+      x - y + t = 0 \\
+  	x - z + 2t = 2
+  \end{array}
+  \right.
+  $$
 
 - Avec la matrice augmentée du système
 
-$$
-\begin{bmatrix}
-1 && 1 && 1 && 1 && | && 1\\
-1 && -1 && 0 && 1 && | && 0\\
-1 && 0 && -1 && 2 && | && 2\\
-\end{bmatrix}
-$$
+  $$
+  \begin{bmatrix}
+  1 && 1 && 1 && 1 && | && 1\\
+  1 && -1 && 0 && 1 && | && 0\\
+  1 && 0 && -1 && 2 && | && 2\\
+  \end{bmatrix}
+  $$
 
-Les lignes sont $E1$, $E2$ et $E3$ ; les colonnes de gauche sont $x$, $y$, $z$ et $t$.
+  Les lignes sont $E1$, $E2$ et $E3$ ; les colonnes de gauche sont $x$, $y$, $z$ et $t$.
 
 - Fome matricielle
 
@@ -294,7 +294,6 @@ $$
 ##### c) Rappel du produit matriciel
 
 Possible ssi $Nb\ col\ A = Nb\ ligne\ B$
-
 $$A \in \mathbb{R}^{m \times n},\ B \in \mathbb{R}^{n \times l}$$
 
 *Exemple.*
@@ -396,7 +395,7 @@ $$
   2 && -2 && | && 2\\
   \end{bmatrix}
   $$
-	- Forme matricielle
+	- Forme matricielle **incomplet**
 
 - Combinaison linéaire d'équation
 	- Système
@@ -431,7 +430,7 @@ $$
   0 && -2 && | && 1\\
   \end{bmatrix}
   $$
-    - Forme matricielle
+    - Forme matricielle **incomplet**
 
 
 ##### e) Algorithme de Gauss
@@ -439,7 +438,6 @@ $$
 **Idée**
 
 - **Étape 1.** Avec les opérations élémentaires (surtout la 3ième) on met le système sous forme triangulaire en utilisant des **pivots**
-
     *Exemple.*
 
 $$
@@ -637,21 +635,66 @@ S =
 \end{Bmatrix}
 $$
 
-à compléter !
 
-- Il y a une infinité de solutions
+- Il y a une infinité de solutions  
     *Exemple.*
-$$
-\left \{
-\begin{array}{c @{=} c}
-x+y = 1 \\
-2x+2y = 2 \\
-\end{array}
-\right.
-$$
-
-à compléter !
-
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+  x+y = 1 \\
+  2x+2y = 2 \\
+  \end{array}
+  \right.
+  $$
+  $$
+  \begin{bmatrix}
+  1 && 1 && | && 1\\
+  2 && 2 && | && 2\\
+  \end{bmatrix}
+  \underset{L2 \leftarrow L2 - 2L1}{\sim}
+  \begin{bmatrix}
+  1 && 1 && | && 1\\
+  0 && 0 && | && 0\\
+  \end{bmatrix}
+  $$
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+  x+y = 0 \\
+  0 = 0 \\
+  \end{array}
+  \right.
+  $$
+  $$
+  S =
+  \begin{Bmatrix}
+    \begin{bmatrix}
+    x \\ y\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 - y\\ y\\
+    \end{bmatrix}
+    |\ y \in \mathbb{R}
+  \end{Bmatrix}
+  $$
+  $$
+  =
+  \begin{Bmatrix}
+    \begin{bmatrix}
+    x \\ y\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 \\ 0\\
+    \end{bmatrix}
+    + y
+    \begin{bmatrix}
+    -1 \\ 1\\
+    \end{bmatrix}
+  \end{Bmatrix}
+  $$
+  Droite passant par (1, 0) et de vecteur directeur $\begin{bmatrix} -1 \\ 1\\ \end{bmatrix}$
 ##### g) Une variante : Gauss Jordan
 
 - **Étape 1** : Pareil que pour Gauss
@@ -733,7 +776,7 @@ $A,\ B \in \mathbb{R}^{m \times n},\ \lambda \in \mathbb{R}$
 - $A + B = [a_{ij} + b_{ij}]$
 - $\lambda 1 = [\lambda a_{ij}$
 
-Muni de ces opérations, $\mathcal{M}_{m, n}$ est un $\mathbb{R}$-espace vectoriel (les règles de calcul avec les vecteurs du $\mathbb{R}^n fonctionnent pareil ici).
+Muni de ces opérations, $\mathcal{M}_{m, n}$ est un $\mathbb{R}$-espace vectoriel (les règles de calcul avec les vecteurs du $\mathbb{R}^n$ fonctionnent pareil ici).
 
 *Exemples.* Soient $A\ B$ deux matrices, $A+B$ et $3A$.
 
@@ -741,10 +784,9 @@ Si $m=n$ on parle de matrice carrée et on note $\mathbb{R}^{n \times n} = \math
 
 On a maintenant un produit en plus.
 
-:::warning
-$AB \neq BA$ (en general)
-Le produit n'est pas commutatif !
-:::
+> Attention $AB \neq BA$ (en general)
+> Le produit n'est pas commutatif !
+
 
 *Exemples.*
 
@@ -791,12 +833,12 @@ Dans $\mathbb{R}^n$ on peut voir chaque point comme un vecteur. On peut alors fa
 
 On peut alors faire la somme de deux vecteurs
 
-![Schéma de la somme de deux vecteurs]
+![Schéma de la somme de deux vecteurs](res/mathTC4.png)
 $$u = \begin{bmatrix} u_1 \\ u_2 \\ \end{bmatrix}\ et\ v = \begin{bmatrix} v_1 \\ v_2 \\ \end{bmatrix}\ u+v = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \end{bmatrix}\ $$
 
 et multiplier un vecteur par un scalaire
 
-![Schema du produit]
+![Schema du produit](res/mathTC5.png)
 
 $$u = \begin{bmatrix} u_1 \\ u_2 \\ \end{bmatrix}\ ,\ \lambda u = \begin{bmatrix} \lambda u_1 \\ \lambda u_2 \\ \end{bmatrix}$$
 
@@ -829,13 +871,20 @@ $$A + B = [a_{ij} + b_{ij}]$$
 $$\lambda A = [\lambda a_{ij}]$$
 - Espaces des fonctions de $\mathbb{R} \rightarrow \mathbb{R}$
 	$$E = \{ F:\mathbb{R} \rightarrow \mathbb{R} \}$$
-- Suites réelles : E=
-- Sous espaces vectoriels : $E$ est un ev $(E=\mathbb{R}^n)$, un sev de $EE c'est un sous-ensemble non vide $F$ de $E$ stable par combinaison linéaire
+- Suites réelles : $E = \{(u_n)_{n \in \mathbb{R} } | \forall n \in \mathbb{N}, u_n \in \mathbb{R}\}$
+  $$
+  (u_n) + (v_n) = (u_n + v_n)
+  $$
+  $$
+  \lambda(u_n) = (\lambda u_n)
+  $$
+
+#### 4) Sous espaces vectoriels :
+$E$ est un ev $(E=\mathbb{R}^n)$, un sev de $E$ c'est un sous-ensemble non vide $F$ de $E$ stable par combinaison linéaire
 $$x,y \in F \Leftrightarrow \lambda x + \mu y \in F \forall \lambda,\mu \in \mathbb{R}$$
 
-:::info
-Si $F$ est un sev, $O \in F$
-:::
+
+>Remarque : Si $F$ est un sev, $O \in F$
 
 *Exemples.*
 - Dans $\mathbb{R}^2$
