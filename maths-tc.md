@@ -45,7 +45,7 @@ $$x^2 = 1 \Leftrightarrow x = 1\ ou\ x = -1$$
 
 ###### b) Négation
 
-**Définition.** Soit $P$ un proposition. On définit sa négation $\bar{P}$ par : 
+**Définition.** Soit $P$ un proposition. On définit sa négation $\bar{P}$ par :
 
 | $P$ | $\overline{P}$ |
 | - | - |
@@ -76,7 +76,9 @@ $$\exists n \in \mathbb{N}\ |\ n\ est\ pair$$
 
 $P \lor Q$ Faux si et seulement si $P$ et $Q$ sont faux simultanément ou inclusif
 
-**Proposition.** Soient $P$ et $Q$ deux propositions, $$\overline{P \land Q} = \overline{P} \lor \overline{Q}$$ $$\overline{P \lor Q} = \overline{P} \land \overline{Q}$$
+**Proposition.** Soient $P$ et $Q$ deux propositions,
+$$\overline{P \land Q} = \overline{P} \lor \overline{Q}$$
+$$\overline{P \lor Q} = \overline{P} \land \overline{Q}$$
 
 ###### d) Implication logique
 **Définition.** Soient $P$ et $Q$ deux propositions, $P \Rightarrow Q$ est définie par son tableau de vérité :
@@ -113,9 +115,12 @@ On peut penser à plusieurs analogies pour s'aider : un interrupteur et une ampo
 
 ###### f) Négation, contraposée et réciproque d'une implication
 
-**Théorème. Négation d'une implication.** $$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
+**Théorème. Négation d'une implication.**
+$$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
 
-**Théorème. Contraposée d'une implication.** $$(P \Rightarrow Q) \Leftrightarrow (\overline{Q} \Rightarrow \overline{P}) $$ on dit que $\overline{Q} \Rightarrow \overline{P}$ est la contraposé de $P \Rightarrow Q$
+**Théorème. Contraposée d'une implication.**
+ $$(P \Rightarrow Q) \Leftrightarrow (\overline{Q} \Rightarrow \overline{P}) $$
+ on dit que $\overline{Q} \Rightarrow \overline{P}$ est la contraposé de $P \Rightarrow Q$
 
 **Définition.** La réciproque de $P \Rightarrow Q$ est $Q \Rightarrow P$
 
@@ -143,40 +148,51 @@ On peut penser à plusieurs analogies pour s'aider : un interrupteur et une ampo
 - $\overline{z+z'} = \overline{z} + \overline{z'}$
 - $\overline{zz'} = \overline{z}\overline{z'}$
 
-![Schéma d'un complexe représenté sur un repère]
+![Shéma d'un complexe représenté sut un repère](res/mathTC1.png)
 
-$$|z| = \sqrt{a^2 + b^2} = \sqrt{z\overline{z}}$$ $$arg(z) = (\overrightarrow{u}; \overrightarrow{OM})\ modulo\ 2\pi$$
+$$|z| = \sqrt{a^2 + b^2} = \sqrt{z\overline{z}}$$
+$$arg(z) = (\overrightarrow{u}; \overrightarrow{OM})\ modulo\ 2\pi$$
 
-**Propriété.** Soit $z \in \mathbb{C}* \exists r > 0$ et $\theta \in \mathbb{R}$ tq $$z = r \cos{\theta} + i*r*\sin{\theta}$$ avec $r = |z|$ et $\theta = arg(z)$. 
-Si $z = a + ib$ alors $r = \sqrt{a^2 + b^2}$, $\cos{\theta} = {a \over r} = {a \over \sqrt{a^2 + b^2}}$, $\sin{\theta} = {b \over \sqrt{a^2 + b^2}}$ 
+**Propriété.** Soit $z \in \mathbb{C}* \exists r > 0$ et $\theta \in \mathbb{R}$ tq $$z = r \cos{\theta} + i*r*\sin{\theta}$$ avec $r = |z|$ et $\theta = arg(z)$.
+Si $z = a + ib$ alors $r = \sqrt{a^2 + b^2}$, $\cos{\theta} = {a \over r} = {a \over \sqrt{a^2 + b^2}}$, $\sin{\theta} = {b \over \sqrt{a^2 + b^2}}$
 
 **Définition.**
-$$\forall \theta \in \mathbb{R},\ e^{i\theta} = \cos(\theta) + i\sin(\theta)$$ $$\forall x \in \mathbb{R},\ e^x = \displaystyle\sum_{k=0}^{+\infty} {x^k \over k!}$$ $$\forall \theta \in \mathbb{R},\ e^{i\theta} = \displaystyle\sum_{k=0}^{+\infty} {(i\theta)^k \over k!} = \cos(\theta) + i\sin(\theta)$$ $$e^{i(\theta+\theta')} = e^{i\theta}e^{i\theta'}$$ $$(e^{i\theta})^n = e^{in\theta}$$
+$$\forall \theta \in \mathbb{R},\ e^{i\theta} = \cos(\theta) + i\sin(\theta)$$
+$$\forall x \in \mathbb{R},\ e^x = \displaystyle\sum_{k=0}^{+\infty} {x^k \over k!}$$
+$$\forall \theta \in \mathbb{R},\ e^{i\theta} = \displaystyle\sum_{k=0}^{+\infty} {(i\theta)^k \over k!} = \cos(\theta) + i\sin(\theta)$$
+$$e^{i(\theta+\theta')} = e^{i\theta}e^{i\theta'}$$
+$$(e^{i\theta})^n = e^{in\theta}$$
 
-**Définition.** Tout complexe z non nul de mdule $z$ et d'argument $\theta$ s'écrit $z = re^{i\theta}$ 
-$$e^{i2\pi} = 1$$ $$e^{2ik\pi} = 1,\ \forall k \in \mathbb{Z}$$ $$e^{ik\pi} = (-1)^k$$ $$|e^{i\theta}| = 1,\ \forall \theta \in \mathbb{R}$$
+**Définition.** Tout complexe z non nul de mdule $z$ et d'argument $\theta$ s'écrit $z = re^{i\theta}$
+$$e^{i2\pi} = 1$$
+$$e^{2ik\pi} = 1,\ \forall k \in \mathbb{Z}$$
+$$e^{ik\pi} = (-1)^k$$
+$$|e^{i\theta}| = 1,\ \forall \theta \in \mathbb{R}$$
 
 **Propriété.** $\forall \theta \in \mathbb{R}$
 $\cos{\theta} = {e^{i\theta}+ e{-i\theta} \over 2}$, $\sin{\theta} = {e^{i\theta} - e^{-i\theta} \over 2i}$
-Application : soit $z \in \mathbb{C}*$, résoudre $Z^n = z$ 
+Application : soit $z \in \mathbb{C}*$, résoudre $Z^n = z$
 $$z = re^{i\theta}$$
 $Z = Re^{i\alpha}$, les inconnues sont $R$ et $\alpha$.
-$$R^ne^{in\alpha} = re^{i\theta}$$ $$\Leftrightarrow R^n = r \Leftrightarrow R = r^{1\over n} / n\alpha = \theta + 2k\pi\ k\in\mathbb{Z}$$ $$\Leftrightarrow R = r^{1\over n} = \sqrt[n]{r} / \alpha = {\theta + 2k\pi\over n}\ k \in \{0, 1, .., n-1\}$$
+$$R^ne^{in\alpha} = re^{i\theta}$$
+$$\Leftrightarrow R^n = r \Leftrightarrow R = r^{1\over n} / n\alpha = \theta + 2k\pi\ k\in\mathbb{Z}$$
+$$\Leftrightarrow R = r^{1\over n} = \sqrt[n]{r} / \alpha = {\theta + 2k\pi\over n}\ k \in \{0, 1, .., n-1\}$$
 
 *Exemple.* Résoudre $Z^3 = -1 = e^{i\pi}$
-$$\Leftrightarrow Z^3 = R^3e^{i3\alpha} = e^{i\pi}$$$$\Leftrightarrow R = 1 \\ \alpha = {\pi \over 3}$$
+$$\Leftrightarrow Z^3 = R^3e^{i3\alpha} = e^{i\pi}$$
+$$\Leftrightarrow R = 1 \\ \alpha = {\pi \over 3}$$
 ou
-$$\Leftrightarrow Z^3 = (a + ib)^3 = -1$$$$\Leftrightarrow a = -1$$
+$$\Leftrightarrow Z^3 = (a + ib)^3 = -1$$
+$$\Leftrightarrow a = -1$$
 Donc $Z^3 = - 1$ avec $Z = e^{i\pi + 2k\pi,\ k \in \mathbb{Z} }$ ou $Z = e^{i{\pi \over 3} + {2k\pi \over 3},\ k\in \mathbb{Z}}$
 - Application 2, résoudre dans $\mathbb{C}$ : $aZ^2 + bZ + c = 0,\ a,b,c \in \mathbb{C}$ et $\Delta = b^2 - 4ac \in \mathbb{C}$
 - Il suffit de trouver $\delta \in \mathbb{C}$  ($\delta = a + ib$) tq $\delta^2 = \Delta$
-$$Z = {-b \pm \delta \over 2a}$$ (deux racines complexes)
+$$Z = {-b \pm \delta \over 2a}$$
+(deux racines complexes)
 
 ## Chapitre 3 - Algèbre linéaire
 remi-molinier@univ-grenoble-alpes.fr
 
-$$()
-$$
 
 ### Rappels
 
@@ -226,7 +242,7 @@ Résoude un système avec trois variables revient à chercher l'intersection de 
 
 ##### b) Différentes façons d'écrire un système
 
-- Avec des équations : 
+- Avec des équations :
 
 *Exemple.*
 $$
@@ -255,13 +271,13 @@ Les lignes sont $E1$, $E2$ et $E3$ ; les colonnes de gauche sont $x$, $y$, $z$ e
 
 $$AX = b$$
 
-$$ A = 
+$$ A =
 \begin{bmatrix}
 1 && 1 && 1 && 1\\
 1 && -1 && 0 && 1\\
 1 && 0 && -1 && 2\\
 \end{bmatrix}
-X = 
+X =
 \begin{bmatrix}
 x \\
 y \\
@@ -288,56 +304,55 @@ $$
 1 && 1 && 1 && 1\\
 1 && -1 && 0 && 1\\
 1 && 0 && -1 && 2\\
-\end{bmatrix} 
+\end{bmatrix}
 \times
 \begin{bmatrix}
 x \\
 y \\
 z \\
 t \\
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 x + y + z + t\\
 x - y + t\\
 x - z + 2t\\
-\end{bmatrix} 
+\end{bmatrix}
 $$
 
-##### d) Opérations élémentaires 
+##### d) Opérations élémentaires
 
 - Permutation
-	- Système
+  - Système
 		$Ei \leftrightarrow Ej$
 		*Exemple.*
-$$
-\left \{
-\begin{array}{c @{=} c}
-    x + y = 0\\
-    x - y = 1\\
-\end{array}
-\right.
-\Leftrightarrow
-\left \{
-\begin{array}{c @{=} c}
-    x - y = 1\\
-    x + y = 0\\
-\end{array}
-\right.
-$$
-		
-	- Matrice augmenté
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y = 0\\
+      x - y = 1\\
+  \end{array}
+  \right.
+  \Leftrightarrow
+  \left \{
+  \begin{array}{c @{=} c}
+      x - y = 1\\
+      x + y = 0\\
+  \end{array}
+  \right.
+  $$
+  - Matrice augmenté
 		$Li \leftrightarrow Lj$
 		*Exemple.*
-$$
-\begin{bmatrix}
-1 && 1 && | && 0\\
-1 && -1 && | && 1\\
-\end{bmatrix} =
-\begin{bmatrix}
-1 && -1 && | && 1\\
-1 && 1 && | && 0\\
-\end{bmatrix} 
-$$
+  $$
+  \begin{bmatrix}
+  1 && 1 && | && 0\\
+  1 && -1 && | && 1\\
+  \end{bmatrix} =
+  \begin{bmatrix}
+  1 && -1 && | && 1\\
+  1 && 1 && | && 0\\
+  \end{bmatrix}
+  $$
     - Forme matricielle : multiplier à gauche par (lignes $j$ et $i$, colonnes $i$ et $j$)
 $$
 \begin{bmatrix}
@@ -346,76 +361,76 @@ $$
 \vdots && \vdots  && \ddots && \vdots && \vdots\\
 \vdots && 1       && \cdots && 0      && \vdots\\
 1      && \cdots  && \cdots && \cdots && 1\\
-\end{bmatrix} 
+\end{bmatrix}
 $$
 
 - Dilatation
 	- Système
 		$Ei \leftarrow \lambda Ei$
 		*Exemple.*
-$$
-\left \{
-\begin{array}{c @{=} c}
-    x + y = 0\\
-    x - y = 1\\
-\end{array}
-\right.
-\Leftrightarrow
-\left \{
-\begin{array}{c @{=} c}
-    x + y = 1\\
-    2x - 2y = 2\\
-\end{array}
-\right.
-$$
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y = 0\\
+      x - y = 1\\
+  \end{array}
+  \right.
+  \Leftrightarrow
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y = 1\\
+      2x - 2y = 2\\
+  \end{array}
+  \right.
+  $$
 	- Matrice augmenté
 		$Li \leftarrow \lambda Li$
 		*Exemple.*
-$$
-\begin{bmatrix}
-1 && 1 && | && 0\\
-1 && -1 && | && 1\\
-\end{bmatrix} =
-\begin{bmatrix}
-1 && 1 && | && 0\\
-2 && -2 && | && 2\\
-\end{bmatrix} 
-$$
+  $$
+  \begin{bmatrix}
+  1 && 1 && | && 0\\
+  1 && -1 && | && 1\\
+  \end{bmatrix} =
+  \begin{bmatrix}
+  1 && 1 && | && 0\\
+  2 && -2 && | && 2\\
+  \end{bmatrix}
+  $$
 	- Forme matricielle
 
 - Combinaison linéaire d'équation
-	- Système 
+	- Système
 		$Ei \leftarrow Ei + \lambda Ej$
 		*Exemple.*
-$$
-\left \{
-\begin{array}{c @{=} c}
-    x + y = 0\\
-    x - y = 1\\
-\end{array}
-\right.
-\Leftrightarrow
-\left \{
-\begin{array}{c @{=} c}
-    x + y = 0\\
-    - 2y = 0\\
-\end{array}
-\right.
-$$
+  $$
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y = 0\\
+      x - y = 1\\
+  \end{array}
+  \right.
+  \Leftrightarrow
+  \left \{
+  \begin{array}{c @{=} c}
+      x + y = 0\\
+      - 2y = 0\\
+  \end{array}
+  \right.
+  $$
 	- Matrice augmentée
 	    $Li \leftarrow Li + \lambda Lj$
         *Exemple.* ($L2 \leftarrow L2 - L1$)
-$$
-\begin{bmatrix}
-1 && 1 && | && 0\\
-1 && -1 && | && 1\\
-\end{bmatrix}
-\sim
-\begin{bmatrix}
-1 && 1 && | && 0\\
-0 && -2 && | && 1\\
-\end{bmatrix} 
-$$
+  $$
+  \begin{bmatrix}
+  1 && 1 && | && 0\\
+  1 && -1 && | && 1\\
+  \end{bmatrix}
+  \sim
+  \begin{bmatrix}
+  1 && 1 && | && 0\\
+  0 && -2 && | && 1\\
+  \end{bmatrix}
+  $$
     - Forme matricielle
 
 
@@ -473,7 +488,7 @@ $$
 
 - **Étape 2.** Résoude le système en remontant
 	*Exemple.*
-	
+
 $$
 \left \{
 \begin{array}{c @{=} c}
@@ -481,7 +496,7 @@ $$
     z = 0 \\
     t = -2 \\
 \end{array}
-\right. 
+\right.
 \Leftrightarrow
 \left \{
 \begin{array}{c @{=} c}
@@ -489,11 +504,11 @@ $$
     z = 0 \\
     t = -2 \\
 \end{array}
-\right. 
+\right.
 $$
 
 $$
-S = 
+S =
 \left \{
 \begin{array}{c @{=} c}
     \begin{bmatrix}
@@ -514,7 +529,7 @@ S =
 $$
 
 $$
-S = 
+S =
 \left \{
 \begin{array}{c @{=} c}
     \begin{bmatrix}
@@ -522,13 +537,13 @@ S =
     y\\
     z\\
     t\\
-    \end{bmatrix} = 
+    \end{bmatrix} =
 	\begin{bmatrix}
     3\\
     0\\
     0\\
     -2\\
-    \end{bmatrix} + y 
+    \end{bmatrix} + y
 	\begin{bmatrix}
     -1\\
     1\\
@@ -562,7 +577,7 @@ $$
     x + y = 0 \\
     x + y = 1 \\
 \end{array}
-\right., 
+\right.,
 \begin{bmatrix}
     1 && 1 && | && 0\\
     1 && 1 && | && 1\\
@@ -574,7 +589,7 @@ $$
 \end{bmatrix}
 0 = 1\ impossible
 $$
-	
+
 - Il y a une unique solution
     *Exemple.*
 $$
@@ -583,7 +598,7 @@ $$
 x+y = 0 \\
 x-y = 1 \\
 \end{array}
-\right. 
+\right.
 $$
 
 $$
@@ -595,7 +610,7 @@ $$
 \begin{bmatrix}
 1 && 1 && | && 0\\
 0 && -2 && | && 1\\
-\end{bmatrix} 
+\end{bmatrix}
 $$
 
 $$
@@ -615,11 +630,11 @@ y = -1/2 \\
 $$
 
 $$
-S = 
+S =
 \begin{Bmatrix}
 1 && 1 && | && 0\\
 0 && -2 && | && 1\\
-\end{Bmatrix} 
+\end{Bmatrix}
 $$
 
 à compléter !
@@ -632,7 +647,7 @@ $$
 x+y = 1 \\
 2x+2y = 2 \\
 \end{array}
-\right. 
+\right.
 $$
 
 à compléter !
@@ -672,7 +687,7 @@ x = 0 \\
 y + z = 0 \\
 t = 1 \\
 \end{array}
-\right. 
+\right.
 \Leftrightarrow
 \left \{
 \begin{array}{c @{=} c}
@@ -680,11 +695,11 @@ x = 0 \\
 y = -z \\
 t = 0 \\
 \end{array}
-\right. 
+\right.
 $$
 
 $$
-S = 
+S =
 \begin{Bmatrix}
     \begin{bmatrix}x\\y\\z\\t\end{bmatrix}
     =
@@ -713,7 +728,7 @@ $$ \mathbb{R}^{m \times n} = \mathcal{M}_{m,n}(\mathbb{R}) = \textrm{ensemble de
 
 ##### a) Opérations
 
-$A,\ B \in \mathbb{R}^{m \times n},\ \lambda \in \mathbb{R}$ 
+$A,\ B \in \mathbb{R}^{m \times n},\ \lambda \in \mathbb{R}$
 
 - $A + B = [a_{ij} + b_{ij}]$
 - $\lambda 1 = [\lambda a_{ij}$
@@ -753,7 +768,7 @@ $$x \in \mathbb{R}^* xx^{-1} = 1$$
 
 Si $A \in \mathcal{M}_n(\mathbb{R})$ est inversible $\exists ! A^{-1} \in \mathcal{M}_n(\mathbb{R})$ telle que $AA^{-1} = I_n$ et $A^{-1}A = I_n$
 
-On peut trouver l'inverse en appliquant la méthode des pivots de Gauss : 
+On peut trouver l'inverse en appliquant la méthode des pivots de Gauss :
 
 $$[A |I_n] \underset{\textrm{Gauss Jordan sur A}}{\sim} [I_n | A^{-1}]$$
 
@@ -767,7 +782,7 @@ $$
 AX = I_n \underset{Gauss Jorddan}{\sim} E_3E_2E_1AX = E_3E_2E_2I_n \Leftrightarrow X = E_3E_2E_1I_n = A^{-1}
 $$
 
-### 3) Espaces vecoriels
+#### 3) Espaces vecoriels
 Avoir en tête $\mathbb{R}^n$
 
 Dans $\mathbb{R}^n$ on peut voir chaque point comme un vecteur. On peut alors faire la somme de 2 vecteurs
@@ -800,7 +815,7 @@ u=
 
 (voir la définition d'un espace vectoriel sur Wikipédia)
 
-Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont les éléments sont appelés vecteurs muni d'operations : 
+Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont les éléments sont appelés vecteurs muni d'operations :
 - $+$ : $\begin{array}{c @{=} c} E \times E \rightarrow E\\
 (u, v) \mapsto u + v \\ \end{array}$
 - $\cdot$ : $\begin{array}{c @{=} c}\mathbb{R} \times E \rightarrow E\\
@@ -809,7 +824,9 @@ Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont
 qui vérifient les règles de calcul précédentes
 
 *Exemples.*
-- $$\mathcal{M}_{m,n} = \mathbb{R}^{m \times n}$$$$A + B = [a_{ij} + b_{ij}]$$$$\lambda A = [\lambda a_{ij}]$$
+- $$\mathcal{M}_{m,n} = \mathbb{R}^{m \times n}$$
+$$A + B = [a_{ij} + b_{ij}]$$
+$$\lambda A = [\lambda a_{ij}]$$
 - Espaces des fonctions de $\mathbb{R} \rightarrow \mathbb{R}$
 	$$E = \{ F:\mathbb{R} \rightarrow \mathbb{R} \}$$
 - Suites réelles : E=
