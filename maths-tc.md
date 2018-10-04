@@ -636,7 +636,7 @@ S =
 $$
 
 
-- Il y a une infinité de solutions  
+- Il y a une infinité de solutions
     *Exemple.*
   $$
   \left \{
@@ -879,7 +879,7 @@ $$\lambda A = [\lambda a_{ij}]$$
   \lambda(u_n) = (\lambda u_n)
   $$
 
-#### 4) Sous espaces vectoriels :
+#### 4) Sous espaces vectoriels
 $E$ est un ev $(E=\mathbb{R}^n)$, un sev de $E$ c'est un sous-ensemble non vide $F$ de $E$ stable par combinaison linéaire
 $$x,y \in F \Leftrightarrow \lambda x + \mu y \in F \forall \lambda,\mu \in \mathbb{R}$$
 

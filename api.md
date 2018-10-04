@@ -6,7 +6,7 @@
 
 ### 1. Centralisation des ressources
 
-Nécessité de pouvoir accéder à ses fichiers, et exécuter ses programmes quelque soit la machine devant laquelle on se trouve : 
+Nécessité de pouvoir accéder à ses fichiers, et exécuter ses programmes quelque soit la machine devant laquelle on se trouve :
 
 - Quelques "serveurs" centralisant les moyens : `mandelbrot`, `goedel`, `turing`, `mandelbrot.e.ujf-grenoble.fr`...
 - Une multitute de "clients" permettant de se connecter à ses serveurs : les PC dans toutes les salles
@@ -33,12 +33,12 @@ Le programme `prog` est exécuté en tenant compte des arguments `arg1`, ..., `a
 
 ### 4. Système de fichiers
 
-Les fichiers sont stockés sous forme hiérarchique par un arbre dont les feuilles désignent les fichiers, et les autres nœuds des « boites », ppelées 
+Les fichiers sont stockés sous forme hiérarchique par un arbre dont les feuilles désignent les fichiers, et les autres nœuds des « boites », appelées
 répertoires, et permettant de classer l’information.
 
 Une de ces boites vous est réservée: elle porte le nom de votre login, dont les données sont protégées avec des droit d’accès aux répertoires et fichiers.
 
-Commandes utiles : 
+Commandes utiles :
 
 - Changement de répertoire : `cd <nom du répertoire`
 - Répertoire courant : `./`
@@ -110,16 +110,15 @@ Système dynamique discret : le jeu d'échecs
   - *Actions composées.* Succession d'actions élémentaires
 - La faisabilité d'une action dépend de l'état
 
-Algorithme : 
+Algorithme :
 
 - État initial
 - État final
 - Spécification : décrit ce que l'algorithme fait, sans dire comment il le fait (état initial → état final)
 - Assertion : propriété vérifiée par un état
 
-Factoriel (= nom) : 
+Factoriel (= nom) :
 
-- l'action (ÉTAT = donnée : un entier n + résultat : un entier n)
+- l'action (ÉTAT = donnée : un entier n + résultat : un entier n) **r ?** 
 - état initial : assertion (n entier naturel, r indéfini)
 - état final : r vaut !n
-
