@@ -8,17 +8,17 @@ Professeure : <Manel.TAYACHI@univ-grenoble-alpes.fr> - bureau 230
 
 - On part d'un petit nombre d'affirmations, appelées axiomes, supposées vraies *à priori* -> les cinq postulats d'Euclide
 - On définit ensuite la notion de démonstration
-- On apelle __théorème__ toute affirmation obtenue en fin de démonstration. Une telle affirmation est vraie.
+- On appelle __théorème__ toute affirmation obtenue en fin de démonstration. Une telle affirmation est vraie.
 - On constitue ainsi la "vérité" mathématique
 
 ### B) Vocabulaire
 
 - **Axiome**. Un axiome est un énoncé supposé vrai a *priori* et que l'on ne cherche pas à démontrer
-- **Proposition ou assertion ou affirmation**. Une proposition est un énoncé pouvant être vrai ou faux. Par exemple, "tout nombre premier est impair" et "tout carré de réel est un réel positif" sont deux propositions => cela rest à démontrer.
-- **Théorème**. Un théorème est une proposin vraie. Par abus de langage, le mot proposition désigne souvent, dans la pratique des cours de mathématiques, un théorème intermédiaire ou de moindre importance.
+- **Proposition ou assertion ou affirmation**. Une proposition est un énoncé pouvant être vrai ou faux. Par exemple, "tout nombre premier est impair" et "tout carré de réel est un réel positif" sont deux propositions => cela reste à démontrer.
+- **Théorème**. Un théorème est une proposition vraie. Par abus de langage, le mot proposition désigne souvent, dans la pratique des cours de mathématiques, un théorème intermédiaire ou de moindre importance.
 - **Corollaire**. Un corollaire à un théorème est un théorème qui est conséquence de ce théorème.
 - **Lemme**. Un lemme est un théorème préparatoire à l'établissement d'un théorème de plus grande importance.
-- **Conjecture**. Une conjecture est une proposition que l'on suppose vraie sans parvelie à la démontrer.
+- **Conjecture**. Une conjecture est une proposition que l'on suppose vraie sans parvenir à la démontrer.
 
 ### C) Quelques rappels
 
@@ -36,8 +36,6 @@ Professeure : <Manel.TAYACHI@univ-grenoble-alpes.fr> - bureau 230
 | V | F | F |
 | F | V | F |
 | F | F | V |
-
-[//]: # "$top$ for T and $\bot$ for inverted T"
 
 *Exemple* :
 
@@ -148,7 +146,7 @@ $$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
 - $\overline{z+z'} = \overline{z} + \overline{z'}$
 - $\overline{zz'} = \overline{z}\overline{z'}$
 
-![Shéma d'un complexe représenté sut un repère](res/mathTC2.png)
+![Schéma d'un complexe représenté sut un repère](res/mathTC2.png)
 
 $$|z| = \sqrt{a^2 + b^2} = \sqrt{z\overline{z}}$$
 $$arg(z) = (\overrightarrow{u}; \overrightarrow{OM})\ modulo\ 2\pi$$
@@ -163,7 +161,7 @@ $$\forall \theta \in \mathbb{R},\ e^{i\theta} = \displaystyle\sum_{k=0}^{+\infty
 $$e^{i(\theta+\theta')} = e^{i\theta}e^{i\theta'}$$
 $$(e^{i\theta})^n = e^{in\theta}$$
 
-**Définition.** Tout complexe z non nul de mdule $z$ et d'argument $\theta$ s'écrit $z = re^{i\theta}$
+**Définition.** Tout complexe z non nul de module $z$ et d'argument $\theta$ s'écrit $z = re^{i\theta}$
 $$e^{i2\pi} = 1$$
 $$e^{2ik\pi} = 1,\ \forall k \in \mathbb{Z}$$
 $$e^{ik\pi} = (-1)^k$$
@@ -223,7 +221,7 @@ $$
 
 ![Schéma des deux droites représentées par le système et leur intersection](res/mathTC1.png)
 
-Résoude un système avec deux variables revient à chercher l'intersection de droites du plan, donc un nt ou une droite.
+Résoudre un système avec deux variables revient à chercher l'intersection de droites du plan, donc un ont ou une droite.
 
 - Avec 3 variables :
 
@@ -236,7 +234,7 @@ $$
 \right.
 $$
 
-![Schéma des deux plans représentées par le système et leur interction](res/mathTC3.png)
+![Schéma des deux plans représentées par le système et leur intersection](res/mathTC3.png)
 
 Résoude un système avec trois variables revient à chercher l'intersection de plans de l'espace $\mathbb{R}^3$, donc une droite ou un plan.
 
@@ -267,7 +265,7 @@ Résoude un système avec trois variables revient à chercher l'intersection de 
 
   Les lignes sont $E1$, $E2$ et $E3$ ; les colonnes de gauche sont $x$, $y$, $z$ et $t$.
 
-- Fome matricielle
+- Forme matricielle
 
 $$AX = b$$
 
@@ -484,7 +482,7 @@ $$
 \end{array}
 \right. $$
 
-- **Étape 2.** Résoude le système en remontant
+- **Étape 2.** Résoudre le système en remontant
 	*Exemple.*
 
 $$
@@ -636,7 +634,7 @@ S =
 $$
 
 
-- Il y a une infinité de solutions  
+- Il y a une infinité de solutions
     *Exemple.*
   $$
   \left \{
@@ -784,7 +782,7 @@ Si $m=n$ on parle de matrice carrée et on note $\mathbb{R}^{n \times n} = \math
 
 On a maintenant un produit en plus.
 
-> Attention $AB \neq BA$ (en general)
+> Attention $AB \neq BA$ (en général)
 > Le produit n'est pas commutatif !
 
 
@@ -814,17 +812,17 @@ On peut trouver l'inverse en appliquant la méthode des pivots de Gauss :
 
 $$[A |I_n] \underset{\textrm{Gauss Jordan sur A}}{\sim} [I_n | A^{-1}]$$
 
-Quand $A$ n'est pas inversible, vous ne pourez pas finir avec $[I_n | A^{-1}]$.
+Quand $A$ n'est pas inversible, vous ne pourrez pas finir avec $[I_n | A^{-1}]$.
 
 Pour les matrices $2 \times 2$, $A$ est inversible ssi $det() = ad-bc \neq 0$ et alors $A^{-1} = {1 \over det(A)} \begin{bmatrix}d&&-b\\-c&&a\end{bmatrix}$
 
 **Pourquoi ça marche ?**
 
 $$
-AX = I_n \underset{Gauss Jorddan}{\sim} E_3E_2E_1AX = E_3E_2E_2I_n \Leftrightarrow X = E_3E_2E_1I_n = A^{-1}
+AX = I_n \underset{Gauss-Jordan}{\sim} E_3E_2E_1AX = E_3E_2E_2I_n \Leftrightarrow X = E_3E_2E_1I_n = A^{-1}
 $$
 
-#### 3) Espaces vecoriels
+#### 3) Espaces vectoriels
 Avoir en tête $\mathbb{R}^n$
 
 Dans $\mathbb{R}^n$ on peut voir chaque point comme un vecteur. On peut alors faire la somme de 2 vecteurs
@@ -838,7 +836,7 @@ $$u = \begin{bmatrix} u_1 \\ u_2 \\ \end{bmatrix}\ et\ v = \begin{bmatrix} v_1 \
 
 et multiplier un vecteur par un scalaire
 
-![Schema du produit](res/mathTC5.png)
+![Schéma du produit](res/mathTC5.png)
 
 $$u = \begin{bmatrix} u_1 \\ u_2 \\ \end{bmatrix}\ ,\ \lambda u = \begin{bmatrix} \lambda u_1 \\ \lambda u_2 \\ \end{bmatrix}$$
 
@@ -857,7 +855,7 @@ u=
 
 (voir la définition d'un espace vectoriel sur Wikipédia)
 
-Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont les éléments sont appelés vecteurs muni d'operations :
+Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont les éléments sont appelés vecteurs muni d'opérations :
 - $+$ : $\begin{array}{c @{=} c} E \times E \rightarrow E\\
 (u, v) \mapsto u + v \\ \end{array}$
 - $\cdot$ : $\begin{array}{c @{=} c}\mathbb{R} \times E \rightarrow E\\
@@ -880,8 +878,7 @@ $$\lambda A = [\lambda a_{ij}]$$
   \lambda(u_n) = (\lambda u_n)
   $$_
 
-#### 4) Sous espaces vectoriels :
-
+#### 4) Sous espaces vectoriels
 $E$ est un ev $(E=\mathbb{R}^n)$, un sev de $E$ c'est un sous-ensemble non vide $F$ de $E$ stable par combinaison linéaire
 $$x,y \in F \Leftrightarrow \lambda x + \mu y \in F \forall \lambda,\mu \in \mathbb{R}$$
 
@@ -951,7 +948,7 @@ $x^{1 \over 2} = \sqrt{x}$
 ### B) Dérivation
 
 **Définition.** $F : I \rightarrow \mathbb{R}, a \in I$
-- $f$ est **dérivable en a** si ${f(a + h) - f(a) \over h}$  admet une limite quand $hand \rightarrow 0$. C'ette limite est alors noté $f'(a)$.
+- $f$ est **dérivable en a** si ${f(a + h) - f(a) \over h}$  admet une limite quand $h \rightarrow 0$. Cette limite est alors noté $f'(a)$.
 - $f$ est **dérivable sur $I$** si elle est dérivable en tout point de $I$.
 
 *Exemple.* $f : \begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\ x \mapsto x^2 \\ \end{array}$  
@@ -1078,7 +1075,7 @@ Par le TVI, $\exists x_0 \in \mathbb{R}$ tq $x_{0}^7 + x_0 + \pi = 0$ et comme $
 
 $f : [a,b] \rightarrow \mathbb{R}$
 - $f$ continue sur $[a,b]$
-- $f$ dériable sur $]a,b[$
+- $f$ dérivable sur $]a,b[$
 - $f(a) = f(b)$  
 
 Alors $\exists c \in ]a,b[$ tq $f'(c) = 0$
@@ -1089,7 +1086,7 @@ Alors $\exists c \in ]a,b[$ tq $f'(c) = 0$
 
 $f : [a,b] \rightarrow \mathbb{R}$
 - $f$ continue sur $[a,b]$
-- $f$ dériable sur $]a,b[$
+- $f$ dérivable sur $]a,b[$
 
 Alors $\exists c \in ]a,b[$ tq $f'(c) = {f(b) - f(a) \over b - a}$
 
@@ -1100,7 +1097,7 @@ Alors $\exists c \in ]a,b[$ tq $f'(c) = {f(b) - f(a) \over b - a}$
 
 $f : [a,b] \rightarrow \mathbb{R}$
 - $f$ continue sur $[a,b]$
-- $f$ dériable sur $]a,b[$
+- $f$ dérivable sur $]a,b[$
 - $\exists m, M\ tq\ m \leq f'x) \leq M\ \forall x \in [a,b]$
 
 Alors $m(b-a) \leq f(b) - f(a) \leq M(b-a)$
