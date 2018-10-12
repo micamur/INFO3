@@ -189,8 +189,8 @@ $$Z = {-b \pm \delta \over 2a}$$
 (deux racines complexes)
 
 ## Chapitre 3 - Algèbre linéaire
-remi-molinier@univ-grenoble-alpes.fr
 
+remi-molinier@univ-grenoble-alpes.fr
 
 ### A) Rappels
 
@@ -856,7 +856,7 @@ u=
 (voir la définition d'un espace vectoriel sur Wikipédia)
 
 Plus généralement, un $\mathbb{R}$-espace vectoriel c'est  un ensemble. E dont les éléments sont appelés vecteurs muni d'opérations :
-- $+$ : $\begin{array}{c @{=} c} E \times E \rightarrow E\\
+- $+ : \begin{array}{c @{=} c} E \times E \rightarrow E\\
 (u, v) \mapsto u + v \\ \end{array}$
 - $\cdot$ : $\begin{array}{c @{=} c}\mathbb{R} \times E \rightarrow E\\
 (\lambda, v) \mapsto \lambda u\\ \end{array}$
@@ -897,17 +897,17 @@ Remarque : Si $F$ est un sev, $O \in F$
 	- plan passant par 0. sev de dim 2
 	- $\mathbb{R}^3$. sev de dim 3
 
-## Chapitre 3 - Étude d'une fonction d'une variable réelle
+## Chapitre 4 - Étude d'une fonction d'une variable réelle
 
 ### A) Fonctions usuelles
 
 - Fonctions **affines** : $\begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\
-  x \mapsto ax+b\\ \end{array}$  
+  x \mapsto ax+b\\ \end{array}$
 
   *Exemple.* ![Schéma d'une fonction affine]
 
 - Fonctions **puissances** : $\begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\
-  x \mapsto x^n \\ \end{array}$  
+  x \mapsto x^n \\ \end{array}$
 
   *Exemples.* ![Schéma de fonctions puissances]
 
@@ -919,7 +919,7 @@ Remarque : Si $F$ est un sev, $O \in F$
   x \mapsto sin(x) \\ \end{array}$
 
 - Fonction **cos** : $\begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\
-    x \mapsto cos(x) \\ \end{array}$  
+    x \mapsto cos(x) \\ \end{array}$
 
 *Exemples.* ![Schémas de fonctions sin et cos]
 
@@ -929,7 +929,7 @@ Remarque : Si $F$ est un sev, $O \in F$
 
 > cos paire
 
-- Fonctions **exponentielle** : $\begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\  x \mapsto e^x \\ \end{array}$  
+- Fonctions **exponentielle** : $\begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\  x \mapsto e^x \\ \end{array}$
 
 - Fonction **ln** : $\begin{array}{c @{=} c} \mathbb{R_+^*} \rightarrow \mathbb{R}\\  x \mapsto ln(x) \\ \end{array}$
 
@@ -939,10 +939,10 @@ Remarque : Si $F$ est un sev, $O \in F$
 
 *Exemples.* ![Schémas de fonctions exponentielle et log]
 
-- Fonctions **puissance** généralisées : $\begin{array}{c @{=} c} \mathbb{R_+^*} \rightarrow \mathbb{R}\\ x \mapsto x^\alpha = e^{\alpha ln(x)},\ \alpha \in \mathbb{R}^+ \\ \end{array}$  
+- Fonctions **puissance** généralisées : $\begin{array}{c @{=} c} \mathbb{R_+^*} \rightarrow \mathbb{R}\\ x \mapsto x^\alpha = e^{\alpha ln(x)},\ \alpha \in \mathbb{R}^+ \\ \end{array}$
 
 *Exemple.*
-$x^{1 \over 2} = \sqrt{x}$  
+$x^{1 \over 2} = \sqrt{x}$
 ![Schéma de fonctions puissance]
 
 ### B) Dérivation
@@ -951,8 +951,8 @@ $x^{1 \over 2} = \sqrt{x}$
 - $f$ est **dérivable en a** si ${f(a + h) - f(a) \over h}$  admet une limite quand $h \rightarrow 0$. Cette limite est alors noté $f'(a)$.
 - $f$ est **dérivable sur $I$** si elle est dérivable en tout point de $I$.
 
-*Exemple.* $f : \begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\ x \mapsto x^2 \\ \end{array}$  
-$a \in \mathbb{R}$  
+*Exemple.* $f : \begin{array}{c @{=} c} \mathbb{R} \rightarrow \mathbb{R}\\ x \mapsto x^2 \\ \end{array}$
+$a \in \mathbb{R}$
 $$
 {f(a + h) - f(a) \over h} = {(a + h)^2 - a^2 \over h}
 $$
@@ -966,7 +966,7 @@ ainsi, $f$ est dérivable sur $\mathbb{R}$ et $f'(x) = 2x$.
 *Exemple.* Code $\LaTeX$ pour deux choses en-dessous : $\lim\limits_{\substack{x \rightarrow -2 \\ x>-2}} f(x)$
 
 > Remarque.
-> - $f$ est dérivable en $a$ $\Rightarrow$ $f$ est continue en $a$  
+> - $f$ est dérivable en $a$ $\Rightarrow$ $f$ est continue en $a$
 > *Exemple.* Une fonction non continue en $0$ donc non dérivable en $0$
 > ![Schémas]
 
@@ -997,7 +997,7 @@ $ln(x)$                  | $1 \over x$
 $cos(x)$                 | $-sin(x)$
 $sin(x)$                 | $cos(x)$
 $x^\alpha$               | $\alpha x^{\alpha - 1}$
-  |  
+  |
 ![Sens des dérivées et primitives de sin et cos](res/sens-derivees-sin-cos.jpg)
 
 *Exemple.* $\begin{array}{c @{} c} F: [0,+ \infty [\rightarrow \mathbb{R}\\ x \mapsto \sqrt{x} \\ \end{array}$  non dérivable en 0
@@ -1038,11 +1038,11 @@ $$
 
 Forme 1  | Forme 2
 :--:|:--:
-$(u^n)'$ | $nu^{n-1}u'$  
-$e^u$  | $u'e^u$  
-$ln(u)$  | $u' \over u$  
-$cos(u)$  | $-sin(u)u'$  
-$sin(u)$  | $cos(u)u'$  
+$(u^n)'$ | $nu^{n-1}u'$
+$e^u$  | $u'e^u$
+$ln(u)$  | $u' \over u$
+$cos(u)$  | $-sin(u)u'$
+$sin(u)$  | $cos(u)u'$
 
 ##### d) Théorèmes importants
 
@@ -1056,12 +1056,12 @@ Alors $f'(x) = u'(v(x))v'(x) = 7(x^3 + 1)3x^2 = \stackrel{> 0}{21x^2} \times \st
 
 ![tableau de variation]
 
-**Théorème (TVI ou Théorème des Valeurs Intermédiaires).**  
-Soit $f : [a, b] \Rightarrow \mathbb{R}$ continue.   
-Soit $y$ compris entre $f(a)$ et $f(b)$  
+**Théorème (TVI ou Théorème des Valeurs Intermédiaires).**
+Soit $f : [a, b] \Rightarrow \mathbb{R}$ continue.
+Soit $y$ compris entre $f(a)$ et $f(b)$
 Alors $\exists x \in [a, b]\ tq\ f(x) = y$
 
-*Exemple.*  
+*Exemple.*
 $$
 x^7 + x + \pi \\
 f'x) = 7x^6 + 1 > 0$$
@@ -1076,7 +1076,7 @@ Par le TVI, $\exists x_0 \in \mathbb{R}$ tq $x_{0}^7 + x_0 + \pi = 0$ et comme $
 $f : [a,b] \rightarrow \mathbb{R}$
 - $f$ continue sur $[a,b]$
 - $f$ dérivable sur $]a,b[$
-- $f(a) = f(b)$  
+- $f(a) = f(b)$
 
 Alors $\exists c \in ]a,b[$ tq $f'(c) = 0$
 
@@ -1134,7 +1134,7 @@ $$
 > - (2) à (3) : en faisant la dérivée de (2)
 > - (4) à (1) et (2) : cas particuliers de (4)
 
-*Exemple.*  
+*Exemple.*
 Calculer la limite $\lim\limits_{x \rightarrow 0}{e^x - 1 \over x}$
 $$
 e^x = 1 + x + x^2 + o(x^2) \\
@@ -1183,3 +1183,260 @@ f(x) = \big(x^2 - {x^4 \over 2} + o(x^4)\big){1 \over x}\big(1-x+x^2-x^3+x^4+o(x
 $$
 
 En particulier, $\lim\limits_{x \rightarrow 0}f(x) = 0$
+
+#### 3) Quelques dl en plus
+
+- Calculer $\lim\limits_{x \rightarrow 0}{e^{x^2} - cos(x) \over x^2}$
+  $$
+  e^u = 1 + u + {u^2 \ 2} + o (u²) \\
+  \text{Donc}\ e^{x^2} = 1 + x^2 + {x^4  over 2} + o(x^4) \\
+  cos(x) = 1 - {x^2 \over 2} + {x^4 \over 24} + o(x^4) \\
+  \text{Ainsi}\ e^{x^2} - cos(x) = {3 \over 2}x^2 + ({1 \over 2} - {1 \over 24})x^4 + o(x^4) \\
+  \text{Donc}\ {e^{x^2} - cos(x) \over x^2} = {3 \over 2} + {11 \over 24}x^2 + o(x^2) \\
+  \text{Donc}\ {e^{x^2} - cos{x} \over x^2} \underset{x \rightarrow 0}{\rightarrow} {3 \over 2}$$
+
+- Donner le dl en $1$ à l'ordre $3$ de $f(x) = \sqrt{2e - e^x}$
+$$
+f(1+h) = \sqrt{2e+e^{1+h}} = \sqrt{2e+ee^h}
+$$
+
+or, $e^h = 1+h+{h^2 \over 2}+{h^3 \over 6}+o(h^3)$
+
+donc, $f(1+h) \underset{h \rightarrow 0}{=} \sqrt{e}\sqrt{2+1+h+{h^2 \over 2}+{h^3 \over 6}+o(h^3)} = \sqrt{e}\sqrt{3+h+{h^2 \over 2}+{h^3 \over 6}+o(h^3)}$
+$= \sqrt{e}\sqrt{3}\sqrt{1+{h \over 3}+{h^2 \over 6}+{h^3 \over 18}+o(h^3)}$ or,
+
+$$\sqrt{1+u} \underset{u \rightarrow 0}{=} 1 + {1 \over 2}u + {\big({1 \over 2}\big)\big(-{1 \over 2}\big) \over 2}u^2 + {\big({1 \over 2}\big)\big(-{1 \over 2}\big)\big(-{3 \over 2}\big) \over 2}u^3 + o(u^3) = 1 + {1 \over 2}u - {1 \over 8}u^2 + {1 \over 16}u^3 + o(u^3) \\
+\text{Donc}\ f(1 + h) = \sqrt{3e}(1 + {1 \over 2}({h \over 3} + {h^2 \over 6} + {h^3 \over 18}) - {1 \over 8} ({h \over 3} + {h^2 \over 6} + {h^3 \over 18})^2 + {1 \over 16}({h \over 3} + {h^2 \over 6} + {h^3 \over 18})^3) + o(h^3)
+$$
+
+Donc $f(1+h) = \sqrt{3e}(1 + {1 \over 2} ({h \over 3} + {h^2 \over 6} + {h^3 \over 18}) - {1 \over 8}({h \over 3} + {h^2 \over 6} + {h^3 \over 18})^2 + {1 \over 16}({h \over 3} + {h^2 \over 6} + {h^3 \over 18})^3 + o(h^3))$
+
+$$
+f(1+h) = \sqrt{3e}(1 + {1 \over 2}h + ({1 \over 12} - {1 \over 24})h^2 + ({1 \over 36} - {2 \over 8} - {1 \over 18} + {1 \over 16 \times 9})h^3) = \sqrt{3e}(1 + {1 \over 2}h + {1 \over 24}h^2 + {3 \over 144}h^3)
+$$
+
+Donc, $f(1 + h) = \sqrt{3e} + {\sqrt{3e} \over 2}h + {\sqrt{3e} \over 24}h^2 + {3 \sqrt{3e} \over 144}h^3 + o(h^3)$
+
+## Chapitre 5 - Primitives et intégrales
+
+### A) Primitives
+
+**Définition.** Soit $g:[a, b] \rightarrow \mathbb{R}$ (continue).
+Une **primitive** de *g* est une fonction $G:[a, b] \rightarrow \mathbb{R}$ dérivable tq $G' = g$
+
+*Exemple.* Soit $g(x) = x^2$, les fonctions $G_1 : \begin{array}{cc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3}\end{array}$ et $G_2 : \begin{array}{cc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3} + 12\end{array}$ sont des primitives de $g$.
+
+> Il n'y a pas unicité de la primitive
+
+**Proposition.** Si $G_1$ et $G_2$ sont deux primitive de $g$ , alors $G_1 - G_2 =$ cste.
+De plus, toute les primitives de $g$ sont de la forme $G_1 + c$ où $c$ est une constante
+
+**Notation.** On note $\int^a_bg(x)\ dx$ l'ensemble des primitves de g.
+
+*Exemple.*
+$$
+\int x^2\ dx = {x^3 \over 3} + Cste \\
+(=\{x \mapsto  {x^3 \over 3} + C | C \in \mathbb{R}\})$$
+
+#### Primitives usuelles
+
+Soit $b\in \mathbb{R},\ n \in \mathbb{Z}\backslash\{-1\},\ \alpha \in \mathbb{R}\backslash\{-1\}$
+
+$f(x)$      | $\int f(x)\ dx$
+------------|-------------------------------------------
+$b$         | $bx + Cste$
+$ax$        | $a {x^2 \over 2} + Cste$
+$x^n$       | ${x^{n + 1} \over n + 1} + Cste$
+$1 \over x$ | $ln|x| + Cste$
+$\cos(x)$   | $\sin(x) + Cste$
+$\sin(x)$   | $-\cos(x) + Cste$
+$e^x$       | $e^x + Cste$
+$\ln(x)$    | $x\ln(x) - x + Cste$
+$x^\alpha$  | ${x^{\alpha + 1} \over \alpha + 1} + Cste$
+
+### B) Intégrales
+
+#### 1) Formule de somme
+
+- $\int(g_1(x) + g_2(x))\ dx = \int g_1(x)\ dx + \int f_2(x)\ dx$
+
+*Exemple.* $\int (2x^2 + 1)\ dx = {2x^3 \over 3} + x + Cste$
+
+- $\int\lambda g(x)\ dx = \lambda \int g(x)\ dx$
+
+> Remarque. On a pas de formule pour le produit (*IPP*)ni pour le quotient...
+> On a pas on plus de formule pour la composée (*changement de variable*)
+
+#### 2) Calcul intégral
+
+$g:[a, b] \rightarrow \mathbb{R}$ (continue)
+$\int_a^b g(t)dt =$ aire algébrique (avec signe) entre le graphe de $g$ et l'axe des abscisses entre $a$ et $b$
+
+![Schéma de la correspondance entre intégrale et aire algébrique]()
+$\int^b_a g(t)dt = A_1 - A_2 + A_3$
+
+> Remarque. Lorsqu'il y a des bornes, $\int_a^b g(t) dt \in \mathbb{R}$
+
+*Exemple.* $\int^1_0 x\ dx$
+![Schéma de int^1_0 x\ dx]()
+
+$\int_0^1 x\ dx = {1 \over 2}$
+
+![Schéma de int^1_-1 x\ dx]()
+$\int^1_{-1}x\ dx = A_2 - A_1$
+
+### C) Lien primitives et intégrales
+
+**Théorème.** (Théorème fondamental de l'analyse)
+Soit $g:[a, b] \rightarrow \mathbb{R}$ continue et soir $G$ une primitive de $g$.
+Alors $\int^b_a g(t)dt = [G(t)]^{t = b}_{t = a} = G(b) - G(a)$ $\blacksquare$
+
+*Exemple.*
+$\int^1_0 x^2\ dx = [{x^3 \over 3}]^{x = 1}_{x = 0} = {1 \over 3}$
+![Schéma correspondant]()
+
+$\int^{\pi/2}_0 \cos(x)\ dx = [\sin(x)]^{x = \pi/2}_{x = 0} = \sin(\pi/2) = 1$
+![Schéma correspondant]()
+
+**Corollaire** Soit $g:[a, b] \rightarrow \mathbb{R}$ continue.
+Alors $\forall c \in [a, b]$,
+$$G_c : \begin{array}{cc}[a,b] \rightarrow \mathbb{R} \\ x \mapsto \int_c^x g(t)\ dt\end{array}$$
+est une primitive de $g$.
+
+### D) Méthodes de calcul d'une intégrale
+
+- **Chasles** : $a, b, c \in \mathbb{R}$
+
+  $$
+  \int^b_a g(t)\ dt = \int^c_a g(t)\ dt + \int^b_c g(t)\ dt
+  $$
+
+
+- **Utiliser les symétries** :
+  - Si $f$ pair $\forall a > 0$
+
+    $$
+    \int^a_0 f(x)\ dx = \int^0_{-a} f(x)\ dx
+    $$
+    ![Schéma d'une fonction paire]()
+
+    Donc
+
+    $$
+    \int^a_{-a} f(x)\ dx = 2\int^a_0 f(x)\ dx
+    $$
+
+  - Si $f$ impaire, $\forall a > 0$
+    $$
+    \int^a_0 f(x)dx = -\int^0_{-a} f(x)\ dx
+    $$
+    ![Schéma d'une fonction impaire]()
+
+    Donc $\int_{-a}^a f(x)\ dx = 0$
+
+    *Exemple* $\int_{-\pi/2}^{\pi/2}\sin(x)\ dx = 0$
+
+  - On peut utiliser d'autres "symétries" comme la périodicité (exemple avec $\cos$ et $\sin$)
+
+- **Changement de variable** :
+
+  $f : [a,b] \rightarrow \mathbb{R}$ continue
+
+  > Rappel des fonctions bijectives. $f : x \rightarrow y$ bijective si $\forall y \in Y,\ \exists! x \in X$ tq $f(x) = y$
+  $f : [c,d] \rightarrow [a,b]$ dérivable et bijective
+  (En pratique on vérifie que $u([c, d]) = [a, b]$ et que $u$ est strictement monotone)
+
+  $$\boxed{\int_c^d f(u(t))\ u'(t)\ dt = \int_{u(c)}^{u(d)} f(x)\ dx}$$
+
+  $$"u' = {du \over dt} \Rightarrow u'\ dt = du"$$
+
+  *Exemple.* $\int^{1 \over 4}_0 xe^{x^2}\ dx$
+  $$
+  u:\begin{array}{cc}[0, {1 \over 2}] \rightarrow [0, {1 \over 4}] \\ x \mapsto x^2 \end{array}
+  $$
+  bijectif et $C^1$
+
+  $u'(x) = 2x\ "du = 2xdx"$
+  Donc
+  $$
+  I + {1 \over to} \int^{1 \over 2}_0 e^{x^2}2x\ dx = {1 \over 2} \int^{u({1 \over 2})_{u(0)} e^u\ du} \\
+  = {1 \over 2} \int^{1 _over 4}_0 e^u\ du \\
+  = {1 \over 2} [e^u]^{1 \over 4}_0 = {1 \over 2}(e^{1 \over 4} - 1)
+  $$
+
+
+  *Exemple.*
+  Soit $\int_0^{1/4} {\ln(1-\sqrt{x}) \over \sqrt{x}}\ dx$, choisissons $u : \begin{array}{cc}[0, {1 \over 4}] \rightarrow [{1 \over 2}, 1] \\ x \mapsto 1-\sqrt{x} \end{array}$
+
+  ![Schéma de u]()
+
+  $u$ est strictement décroissante, $u([0, {1 \over 4}]) = [{1 \over 2}, 1]$ et $u'(x) = {-1 \over 2\sqrt{x}}$
+
+
+  Donc
+  $$
+  J = -2 \int^{1 \over 4}_0 \ln(1 - \sqrt{x})({-dx \over 2 \sqrt{x}})
+  $$
+  $$
+  = -2 \int^{u(1)}_{u(0)} ln(u)\ du = -2 \int^{1 \over 2}_1 ln(u)\ du \\
+  = 2 \int_{1/2}^1 \ln{u}\ du \\
+  $$
+  $$
+  = 2[u\ln(u) - u]_{1/2}^1 = 2\Big(-1 - \big({1 \over 2}\ln({1 \over 2}) - {1 \over 2}\big)\Big) \\
+  = \boxed{ln(2) - 1}
+  $$
+
+- **Intégration par parties (IPP)**
+
+  *Rappel.*
+  $$
+  (uv)' = u'v + uv' \\
+  \int (uv)' = \int u'v + \int uv'$$
+
+  Donc
+  $$
+  [u(x)v(x)]^b_a = \int^b_a u'(x)v(x)\ dx + \int^b_a u(x)v'(x)\ dx
+  $$
+  Donc $\boxed{\int_a^b u'(x)v(x)\ dx = \Big[u(x)v(x)\Big]_a^b - \int_a^b u(x)v'(x)\ dx}$
+
+  *Exemple.*
+
+  $$
+  \int^1_0 xe^x\ dx = [xe^x]^1_0 - \int^1_0 u(x)v'(x)\ dx
+  $$
+
+  Prenons $u(x) = e^x$, $u'(x) = e^x$, $v(x) = x$ et $v'(x) = 1$
+
+  Donc $I = e - \int_a^1 e^x\ dx = e - \big[e^x\big]_0^1 = e - (e-1) = \boxed{1}$
+
+  *Exemple.*
+
+  $$
+  J = \int_0^{\pi/2} (x^2 + 1)\cos(x)\ dx
+  $$
+
+  Prenons $u(x) = \sin(x)$, $u'(x) = \cos(x)$, $v(x) = x^2+1$ et $v'(x) = 2x$
+
+  Donc $J = \Big[(x^2+1)\sin(x)\Big]_0^{\pi/2} - \int_0^{\pi/2} 2x\sin(x)\ dx = {\pi^2 \over 1} + 1 - 2\int_0^{\pi/2} x\sin(x)\ dx = \boxed{1}$
+
+  Prenons $u(x) = -\cos(x)$, $u'(x) = \sin(x)$, $v(x) = x$ et $v'(x) = 1$
+
+  Donc $\int^{\pi \over 2}_0 xsin(x)\ dx = \Big[-x cos(x)\Big]^{\pi \over 2}_0 + \int^{\pi \over 2}_0 \cos(x)\ dx = \Big[\sin(x)\Big]$^{\pi \over 2}_0 = 1$
+
+  Donc $\boxed{J = {\pi^2 \over 4} - 1}$
+
+- **Décomposition en éléments simples**
+  - **But.** intégrer des fonctions de la forme $P(x) \over Q(x)$ avec $P$ et $Q$ deux polynôes (on appelle ça des fonctions rationnelle en $x$)
+  - **Étape 1**
+    - si le degré $P <$ le degré de $Q$, alors on ne fait rien
+    - si le degré $P \ge$ le degré de $Q$, on va se ramener à une fraction rationnelle ${\widetilde{P} \over \widetilde{Q}}$ avec la décomposition $P <$ le degré de $Q$
+      Pour cela, on fait la division euclidienne de $P$ par $Q$.
+      C'est-à-dire $P = LQ + R$ avec $L$ et $R$ deux polynômes tq degré $R <$ degré $Q$
+      Ansi ${P \over Q} = L + {R \over Q}$
+      En pratique, comment trouve-t-on $L$ et $R$ ?
+
+    *Exemple* $P = X^5 + X^4 - X^2 + 1 \\ Q = X^2 - 1$
+
+    ![Division euclidienne de P par Q]()
+
+    Donc $P(x) = \underset{L(X)}{(X^3 + X^3 + X)}\underset{Q(X)}{(X^2 - 1)}+\underset{X+1}{R(X)}$
