@@ -1,4 +1,4 @@
-% Chapitre 2 - Nombres complexes
+% Chapitre 3 - Algèbre linéaire
 % Manel TAYACHI (cours) - Mica MURPHY (note) - Antoine SAGET (note)
 % Mardi 25 Septembre 2018
 

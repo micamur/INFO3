@@ -1,17 +1,17 @@
-# Algorithmique et programmation impérative
+% Chapitre 1 - Introduction à l'environnement de programmation (Unix et compilation C)
+% Georges-Pierre BONNEAU (cours) - Mica MURPHY (note) - Antoine SAGET (note)
+% Lundi 1er Octobre 2018
 
-## Chapitre 1 - Introduction à l’environnement de programmation (Unix et compilation C)
+# 1. Centralisation des ressources
 
 **Unix** : système d'exploitation de ressources informatiques amenées à être partagées
-
-### 1. Centralisation des ressources
 
 Nécessité de pouvoir accéder à ses fichiers, et exécuter ses programmes quelque soit la machine devant laquelle on se trouve :
 
 - Quelques "serveurs" centralisant les moyens : `mandelbrot`, `goedel`, `turing`, `mandelbrot.e.ujf-grenoble.fr`...
 - Une multitute de "clients" permettant de se connecter à ses serveurs : les PC dans toutes les salles
 
-### 2. Serveurs : Unix
+# 2. Serveurs : Unix
 
 Environnement de travail multi-utilisateurs, partage de ressources mémoire et CPU entre les utilisateurs
 
@@ -21,17 +21,19 @@ who -q #affiche tous les utilisateurs courants
 
 Accès au serveur depuis le client
 
-### 3. Intéraction avec le serveur
+# 3. Intéraction avec le serveur
 
 Pas de clics, pas d'icônes, pas de glissement d'icônes ; intéraction uniquement au clavier.
 
-```shell=
+```shell
 <prog> <arg1> <arg2> ... <argn> <return>
 ```
 
 Le programme `prog` est exécuté en tenant compte des arguments `arg1`, ..., `argn`. Le programme peut "afficher des résultats", i.e. émettre des caractères vers la fenêtre.
 
-### 4. Système de fichiers
+\pagebreak
+
+# 4. Système de fichiers
 
 Les fichiers sont stockés sous forme hiérarchique par un arbre dont les feuilles désignent les fichiers, et les autres nœuds des « boites », appelées
 répertoires, et permettant de classer l’information.
@@ -49,7 +51,7 @@ Commandes utiles :
 - Listing d'un répertoire : `ls`, `ls -la`
 - Connaître l'emplacement du répertoire courant : `pwd`
 
-### 5. Droits d'accès aux fichiers
+# 5. Droits d'accès aux fichiers
 
 Droits d'accès : en lecture, écriture, exécution / pour le propriétaire, le groupe, les autres
 
@@ -57,14 +59,14 @@ Droits d'accès : en lecture, écriture, exécution / pour le propriétaire, le 
 -rw-r--r--  1 xia  xia   3397 sept. 11 09:22 .zshrc
 ```
 
-### 6. Création et édition d'un fichier
+# 6. Création et édition d'un fichier
 
 ```shell
 gedit <nom de fichier> # graphique
 nano <nom de fichier> # dans le terminal
 ```
 
-### 7. Variable d'environnement PATH
+# 7. Variable d'environnement PATH
 
 ```shell
 which <nom du programme # indique le répertoire ou se trouve le programme
@@ -74,7 +76,7 @@ export PATH="" # changer la valeur de la variable
 
 La variable PATH indique au système où se trouvent les programmes. Elle contient une liste de répertoires dans lesquels le système recherche les programmes. Elle est réinitialisée à chaque nouveau terminal.
 
-### 8. Programmation
+# 8. Programmation
 
 édition $\Leftrightarrow$ source $\rightarrow$ (compilation) $\rightarrow$ exécutable $\Rightarrow$ exécution
 
@@ -82,7 +84,7 @@ La variable PATH indique au système où se trouvent les programmes. Elle contie
 - Compilation : `gcc <programme>.c  -o <programme>`
 - Exécution : `./<programme>`
 
-### 9. Métaphore avec un système dynamique en physique
+# 9. Métaphore avec un système dynamique en physique
 
 Système dynamique continu
 
@@ -119,6 +121,6 @@ Algorithme :
 
 Factoriel (= nom) :
 
-- l'action (ÉTAT = donnée : un entier n + résultat : un entier n) **r ?** 
+- l'action (ÉTAT = donnée : un entier n + résultat : un entier n) **r ?**
 - état initial : assertion (n entier naturel, r indéfini)
 - état final : r vaut !n

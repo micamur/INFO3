@@ -1,14 +1,14 @@
-# Mathématiques Discrètes
+% Chapitre 1 - Ensembles de mots
+% Benjamin WACK (cours) - Mica MURPHY (note) - Antoine SAGET (note)
+% Lundi 1er Octobre 2018
 
-## Introduction
+# 0) Introduction
 
 Discret est l'opposé de continu, et il peut y avoir un nombre fini ou infini de valeurs. On ne fera ni de géométrie ni d'analyse de fonctions (dérivées, etc.).
 
-## Chapitre I - Ensembles de mots
+# 1) Mots
 
-### 1) Mots
-
-#### a) Alphabets et mots
+## a) Alphabets et mots
 
 **Définition.** Un **alphabet** est un ensemble fini de symboles.
 
@@ -63,15 +63,15 @@ un mot sur cet alphabet représente un nombre entier
 - Le langage vide : $\{\emptyset\}$ (à ne pas confondre avec $\epsilon$ !)
 - $A^*$
 
-#### b) Préfixe, suffixe, facteur
+## b) Préfixe, suffixe, facteur
 
-##### Concaténation
+### Concaténation
 
 Soient $u = u_1u_2 \dots u_n$ et $v = v_1v_2 \dots v_p$ alors **le concaténé** de $u$ et $v$ noté simplement $uv$ est le mot $u_1u_2 \dots u_nv_1v_2 \dots v_p$
 
 *Exemple.* Si $u = 1011$ et $v = 010$ alors $uv = 1011010$
 
-##### Préfixe, suffixe, facteur
+### Préfixe, suffixe, facteur
 
 Soient $u$ et $v$ deux mots sur $A$. On dit que **$u$ est un préfixe de $v$** si il existe un mot $w$ tel que $v = uw$
 
@@ -100,6 +100,8 @@ On dit que $u$ est un :
 
 **Propriété.** Si $u$ est un mot de longueur $n$, il admet exactement $n + 1$ préfixes distincts, $n + 1$ suffixes distincts et au moins $n + 1$ facteurs (souvent plus).
 
+\pagebreak
+
 **Propriétés.**
 
 - $lg(uv) = lg(u) + lg(v)$
@@ -115,14 +117,13 @@ On dit que $u$ est un :
 
 >En revanche, la contraposée ($!Q \Rightarrow !P$) est vraie :
 >Si $lg(w) \neq lg(u) + lg(v)$ alors $w \neq uv$
-:
-#### c) Distance entre mots
+
+## c) Distance entre mots
 
 Soient $u$ et $v$ deux mots sur $A$ de même longueur
 La **distance** de $u$ à $v$ est le nombre de symboles de u qu'il faut modifier pour obtenir v.
 
 *Exemples.*
-
 
 - $u = arbre$, $v = aller$, $d(u, v) = 4$ (seul le $a$ est identique aux 2)
 - $u = 0101110$, $v = 0011101$, $d(u, v) = 4$ (seuls $3$ sur $7$ caractères sont identiques aux 2)
@@ -138,9 +139,3 @@ $$d(u, v) \leq d(u, w) + d(w, v)$$
 On peut donc se focaliser sur un seul symbole à la fois :
 - si $u_i = v_i$ alors $d(u_i,v_i) = 0 \leq d(u_i,w_i) + d(w_i,v_i)$
 - si $u_i \neq v_i$ alors $d(u_i, v_i) = 1$ et $w_i$ est différent d'au moins un des deux. $d(u_i, w_i) + d(w_i, v_i) = 1 + 0\ ou\ 0 + 1\ ou\ 1 + 1$
-
-(à suivre !)
-
-## II - Fonctions pour le codage
-
-## III - Relations
