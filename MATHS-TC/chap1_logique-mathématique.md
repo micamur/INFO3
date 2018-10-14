@@ -20,13 +20,11 @@
 
 \pagebreak
 
-# C) Quelques rappels
+# C) Logique mathématique
 
-## I) Logique mathématique
+## 1) Calcul propositionnel
 
-### 1) Calcul propositionnel
-
-#### a) Équivalence logique
+### a) Équivalence logique
 
 **Définition.** Soient P et Q 2 propositions. Elles sont équivalentes si elles sont simultanément vraies et simultanément fausses.
 
@@ -41,7 +39,7 @@
 
 $$x^2 = 1 \Leftrightarrow x = 1\ ou\ x = -1$$
 
-#### b) Négation
+### b) Négation
 
 **Définition.** Soit $P$ un proposition. On définit sa négation $\bar{P}$ par :
 
@@ -58,7 +56,7 @@ $$\exists n \in \mathbb{N}\ |\ n\ est\ pair$$
 
 \pagebreak
 
-#### c) Les connecteurs "et" et "ou"
+### c) Les connecteurs "et" et "ou"
 
 | $P$ | $Q$ | $P \lor Q$|
 | - | - | - |
@@ -80,7 +78,7 @@ $P \lor Q$ Faux si et seulement si $P$ et $Q$ sont faux simultanément ou inclus
 $$\overline{P \land Q} = \overline{P} \lor \overline{Q}$$
 $$\overline{P \lor Q} = \overline{P} \land \overline{Q}$$
 
-#### d) Implication logique
+### d) Implication logique
 
 **Définition.** Soient $P$ et $Q$ deux propositions, $P \Rightarrow Q$ est définie par son tableau de vérité :
 
@@ -97,12 +95,11 @@ On peut penser à plusieurs analogies pour s'aider : un interrupteur et une ampo
 
 **Théorème.** Si $$(P \Rightarrow Q) \land (Q \Rightarrow R) \Rightarrow (P \Rightarrow R)$$ c'est la transitivité.
 
-
 **Théorème.** $(P \Leftrightarrow Q) \Leftrightarrow \big((P \Rightarrow Q) \land (Q \Rightarrow P)\big)$
 
 \pagebreak
 
-#### e) Condition nécessaire et suffisante (CN et CS)
+### e) Condition nécessaire et suffisante (CN et CS)
 
 **Définition.** Soient $P$ et $Q$ deux propositions. Dire que $P$ est **nécessaire** à $Q$ signifie que pour $Q$ soit réalisé il faut que $P$ le soit. Cela revient à dire $Q \Rightarrow P$.
 
@@ -116,7 +113,7 @@ On peut penser à plusieurs analogies pour s'aider : un interrupteur et une ampo
 | il faut | il suffit |
 | seulement si | si |
 
-#### f) Négation, contraposée et réciproque d'une implication
+### f) Négation, contraposée et réciproque d'une implication
 
 **Théorème. Négation d'une implication.**
 $$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
@@ -127,7 +124,7 @@ $$\overline{P \Rightarrow Q} \Leftrightarrow P \land \overline{Q}$$
 
 **Définition.** La réciproque de $P \Rightarrow Q$ est $Q \Rightarrow P$
 
-### 2) Les quantificateurs $\forall$ et $\exists$
+## 2) Les quantificateurs $\forall$ et $\exists$
 
 **Définition.** "Pour tous les éléments de $\mathbb{E}$, la proposition $P(x)$ est vraie" s'écrit "$\forall x \in \mathbb{E},\ P(x)$"
 
