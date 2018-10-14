@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -ne 1 ] && [ $# -ne 2 ] 
+if [ "$#" -ne "1" ] && [ "$#" -ne "2" ]
 then
     echo "Usage : $0 <input.md>"
     echo "Usage : $0 <input.md> <output.pdf>"
