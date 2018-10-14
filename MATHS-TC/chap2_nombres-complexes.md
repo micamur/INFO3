@@ -1,6 +1,6 @@
 % Chapitre 2 - Nombres complexes
 % Manel TAYACHI (cours) - Mica MURPHY (note) - Antoine SAGET (note)
-% Lundi 1er Septembre 2018
+% Jeudi 20 Septembre 2018
 
 - Forme algébrique : $z = a + ib,\ a,b \in \mathbb{R}$
 - Conjugué : $\overline{z} = a - ib$

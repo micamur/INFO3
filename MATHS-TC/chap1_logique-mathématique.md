@@ -1,6 +1,6 @@
 % Chapitre 1 - Logique mathématique
 % Manel TAYACHI (cours) - Mica MURPHY (note) - Antoine SAGET (note)
-% Lundi 1er Septembre 2018
+% Jeudi 20 Septembre 2018
 
 # A) Fondements
 
