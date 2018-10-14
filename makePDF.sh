@@ -11,4 +11,4 @@ then
     echo "File $1 not found"
 fi
 
-pandoc $1 -o $2 --variable margin-left=80px --variable margin-rigt=50px --variable margin-top=80px --variable margin-bottom=50px -s
+pandoc $1 -o $2 --variable margin-left=80px --variable margin-rigt=50px --variable margin-top=80px --variable margin-bottom=50px -s --template=.template.latex
