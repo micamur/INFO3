@@ -1,0 +1,202 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+# If it does not work try replacing '.text.md' by '.source.gfm'
+'.text.md':
+
+# Markdown text decorations
+  'Equation block':
+    'prefix': '$$'
+    'body': '$$\n$1\n$$\n\n$0'
+  'Equation inline':
+    'prefix': '$'
+    'body': '$$1$ $0'
+  'Bold text':
+    'prefix': '**'
+    'body': '**$1** $0'
+  'Italic text':
+    'prefix': '*'
+    'body': '*$1* $0'
+  'Example':
+    'prefix': 'ex'
+    'body': '*Exemple.* '
+  'Definition':
+    'prefix': 'def'
+    'body': '**Définition.** '
+  'Theorem':
+    'prefix': 'th'
+    'body': '**Théorème.** '
+  'Remark':
+    'prefix': 'rq'
+    'body': '> *Remarque.* '
+
+# LaTeX commands
+  'File information - general':
+    'prefix': 'igen'
+    'body': '% Chapitre ${1:numéro} - ${2:Titre}\n% ${3:Prof} (cours) - Mica MURPHY (note) - Antoine SAGET (note)\n% ${4:Jour} ${5:numéro} ${6:Mois} ${7:année}\n\n$0'
+  'File information - Maths TC':
+    'prefix': 'imtc'
+    'body': '% Chapitre ${1:numéro} - ${2:Titre}\n% Manel TAYACHI (cours) - Mica MURPHY (note) - Antoine SAGET (note)\n% ${3:Jour} ${4:numéro} ${5:Mois} ${6:année}\n\n$0'
+  'Page break':
+    'prefix': 'pb'
+    'body': '\\\\pagebreak\n\n$0'
+  'Text':
+    'prefix': 'text'
+    'body': '\\\\text{$1}\\\\ $0'
+  'Text caligraphic':
+    'prefix': 'textc'
+    'body': '\\\\mathcal{$1} $0'
+  'Figure':
+    'prefix': 'figure'
+    'body': '\\\\begin{figure}\n\t\\\\centering\n\t\\\\caption{${1:Caption}}\n\t\\\\includegraphics[height=${2:10}cm, angle=${3:0}]{res/${4:name}.png}\n\\\\end{figure}\n\n$0'
+
+# LaTeX symbols
+  'Real':
+    'prefix': 'RR'
+    'body': '\\\\mathbb{R}'
+  'Complex':
+    'prefix': 'CC'
+    'body': '\\\\mathbb{C}'
+  'Natural':
+    'prefix': 'NN'
+    'body': '\\\\mathbb{N}'
+  'Relative':
+    'prefix': 'ZZ'
+    'body': '\\\\mathbb{Z}'
+  'Left right arrow':
+    'prefix': 'Lra'
+    'body': '\\\\Leftrightarrow '
+  'left right arrow':
+    'prefix': 'lra'
+    'body': '\\\\leftrightarrow '
+  'Left arrow':
+      'prefix': 'La'
+      'body': '\\\\Leftarrow '
+  'left arrow':
+    'prefix': 'la'
+    'body': '\\\\leftarrow '
+  'Right arrow':
+      'prefix': 'Ra'
+      'body': '\\\\Rightarrow '
+  'right arrow':
+    'prefix': 'ra'
+    'body': '\\\\rightarrow '
+  'Exponent':
+    'prefix': '^'
+    'body': '^{$1}$0'
+  'Index':
+    'prefix': '_'
+    'body': '_{$1}$0'
+  'Text A under text B':
+    'prefix': 'undertext'
+    'body': '\\\\underset{${1:normal text}}{${2:text under}} $0'
+  'Text A over text B':
+    'prefix': 'overtext'
+    'body': '\\\\\stackrel{${1:text over}}{${2:normal text}} $0'
+  'Limit text style':
+    'prefix': 'limt'
+    'body': '\\\\lim_{${1:x} \\\\to ${2:0}} ${3:f(x)} = $0'
+  'Limit arrow style':
+    'prefix': 'lima'
+    'body': '\\\\xrightarrow[${1:x} \\\\to ${2:0}]{} $0'
+  'Sum':
+    'prefix': 'sum'
+    'body': '\\\\sum\\\\limits_{${1:i}=${2:1}}^${3:n} $0'
+  'Integral':
+    'prefix': 'int'
+    'body': '\\\\int_{${1:a}}^{${2:b}} $3 d${4:x} $0'
+  'Over':
+    'prefix': 'over'
+    'body': '{$1 \\\\over $2} $0'
+  'For all':
+    'prefix': 'forall'
+    'body': '\\\\forall ${1:x} \\\\in ${2:\\\\mathbb{R\\}} $0'
+  'Exists':
+    'prefix': 'exists'
+    'body': '\\\\exists ${1:x} \\\\in ${2:\\\\mathbb{R\\}} $0'
+  'Square root':
+    'prefix': 'sqrt'
+    'body': '\\\\sqrt{$1} $0'
+  'Curly brackets':
+    'prefix': '{'
+    'body': '\\\\{$0\\\\'
+  'ln':
+    'prefix': 'ln'
+    'body': '\\\\ln($1) $0'
+  'cos':
+    'prefix': 'cos'
+    'body': '\\\\cos($1) $0'
+  'sin':
+    'prefix': 'sin'
+    'body': '\\\\sin($1) $0'
+  # Ideas: text under/over/brace, boxed
+
+# Arrays
+  'Equation system':
+    'prefix': 'sys'
+    'body': '\n\\\\left\\\\{\\\\begin{array}{rl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}\\\\right.\n$0'
+  'Function':
+    'prefix': 'fun'
+    'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{rl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
+  'Cases':
+    'prefix': 'cases'
+    'body': '\n\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}\n$0'
+
+# Matrices
+  'Matrix []':
+    'prefix': 'matrix[]'
+    'body': '\n\\\\begin{bmatrix}\n$1 & $2\\\\\\\\\n\\\\end{bmatrix}\n$0'
+  'Matrix ()':
+    'prefix': 'matrix()'
+    'body': '\n\\\\begin{pmatrix}\n$1 & $2\\\\\\\\\n\\\\end{pmatrix}\n$0'
+  'Matrix ||':
+    'prefix': 'matrix||'
+    'body': '\n\\\\begin{vmatrix}\n$1 & $2\\\\\\\\\n\\\\end{vmatrix}\n$0'
+  'Matrix {}':
+    'prefix': 'matrix{}'
+    'body': '\n\\\\begin{Bmatrix}\n$1 & $2\\\\\\\\\n\\\\end{Bmatrix}\n$0'
+
+# Type only the letter(s), not the symbol or the end will be doubled:
+  'big ()':
+    'prefix': 'b('
+    'body': '\\\\big($1\\\\big) $0'
+  'Big ()':
+    'prefix': 'B('
+    'body': '\\\\Big($1\\\\Big) $0'
+  'bigg ()':
+    'prefix': 'bb('
+    'body': '\\\\bigg($1\\\\bigg) $0'
+  'Bigg ()':
+    'prefix': 'BB('
+    'body': '\\\\Bigg($1\\\\Bigg) $0'
+  'big []':
+    'prefix': 'b['
+    'body': '\\\\big[$1\\\\big] $0'
+  'Big []':
+    'prefix': 'B['
+    'body': '\\\\Big[$1\\\\Big] $0'
+  'bigg []':
+    'prefix': 'bb['
+    'body': '\\\\bigg[$1\\\\bigg] $0'
+  'Bigg []':
+    'prefix': 'BB['
+    'body': '\\\\Bigg[$1\\\\Bigg] $0'
