@@ -86,17 +86,19 @@ La variable PATH indique au système où se trouvent les programmes. Elle contie
 
 # 9. Métaphore avec un système dynamique en physique
 
+## Introduction
+
 Système dynamique continu
 
 - État, variables d'état
-  - Position, vitesse, temps
+    - Position, vitesse, temps
 - Lois physiques faisant évoluer l'état, fonctions
-  - m×a = g
-  - v'(t) = a
-  - p'(t) = v(t)
+    - m×a = g
+    - v'(t) = a
+    - p'(t) = v(t)
 - Discrétisation
-  - v(t+dt) = v(t) + dt×a
-  - p(t+dt) = p(t) + dt×v
+    - v(t+dt) = v(t) + dt×a
+    - p(t+dt) = p(t) + dt×v
 
 Système dynamique discret : le jeu d'échecs
 
@@ -108,8 +110,8 @@ Système dynamique discret : le jeu d'échecs
 - **Variable.** Association d'un nom et d'une valeur typée
 - **État.** Ensemble des variables
 - **Actions.** Déterminent l'évolution du système (avant/après une action)
-  - *Actions élémentaires.* Un déplacement
-  - *Actions composées.* Succession d'actions élémentaires
+    - *Actions élémentaires.* Un déplacement
+    - *Actions composées.* Succession d'actions élémentaires
 - La faisabilité d'une action dépend de l'état
 
 Algorithme :
@@ -119,8 +121,79 @@ Algorithme :
 - Spécification : décrit ce que l'algorithme fait, sans dire comment il le fait (état initial → état final)
 - Assertion : propriété vérifiée par un état
 
-Factoriel (= nom) :
 
-- l'action (ÉTAT = donnée : un entier n + résultat : un entier n) **r ?**
-- état initial : assertion (n entier naturel, r indéfini)
-- état final : r vaut !n
+- *Exemple.* Spécification :
+    ```
+    3 variables a, b, t et 2 valeurs a0, b0
+    {ici a vaut a0, b vaut b0, t quelconque}
+    t <- a
+    {t vaut a0}
+    a <- b
+    {a vaut b0}
+    b <- t
+    {b vaut a0, a vaut b0, t vaut a0}
+    ```
+
+\pagebreak
+
+## Factoriel
+
+- l'action : (état =) donnée N (entier) et résultat R (entier)
+- état initial : (assertion =) N entier naturel, R indéfini
+- état final : R vaut N!
+- lexique : K (entier naturel) *$\leftarrow$ variables inutiles dans la spécification de l'action*
+- algorithme :
+    ```
+    R <- 1
+    K <- N
+              v {propriété}
+    Tant que (K > 1) faire
+        R <- R * K
+        K <- K - 1
+        {ici, R vaut N*(N - 1)*...*(K + 1)}
+         ^ {assertion à l'intérieur d'une itération = invariant}
+    {ici, (K vaut 0 et R vaut 1) ou (K vaut 1 et R vaut N!)}
+    ```
+- à la sortie de l'itération $K \leq 1$
+- $1^\text{er}$ cas on est rentré au moins une fois dans l'itération
+    - c'est le cas ssi $N > 1$
+    - dernière étape de l'itération $K = 2$ à l'entrée, $K = 1$ à la fin.
+      $R = N*(N-1)* \dots * 2 = N!$
+- $2^\text{ème}$ cas : on ne rentre pas dans l'itération donc $K$ vaut $0$ ou $1$ avant l'itération.
+
+> Les assertions et les invariants se prouvent.
+
+> Pour les invariants, ici on fait une **preuve par récurrence** comme ils se trouvent dans une boucle
+> - vrai à la $1^{\text{ère}}$ itération ?
+> - supposer que l'assertion est vraie à une itération donnée
+>   $\rightarrow$ montrer que l'assertion est vraie à l'itération suivante (pas forcément $P(n)$, $P(n+1)$)
+
+> **Important** : la signification de l'invariant à la sortie de l'itération
+
+## Algorithme de tri par insertion
+
+Il y a une bijection entre le tableau de départ et le tableau trié.
+
+Tableau de départ :
+
+| 1  | 2 | 3 | 4 | 5 |
+|----|---|---|---|---|
+| 13 | 2 | 9 | 9 | 5 |
+
+Tableau d'arrivée (avec indices de départ) :
+
+| 3  | 5 | 1 | 4 | 2 |
+|----|---|---|---|---|
+| 13 | 2 | 9 | 9 | 5 |
+
+Bijection $\begin{cases}
+  3 \rightarrow 1\\
+  5 \rightarrow 2\\
+  1 \rightarrow 3\\
+  4 \rightarrow 4\\
+  2 \rightarrow 5\\
+\end{cases}$ de $\{1, \dots, 5\}$ sur $\{1, \dots, 5\}$ (**= permutations**)
+
+
+
+.
