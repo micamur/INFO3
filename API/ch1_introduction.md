@@ -194,6 +194,38 @@ Bijection $\begin{cases}
   2 \rightarrow 5\\
 \end{cases}$ de $\{1, \dots, 5\}$ sur $\{1, \dots, 5\}$ (**= permutations**)
 
+### Démonstration d'un invariant
 
+- Initialisation
+- Conservation
 
-.
+### État initial
+
+$$
+\begin{cases}
+j \text{ entier entre } 2 \text{ et } N\\
+i \text{ vaut } T[j]\\
+Clef \text{ vaut } T[j]\\
+T \text{ contient } \{\overline{t_1},\dots,\overline{t_n}\}
+\end{cases}
+$$
+
+### Preuve de l'invariant $I_2$
+
+- Initialisation :
+    - L5 : comme on rentre dans la boucle, $\overline{t_i}=T[i]>Clef$
+    - L6 : on modifie le tableau (voir PDF) et $i = j-1$ (et $i+1 = j$)
+    - L7 : $i = j-2$ (et $i+1 = j-1$)
+    - $Clef < \overline{t_i} = \overline{t_{i+1}}$ en fin de boucle
+- Conservation :
+    - Voir document PDF
+
+> Terminaison (facultatif) : que peut-on affirmer en sortie de boucle ?
+>  - on sait que l'invariant est vérifié à la dernière itération
+>  - on sait qu'on est sortis de la boucle :
+>     - soit $i=0$ et alors :
+>         - $T$ vaut $[\overline{t_1}, \overline{t_1}, \dots, \overline{t_{j-1}}, \overline{t_{j+1}}, \dots, \overline{t_N}]$
+>         - $Clef <  \overline{t_1}$
+>     - soit $i \ge 1$ et $T[i] \le Clef$ :
+>         - $T$ vaut $[\overline{t_1}, \dots, \overline{t_{i}}, \overline{t_{i + 1}}, \overline{t_{i + 1}}, \dots, \overline{t_{j - 1}}, \overline{t_{j + 1}}, \dots, \overline{t_N}]$
+>         - $Clef \ge T[1 \dots i]$ et $Clef < T[i+1 \dots j-1]$
