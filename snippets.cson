@@ -29,13 +29,13 @@
     'body': '$$\n$1\n$$\n\n$0'
   'Equation inline':
     'prefix': '$'
-    'body': '$$1$ $0'
+    'body': '$$1$$0'
   'Bold text':
     'prefix': '**'
-    'body': '**$1** $0'
+    'body': '**$1**$0'
   'Italic text':
     'prefix': '*'
-    'body': '*$1* $0'
+    'body': '*$1*$0'
   'Example':
     'prefix': 'ex'
     'body': '*Exemple.* '
@@ -45,9 +45,24 @@
   'Theorem':
     'prefix': 'th'
     'body': '**Théorème.** '
+  'Property':
+    'prefix': 'prop'
+    'body': '**Propriété.** '
   'Remark':
     'prefix': 'rq'
     'body': '> *Remarque.* '
+  'Attention':
+    'prefix': 'attention'
+    'body': '> **Attention.** '
+  'Notation':
+    'prefix': 'notation'
+    'body': '*Notation.* '
+  'c\'est-à-dire':
+    'prefix': 'cad'
+    'body': 'c\'est-à-dire'
+  'C\'est-à-dire':
+    'prefix': 'Cad'
+    'body': 'C\'est-à-dire'
 
 # LaTeX commands
   'File information - general':
@@ -61,10 +76,13 @@
     'body': '\\\\pagebreak\n\n$0'
   'Text':
     'prefix': 'text'
-    'body': '\\\\text{$1}\\\\ $0'
+    'body': '\\\\text{ $1 }$0'
   'Text caligraphic':
     'prefix': 'textc'
-    'body': '\\\\mathcal{$1} $0'
+    'body': '\\\\mathcal{$1}$0'
+  'Lexicographic':
+    'prefix': 'lex'
+    'body': '_\\\\text{lex}\\\\'
   'Figure':
     'prefix': 'figure'
     'body': '\\\\begin{figure}\n\t\\\\centering\n\t\\\\caption{${1:Caption}}\n\t\\\\includegraphics[height=${2:10}cm, angle=${3:0}]{res/${4:name}.png}\n\\\\end{figure}\n\n$0'
@@ -108,19 +126,28 @@
     'body': '_{$1}$0'
   'Text A under text B':
     'prefix': 'undertext'
-    'body': '\\\\underset{${1:normal text}}{${2:text under}} $0'
+    'body': '\\\\underset{${1:text under}}{${2:normal text}} $0'
   'Text A over text B':
     'prefix': 'overtext'
-    'body': '\\\\\stackrel{${1:text over}}{${2:normal text}} $0'
+    'body': '\\\\stackrel{${1:text over}}{${2:normal text}} $0'
+  'Underbrace':
+    'prefix': 'underbrace'
+    'body': '\\\\stackrel{${1:normal text}}{${2:text under}} $0'
+  'Boxed':
+    'prefix': 'boxed'
+    'body': '\\\\boxed{$1} $0'
   'Limit text style':
     'prefix': 'limt'
     'body': '\\\\lim_{${1:x} \\\\to ${2:0}} ${3:f(x)} = $0'
   'Limit arrow style':
     'prefix': 'lima'
     'body': '\\\\xrightarrow[${1:x} \\\\to ${2:0}]{} $0'
+  'Limits':
+    'prefix': 'limits'
+    'body': '\\\\limits_{${1:i}=${2:1}}^{${3:n}} $0'
   'Sum':
     'prefix': 'sum'
-    'body': '\\\\sum\\\\limits_{${1:i}=${2:1}}^${3:n} $0'
+    'body': '\\\\sum\\\\limits_{${1:i}=${2:1}}^{${3:n}} $0'
   'Integral':
     'prefix': 'int'
     'body': '\\\\int_{${1:a}}^{${2:b}} $3 d${4:x} $0'
@@ -139,6 +166,9 @@
   'Curly brackets':
     'prefix': '{'
     'body': '\\\\{$0\\\\'
+  'Curly brackets 2':
+    'prefix': '${'
+    'body': '$\\\\{$0\\\\'
   'ln':
     'prefix': 'ln'
     'body': '\\\\ln($1) $0'
@@ -148,18 +178,20 @@
   'sin':
     'prefix': 'sin'
     'body': '\\\\sin($1) $0'
-  # Ideas: text under/over/brace, boxed
 
 # Arrays
   'Equation system':
     'prefix': 'sys'
     'body': '\n\\\\left\\\\{\\\\begin{array}{rl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}\\\\right.\n$0'
+  'Equation system without {}':
+    'prefix': 'syssimple'
+    'body': '\n\\\\begin{array}{ll}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}\n$0'
   'Function':
     'prefix': 'fun'
     'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{rl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
   'Cases':
     'prefix': 'cases'
-    'body': '\n\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}\n$0'
+    'body': '\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}\n$0'
 
 # Matrices
   'Matrix []':
@@ -178,25 +210,25 @@
 # Type only the letter(s), not the symbol or the end will be doubled:
   'big ()':
     'prefix': 'b('
-    'body': '\\\\big($1\\\\big) $0'
+    'body': '\\\\big($1\\\\big)$0'
   'Big ()':
     'prefix': 'B('
-    'body': '\\\\Big($1\\\\Big) $0'
+    'body': '\\\\Big($1\\\\Big)$0'
   'bigg ()':
     'prefix': 'bb('
-    'body': '\\\\bigg($1\\\\bigg) $0'
+    'body': '\\\\bigg($1\\\\bigg)$0'
   'Bigg ()':
     'prefix': 'BB('
-    'body': '\\\\Bigg($1\\\\Bigg) $0'
+    'body': '\\\\Bigg($1\\\\Bigg)$0'
   'big []':
     'prefix': 'b['
-    'body': '\\\\big[$1\\\\big] $0'
+    'body': '\\\\big[$1\\\\big]$0'
   'Big []':
     'prefix': 'B['
-    'body': '\\\\Big[$1\\\\Big] $0'
+    'body': '\\\\Big[$1\\\\Big]$0'
   'bigg []':
     'prefix': 'bb['
-    'body': '\\\\bigg[$1\\\\bigg] $0'
+    'body': '\\\\bigg[$1\\\\bigg]$0'
   'Bigg []':
     'prefix': 'BB['
-    'body': '\\\\Bigg[$1\\\\Bigg] $0'
+    'body': '\\\\Bigg[$1\\\\Bigg]$0'
