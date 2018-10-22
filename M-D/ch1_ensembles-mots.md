@@ -187,7 +187,7 @@ Cette notation est limitée : on écrit vite des ensembles comme $\{a,b,c,\cdots
 
 En général on décrit plutôt {la forme générale} de éléments de l'ensemble ou {les propriétés}.
 
-*Exemple.* $\{2k + 1 |  k \in \mathbb{N} \} = \{1, 3, 4, 5, \dots \}$
+*Exemple.* $\{2k + 1 |  k \in \mathbb{N} \} = \{1, 3, 5, \dots \}$
 $\{k \in \mathbb{N} |  k\  impair\}$
 
 **Notations.**
@@ -197,7 +197,7 @@ $\{k \in \mathbb{N} |  k\  impair\}$
 - l'ensemble vide $\emptyset$ ne contient aucun élément : $\{\}$
 
 *Exemples.*
-- $1 \in {0, 1}$
+- $1 \in \{0, 1\}$
 - $-5 \notin \mathbb{N}$
 - $-5 \in \mathbb{Z}$
 - $\mathbb{N} \subset \mathbb{Z}$
