@@ -223,9 +223,9 @@ $\{k \in \mathbb{N} |  k\  impair\}$
 
   (Notez le parallèle entre $\subseteq$, $\leq$ et $\sqsubseteq$ et entre  $\subset$, $<$ et $\sqsubset$)
 
-##  b) Opérations entre ensembles
+## b) Opérations entre ensembles
 
-###  Union et intersection
+### Union et intersection
 
 L'**union** de $X$ et $Y$ est l'ensemble des éléments présents dans $X$ ou $Y$.
 $$X \cup Y = \{x | x \in X \text{ ou } x \in Y\}$$
@@ -280,5 +280,114 @@ $\{x \in X |  x \notin Y\}$ : cas particulier de différence
 **Alors :**
 - $Y$ et $X - Y$ forment 2 partitions de $X$ :
   $$X = (X - Y) + Y$$
-- $\text{card } X = \text{card }(X-Y) + \text{card } Y$
-- $\boxed{\text{card } (X-Y) = \text{card }X + \text{card }Y}$ si $Y \subseteq X$
+- $card X = card(X-Y) + card Y$
+- $\boxed{card (X-Y) = cardX + cardY}$ si $Y \subseteq X$
+
+## c) Ensemble d'ensembles, n-uplets
+
+Soient $X_1, X_2, \dots, X_n$ des ensembles.
+
+Le **produit cartésien** de ces ensembles, noté $X_1 \times X_2 \times \dots \times X_n$ ou $\prod\limits_{i=1}^{n} X_i$ est l'ensemble des n-uplets de la forme ($x_1, x_2, \dots, x_n$) avec $x_1 \in X_1, x_2 \in X_2, \dots, x_n \in X_n$
+
+En informatique ce sont les `struct`, `enregistrement`, `tuple`, etc.
+
+*Exemple.*
+- $\{1, 2\} \times \{a, b, c\} = \{(1, a), (2, a), (1, b), (1, c), (2, b), (2, c)\}$
+- $\{1,2\} \times \{1,2,3\} = \{(1,1),(1,2),(2,1),(1,3),(2,2),(2,3)\}$ ; $(1,2) \ne (2,1)$ !
+
+> **Atention** l'ordre d'un n-uplet est important !
+
+**Propriété.** Si $X_1, \dots, X_n$ sont finis, alors :
+$$\boxed{card(X_1 \times X_2 \dots X_n) = card(X_1) \times card(X_2) \times \dots \times card(X_n)}$$
+
+**Cas particulier.** Si $X_1 = X_2 = \cdots = X_n = X$ alors on note $X^n = X \times X \times \cdots \times X$ et $card(X^n) = card(X)^n$
+
+*Exemple.* $\mathbb{R}^n$ ; les mots de longueur $n$ sur l'alphabet $X$ "correspondent" exactement au éléments de $X^n$
+
+### Ensemble des parties
+
+**Définition.** Si $X$ est un ensemble, on note $\mathcal{P}(X)$ l'ensemble des parties (ou sous-ensembles) de $X$, autrement dit tous les ensembles contenus dans $X$.
+$$A \subseteq X \text{ ssi } A \in \mathcal{P}(X)$$
+
+*Exemple.* $X = \{a, b, c\}, \mathcal{P}(x) = \{\emptyset,\ \ \{a\}, \{b\}, \{c\},\ \ \{a, b\}, \{b, c\}, \{a, c\}, \{a, b, c\} \}$
+
+> *Remarque.* Contrairement aux mots, dans une partie il n'y a pas de répétition ni de notion d'ordre (il n'a pas d'importance)
+
+**Propriété.**
+$$\boxed{card(\mathcal{P}(X)) = 2^{card X}}$$
+
+*Démonstration.* Si $X = \{x_1,x_2,\dots,x_n\}$ une partie $Y$ de $X$ correspond à un mot binaire $b_1 b_2 \dots b_i \dots b_n$ avec $b_i = \begin{cases}
+0 \text{ si } x_i \notin Y\\
+1 \text{ si } x_i \in Y\\
+\end{cases}$, il y autant de parties de $X$ que de mots binaires de longueur $n$ : $\big(card\{0, 1\}\big)^n = 2^n = 2^{card X}$
+
+### Ensembles infinis
+
+Parmi les ensembles **infinis**, on peut distinguer les ensembles **dénombrables**, c'est-à-dire ceux pour lesquels on peut **énumérer** les éléments (les numéroter $0, 1, 2, \dots$)
+> Autrement dit  faire une correspondance entre les entiers naturels et l'ensemble en question
+
+*Exemple.* $\mathbb{N}$ et $\mathbb{Z}$ sont dénombrables mais pas $\mathbb{R}$ ni $[0,1]$
+
+# 4) Monoïdes
+
+On appelle **monoïde** un ensemble $X$ lorsque pour tous éléments $x, y, z \in X$ :
+- $X$ est pourvu d'une opération binaire interne ou **loi interne** $\square$ : $x \square y \in X$
+- $\square$ soit **associative** : si $x, y, z \in X$ alors $(x \square y)\square z = x \square (y \square z) = x \square y \square z$
+- $X$ possède un **élément neutre** $e$ : $e \square x = x = x \square e$
+
+*Exemples.*
+- $(\mathbb{R}, +, 0)$
+- $(\mathbb{R}, \times, 1)$
+- $(\mathbb{N}, +, 0)$ **(n'est pas un groupe !)**
+- $(\mathbb{N}, \times, 1)$
+- $(A^*, \cdot, \epsilon)$
+- $(M_{n,n}(\mathbb{R}), \times, I_n)$
+- $(\mathcal{P}(X), \cap, X)$
+- $(\mathcal{P}(X), \cup, \emptyset)$
+
+> *Remarque.* Un groupe est toujours un monoïde, mais l'inverse n'est pas vrai.
+
+**Propriété.** Dans un monoïde **$e$ est unique**.
+
+*Démonstration.* Supposons en effet que $e$ et $e'$ soient tous deux neutres, alors :
+
+$$e = e \square e' = e'$$
+
+**Homomorphisme de monoïdes.** Soient $(X,\square,e)$ et $(X',\square',e')$, on dit que $f:X \rightarrow  X'$ est un **homomorphisme de monoïdes** si $\begin{cases}
+f(e) = e'\\
+f(x \square y) = f(x) \square' f(y)\\
+\end{cases}$ (il faut que les deux conditions soient respectées !)
+
+*Exemples.*
+- $\exp : (\mathbb{R}, + , 0) \rightarrow (\mathbb{R}^*_+, \times, 1)$ avec $e^0=1$ et $e^{x+y}=e^x \times e^y$
+- $\ln$ est l'homomorphisme de monoïdes réciproque
+- $lg :(A^x, \cdot, \epsilon) \rightarrow (\mathbb{N}, +, 0)$ avec $\lg \epsilon = 0$ et $\lg (u \cdot v) = \lg u + \lg v$
+- complémentaire :
+  - $(\mathcal{P}(X), \cap, X) \rightarrow (\mathcal{P}(X), \cup, \emptyset)$ avec $\overline{X}=\emptyset$ et $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+  - $(\mathcal{P}(X), \cup, \emptyset) \rightarrow  (\mathcal{P}(X), \cap, X)$
+- card : $\big(\mathcal{P}(X),\cup,\emptyset\big) \rightarrow \big(\mathbb{N},+,0\big)$ n'est **pas** un homomorphisme de monoïdes car $card\ \emptyset = 0$ mais $card(A \cup B) \ne card\ A + card\ B$ (dès que $A$ et $B$ ne sont pas disjoints)
+
+# 5) Systèmes de numération
+
+**Définition.** Une **base de numération** est un entier $b \ge 2$ et un symbole pour chaque valeur de $0$ à $b - 1$
+
+*Exemples.*
+- La base $10$ usuelle
+- La base $2$ avec $\{0,1\}$
+- La base $16$ avec $\{0, 1, \dots, 9, A, B, C, D, E, F\}$
+- La base $60$ (date des Mésopotamiens en -4000) est encore utilisée pour les minutes et secondes
+- La base $256$ où on représente un chiffre par un couple d'hexadécimaux ($16 \times 16 = 256$) est utilisée pour représenter des couleurs en informatique
+- La base $64$ avec $\{A \dots Z\ a \dots z\ 0 \dots 9 + / \}$ avec $A "=" 0$, $a "=" 26$ et $0 "=" 52$
+
+**Définition.** L'**écriture en base $b$ d'un entier $n$** est un mot sur l'alphabet des chiffres $x_k \dots x_0$ tel que $\begin{cases}
+x_k \neq 0\\
+\sum\limits_{i=0}^k x_ib^i = n\\
+\end{cases}$
+
+> **Attention.** Différencier les symboles (écrits) de la valeur (entière) : l'entier qui vaut 7 en base 10 s'écrit 7, en base 2 il s'écrit 111 et en base 1 il s'écrit IIIIIII.
+
+**Propriété.** **L'écriture en base $b$ d'un entier $n$ existe toujours et elle est unique**
+
+*Notation.* On écrit $(x_k \dots x_0)_b$ pour noter la base
+
+**Définition.** si $b^k \leq n < b^{k + 1}$ alors **la taille de n en base $b$** est le nombre de chiffres qu'il faut pur l'écrire en base $b$, ici $k + 1$
