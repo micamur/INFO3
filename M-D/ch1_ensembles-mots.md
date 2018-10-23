@@ -9,7 +9,7 @@ Discret est l'opposé de continu, et il peut y avoir un nombre fini ou infini de
 # 1) Mots
 
 ## a) Alphabets et mots
-
+ 
 **Définition.** Un **alphabet** est un ensemble fini de symboles.
 
 *Exemples.*
