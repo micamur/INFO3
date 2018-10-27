@@ -7,7 +7,7 @@
 **Définition.** Soit $g:[a, b] \rightarrow \mathbb{R}$ (continue).
 Une **primitive** de *g* est une fonction $G:[a, b] \rightarrow \mathbb{R}$ dérivable tq $G' = g$
 
-*Exemple.* Soit $g(x) = x^2$, les fonctions $G_1 : \begin{array}{cc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3}\end{array}$ et $G_2 : \begin{array}{cc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3} + 12\end{array}$ sont des primitives de $g$.
+*Exemple.* Soit $g(x) = x^2$, les fonctions $G_1 : \begin{array}{ccc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3}\end{array}$ et $G_2 : \begin{array}{ccc}\mathbb{R} \rightarrow \mathbb{R} \\ x \mapsto {x^3 \over 3} + 12\end{array}$ sont des primitives de $g$.
 
 > Il n'y a pas unicité de la primitive
 
@@ -85,7 +85,7 @@ $\int^{\pi/2}_0 \cos(x)\ dx = [\sin(x)]^{x = \pi/2}_{x = 0} = \sin(\pi/2) = 1$
 
 **Corollaire** Soit $g:[a, b] \rightarrow \mathbb{R}$ continue.
 Alors $\forall c \in [a, b]$,
-$$G_c : \begin{array}{cc}[a,b] \rightarrow \mathbb{R} \\ x \mapsto \int_c^x g(t)\ dt\end{array}$$
+$$G_c : \begin{array}{ccc}[a,b] \rightarrow \mathbb{R} \\ x \mapsto \int_c^x g(t)\ dt\end{array}$$
 est une primitive de $g$.
 
 \pagebreak
@@ -102,30 +102,30 @@ $$
 
 ## 2) Utiliser les symétries
 
-  - Si $f$ pair $\forall a > 0$
+- Si $f$ pair $\forall a > 0$
 
-    $$
-    \int^a_0 f(x)\ dx = \int^0_{-a} f(x)\ dx
-    $$
-    ![Schéma d'une fonction paire]()
+  $$
+  \int^a_0 f(x)\ dx = \int^0_{-a} f(x)\ dx
+  $$
+  ![Schéma d'une fonction paire]()
 
-    Donc
+  Donc
 
-    $$
-    \int^a_{-a} f(x)\ dx = 2\int^a_0 f(x)\ dx
-    $$
+  $$
+  \int^a_{-a} f(x)\ dx = 2\int^a_0 f(x)\ dx
+  $$
 
-  - Si $f$ impaire, $\forall a > 0$
-    $$
-    \int^a_0 f(x)dx = -\int^0_{-a} f(x)\ dx
-    $$
-    ![Schéma d'une fonction impaire]()
+- Si $f$ impaire, $\forall a > 0$
+  $$
+  \int^a_0 f(x)dx = -\int^0_{-a} f(x)\ dx
+  $$
+  ![Schéma d'une fonction impaire]()
 
-    Donc $\int_{-a}^a f(x)\ dx = 0$
+  Donc $\int_{-a}^a f(x)\ dx = 0$
 
-    *Exemple* $\int_{-\pi/2}^{\pi/2}\sin(x)\ dx = 0$
+  *Exemple* $\int_{-\pi/2}^{\pi/2}\sin(x)\ dx = 0$
 
-  - On peut utiliser d'autres "symétries" comme la périodicité (exemple avec $\cos$ et $\sin$)
+- On peut utiliser d'autres "symétries" comme la périodicité (exemple avec $\cos$ et $\sin$)
 
 \pagebreak
 
@@ -143,7 +143,7 @@ $$"u' = {du \over dt} \Rightarrow u'\ dt = du"$$
 
 *Exemple.* $\int^{1 \over 4}_0 xe^{x^2}\ dx$
 $$
-u:\begin{array}{cc}[0, {1 \over 2}] \rightarrow [0, {1 \over 4}] \\ x \mapsto x^2 \end{array}
+u:\begin{array}{ccc}[0, {1 \over 2}] \rightarrow [0, {1 \over 4}] \\ x \mapsto x^2 \end{array}
 $$
 bijectif et $C^1$
 
@@ -155,9 +155,8 @@ I + {1 \over to} \int^{1 \over 2}_0 e^{x^2}2x\ dx = {1 \over 2} \int^{u({1 \over
 = {1 \over 2} [e^u]^{1 \over 4}_0 = {1 \over 2}(e^{1 \over 4} - 1)
 $$
 
-
 *Exemple.*
-Soit $\int_0^{1/4} {\ln(1-\sqrt{x}) \over \sqrt{x}}\ dx$, choisissons $u : \begin{array}{cc}[0, {1 \over 4}] \rightarrow [{1 \over 2}, 1] \\ x \mapsto 1-\sqrt{x} \end{array}$
+Soit $\int_0^{1/4} {\ln(1-\sqrt{x}) \over \sqrt{x}}\ dx$, choisissons $u : \begin{array}{ccc}[0, {1 \over 4}] \rightarrow [{1 \over 2}, 1] \\ x \mapsto 1-\sqrt{x} \end{array}$
 
 ![Schéma de u]()
 
@@ -221,176 +220,175 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
 
 - **But.** intégrer des fonctions de la forme $P(x) \over Q(x)$ avec $P$ et $Q$ deux polynômes (on appelle ça des fonctions rationnelle en $x$)
 - **Étape 1.**
-    - si le degré $P <$ le degré de $Q$, alors on ne fait rien
-    - si le degré $P \ge$ le degré de $Q$, on va se ramener à une fraction rationnelle ${\widetilde{P} \over \widetilde{Q}}$ avec la décomposition $P <$ le degré de $Q$
-      Pour cela, on fait la division euclidienne de $P$ par $Q$.
-      C'est-à-dire $P = LQ + R$ avec $L$ et $R$ deux polynômes tq degré $R <$ degré $Q$
-      Ansi ${P \over Q} = L + {R \over Q}$ ($L(X)$ est facile à intégrer et $d°R < d°Q$)
+  - si le degré $P <$ le degré de $Q$, alors on ne fait rien
+  - si le degré $P \ge$ le degré de $Q$, on va se ramener à une fraction rationnelle ${\widetilde{P} \over \widetilde{Q}}$ avec la décomposition $P <$ le degré de $Q$
+    Pour cela, on fait la division euclidienne de $P$ par $Q$.
+    C'est-à-dire $P = LQ + R$ avec $L$ et $R$ deux polynômes tq degré $R <$ degré $Q$
+    Ansi ${P \over Q} = L + {R \over Q}$ ($L(X)$ est facile à intégrer et $d°R < d°Q$)
 
-      En pratique, comment trouve-t-on $L$ et $R$ ?
+    En pratique, comment trouve-t-on $L$ et $R$ ?
 
-    *Exemple.* $P = X^5 + X^4 - X^2 + 1 \\ Q = X^2 - 1$
+  *Exemple.* $P = X^5 + X^4 - X^2 + 1 \\ Q = X^2 - 1$
 
-    ![Division euclidienne de P par Q]()
+  ![Division euclidienne de P par Q]()
 
-    Donc $P(x) = \underset{L(X)}{(X^3 + X^2 + X)}\underset{Q(X)}{(X^2 - 1)}+\underset{R(X)}{X+1}$
+  Donc $P(x) = \underset{L(X)}{(X^3 + X^2 + X)}\underset{Q(X)}{(X^2 - 1)}+\underset{R(X)}{X+1}$
 
-    Donc $P(x) = \underset{Q(X)}{(X^3 - 1)}\underset{L(X)}{(X^2 - 2X + 1)}+\underset{R(X)}{X^2 + 2X + 1}$
+  Donc $P(x) = \underset{Q(X)}{(X^3 - 1)}\underset{L(X)}{(X^2 - 2X + 1)}+\underset{R(X)}{X^2 + 2X + 1}$
 
 - **Étape 2.** Développer ${R \over Q}$ en élément simple
-    - Factoriser $Q$ (avec $\alpha_i$ racines de $Q$ dans $\mathbb{R}$)
-      $$
-      Q(x) = a(X - \alpha_1)^{\stackrel{\text{multiplicité de }\alpha_1}{n_1} } \dots (X - \alpha_r)^{n_r} (X^2 + a_1X + b_1)^{n_1} \dots (X^2 + a_lX + b_l)^{n_l}
-      $$
+  - Factoriser $Q$ (avec $\alpha_i$ racines de $Q$ dans $\mathbb{R}$)
+    $$
+    Q(x) = a(X - \alpha_1)^{\stackrel{\text{multiplicité de }\alpha_1}{n_1} } \dots (X - \alpha_r)^{n_r} (X^2 + a_1X + b_1)^{n_1} \dots (X^2 + a_lX + b_l)^{n_l}
+    $$
+    *Exemple.*
+    $$
+    \begin{array}{rcl}
+    Q(x) & = & X^3 - X \\
+    & = & X(X^2 - 1) \\
+    & = & \underset{\text{toutes de multiplicité 1}}{X(X - 1)(X + 1)} \\
+    \end{array}
+    $$
+
+    $$
+    \begin{array}{rcl}
+    Q(x) & = & 2X^5 - 2X^2 \\
+    & = & 2(X^5 - X^2) \\
+    & = & 2X^2(X - 1)(X^2 + X + 1) \\
+    \end{array}
+    $$
+
+  - Décomper $P \over Q$
+    Chaque $(X - \alpha_i)^{n_i}$ va donner $m_i$ elements simples de $1^{\text{ère}}$ espèce :
+    $$
+    {\lambda_1 \over (X - \alpha_i)} + {\lambda_2 \over (X - \alpha_i)^2} + \dots + {\lambda_{n_i} \over (X - \alpha_i)^{n_i}}
+    $$
+    et chaque $(X^2 - aB + b)^n$ fait apparaître $n$ éléments simples de $2^{\text{de}}$ espèce
+    $$
+    {u_1X + v_1 \over (X^2 + ax + b)} + {u_2X + v_2 \over (X^2 + ax + b)^2} + \dots + {u_nX + v_n \over (X^2 + ax + b)^n}
+    $$
+
+    *Exemple.*
+    $$Q(X) = X^3 - X = X(X-1)(X+1)$$
+    $${X^2+2X-1 \over X^3-X} = {X^2+2X-1 \over X(X-1)(X+1)} = {\lambda_1 \over X} + {\lambda_2 \over X-1} + {\lambda_3 \over X+1} $$
+
+    *Exemple.*
+    $$
+    \begin{array}{rcl}
+    {X^3 + 1 \over 2X^2(X - 1)(X^2 + X + 1)}  & = & {1 \over 2}({\lambda_1 \over X} + {\lambda_2 \over X^2} + {\lambda_3 \over X - 1} + {aX + b \over X^2 + X + 1}) \\
+    \end{array}
+    $$
+
+    **Comment trouver tous les coefficients ($\lambda_i$ , $aX+b$, etc.) ?**
+
+    Il existe plusieurs méthodes :
+
+    - factoriser et identifier :
 
       *Exemple.*
-
       $$
-      \begin{array}{rl}
-      Q(x)& = & X^3 - X \\
-      & = & X(X^2 - 1) \\
-      & = & \underset{\text{toutes de multiplicité 1}}{X(X - 1)(X + 1)} \\
+      \begin{array}{rcl}
+      {X^2 + 2X - 1 \over X(X - 1)(X + 1)} & = & {\lambda_1 \over X} + {\lambda_2 \over X - 1} + {\lambda_3 \over X + 1} \\
+      & = & {\lambda_1(X-1)(X+1) + \lambda_2X(X+1) + \lambda_3X(X-1) \over X(X-1)(X+1)} \\
+      & = & {(\lambda_1 + \lambda_2 + \lambda_3)X^2 + (\lambda_2 - \lambda_3)X - \lambda_1 \over X(X - 1)(X + 1)}
+      \end{array}
+      $$
+      $$
+      \text{donc}
+      $$
+      $$
+      \left\{\begin{array}{rcl}
+      \lambda_1 + \lambda_2 + \lambda_3 & = & 1\\
+      \lambda_2 - \lambda_3 & = & 2\\
+      \lambda_1 & = & 1
+      \end{array}\right.
+      \Leftrightarrow
+      \left\{\begin{array}{rcl}
+      \lambda_2 & = & -\lambda_3\\
+      \lambda_2 & = & 1\\
+      \lambda_1 & = & 1
+      \end{array}\right.
+      $$
+      $$
+      \text{et}
+      $$
+      $$
+      {X^2+2X-1 \over X(X+1)(X-1)} = {1 \over X} + {1 \over X-1} - {1 \over X+1}
+      $$
+
+    - multiplier et évaluer :
+
+      *Exemple.*
+      $$
+      \begin{array}{rcl}
+      {X^2 + 2X - 1 \over X(X - 1)(X + 1)} & = & {\lambda_1 \over X} + {\lambda_2 \over X - 1} + {\lambda_3 \over X + 1} \\
       \end{array}
       $$
 
-      $$
-      \begin{array}{rl}
-      Q(x) & = & 2X^5 - 2X^2\\
-      & = & 2(X^5 - X^2) \\
-      & = & 2X^2(X - 1)(X^2 + X + 1)
-      \end{array}
-      $$
-
-    - Décomper $P \over Q$
-      Chaque $(X - \alpha_i)^{n_i}$ va donner $m_i$ elements simples de $1^{\text{ère}}$ espèce :
-      $$
-      {\lambda_1 \over (X - \alpha_i)} + {\lambda_2 \over (X - \alpha_i)^2} + \dots + {\lambda_{n_i} \over (X - \alpha_i)^{n_i}}
-      $$
-      et chaque $(X^2 - aB + b)^n$ fait apparaître $n$ éléments simples de $2^{\text{de}}$ espèce
-      $$
-      {u_1X + v_1 \over (X^2 + ax + b)} + {u_2X + v_2 \over (X^2 + ax + b)^2} + \dots + {u_nX + v_n \over (X^2 + ax + b)^n}
-      $$
-
-      *Exemple.*
-      $$Q(X) = X^3 - X = X(X-1)(X+1)$$
-      $${X^2+2X-1 \over X^3-X} = {X^2+2X-1 \over X(X-1)(X+1)} = {\lambda_1 \over X} + {\lambda_2 \over X-1} + {\lambda_3 \over X+1} $$
-
-      *Exemple.*
-      $$
-      \begin{array}{rl}
-      {X^3 + 1 \over 2X^2(X - 1)(X^2 + X + 1)}  & = & {1 \over 2}({\lambda_1 \over X} + {\lambda_2 \over X^2} + {\lambda_3 \over X - 1} + {aX + b \over X^2 + X + 1}) \\
-      \end{array}
-      $$
-
-      **Comment trouver tous les coefficients ($\lambda_i$ , $aX+b$, etc.) ?**
-
-      Il existe plusieurs méthodes :
-
-      - factoriser et identifier :
-
-        *Exemple.*
+      - **Pour $\lambda_1$** :
+        On multiplie par $X$
         $$
-        \begin{array}{rl}
-        {X^2 + 2X - 1 \over X(X - 1)(X + 1)} & = & {\lambda_1 \over X} + {\lambda_2 \over X - 1} + {\lambda_3 \over X + 1} \\
-        & = & {\lambda_1(X-1)(X+1) + \lambda_2X(X+1) + \lambda_3X(X-1) \over X(X-1)(X+1)} \\
-        & = & {(\lambda_1 + \lambda_2 + \lambda_3)X^2 + (\lambda_2 - \lambda_3)X - \lambda_1 \over X(X - 1)(X + 1)}
+        {X^2 + 2X - 1 \over (X - 1)(X + 1)} = \lambda_1 + X({\lambda_2 \over X - 1} + {\lambda_3 \over X + 1})
+        $$
+        Puis on évalue en $0$ :
+        $$
+        {-1 \over (-1)(1)} = \lambda_1 \Rightarrow \boxed{\lambda_1 = 1}
+        $$
+
+      - **Pour $\lambda_2$** :
+        On multiplie par $X-1$
+        $$
+        {X^2 + 2X - 1 \over X(X + 1)} = \lambda_2 + (X-1)(\cdots)
+        $$
+        Puis on évalue en $1$ :
+        $$
+        {2 \over 2} = \lambda_2 \Rightarrow \boxed{\lambda_2 = 1}
+        $$
+
+      - **Pour $\lambda_3$** :
+        On multiplie par $X+1$
+        $$
+        {X^2 + 2X - 1 \over X(X - 1)} = \lambda_3 + (X-1)(\cdots)
+        $$
+        Puis on évalue en $-1$ :
+        $$
+        {-1 \over (-1)(1)} = \lambda_1 \Rightarrow \boxed{\lambda_3 = - 1}
+        $$
+q &
+q &
+      $$
+      {X^2+X+1 \over X^2(X^2+1)} = {\lambda_1 \over X} + {\lambda_2 \over X^2} + {aX+b \over X^2+1}
+      $$
+
+      - **On commence par $\lambda_2$** en multipliant pat $X^2$
+        $$
+        {X^2+X+1 \over (X^2+1)} = \lambda_2 + X^2 \Big({\lambda_1 \over X} + {aX+b \over X^2+1} \Big)
+        $$
+        Et en $0$ : $\boxed{1 = \lambda_2}$
+      - **Pour trouver le $\lambda_1$, on passe le ${\lambda_2 \over X^2}$ de l'autre côté** :
+        $$
+        \begin{array}{lcr}
+        {X^2 + X + 1 \over X^2(X^2 + 1)} - {1 \over X^2} & = & {\lambda_1 \over X} + {aX + b \over X^2 + 1} \\
+        & = & {X \over X^2(X^2 + 1)} \\
+        & = & {1 \over X(X^2 + 1)}
         \end{array}
         $$
+        Donc on a ${1 \over X(X^2+1)} = {\lambda_1 \over X} + {aX+b \over X^2-1}$ et $\boxed{\lambda_1 = 1}$
+      - **Pour $a$ et $b$** on multiplie par $X^2+1$ :
         $$
-        \text{donc}
+        {1 \over X} = aX+b + {X^2+1 \over X}
         $$
+        $i$ est une racine de $X^2 + 1$, on évalue donc en $i$
         $$
-        \left\{\begin{array}{rl}
-        \lambda_1 + \lambda_2 + \lambda_3 & = & 1\\
-        \lambda_2 - \lambda_3 & = & 2\\
-        \lambda_1 & = & 1
-        \end{array}\right.
-        \Leftrightarrow
-        \left\{\begin{array}{rl}
-        \lambda_2 & = & -\lambda_3\\
-        \lambda_2 & = & 1\\
-        \lambda_1 & = & 1
-        \end{array}\right.
+        {1 \over i} = ai+b \Rightarrow -i = ai+b \Rightarrow
+        \begin{cases}
+        a = 1\\
+        b = 0\\
+        \end{cases}
         $$
-        $$
-        \text{et}
-        $$
-        $$
-        {X^2+2X-1 \over X(X+1)(X-1)} = {1 \over X} + {1 \over X-1} - {1 \over X+1}
-        $$
+        Ainsi, ${X^2+X+1 \over X^2(X^2+1)} = {1 \over X} + {1 \over X^2} - {X \over X^2+1}$
 
-
-      - multiplier et évaluer :
-
-        *Exemple.*
-        $$
-        \begin{array}{rl}
-        {X^2 + 2X - 1 \over X(X - 1)(X + 1)} & = & {\lambda_1 \over X} + {\lambda_2 \over X - 1} + {\lambda_3 \over X + 1} \\
-        \end{array}
-        $$
-        - **Pour $\lambda_1$** :
-          On multiplie par $X$
-          $$
-          {X^2 + 2X - 1 \over (X - 1)(X + 1)} = \lambda_1 + X({\lambda_2 \over X - 1} + {\lambda_3 \over X + 1})
-          $$
-          Puis on évalue en $0$ :
-          $$
-          {-1 \over (-1)(1)} = \lambda_1 \Rightarrow \boxed{\lambda_1 = 1}
-          $$
-
-        - **Pour $\lambda_2$** :
-          On multiplie par $X-1$
-          $$
-          {X^2 + 2X - 1 \over X(X + 1)} = \lambda_2 + (X-1)(\cdots)
-          $$
-          Puis on évalue en $1$ :
-          $$
-          {2 \over 2} = \lambda_2 \Rightarrow \boxed{\lambda_2 = 1}
-          $$
-
-        - **Pour $\lambda_3$** :
-          On multiplie par $X+1$
-          $$
-          {X^2 + 2X - 1 \over X(X - 1)} = \lambda_3 + (X-1)(\cdots)
-          $$
-          Puis on évalue en $-1$ :
-          $$
-          {-1 \over (-1)(1)} = \lambda_1 \Rightarrow \boxed{\lambda_3 = - 1}
-          $$
-
-        *Exemple.*
-        $$
-        {X^2+X+1 \over X^2(X^2+1)} = {\lambda_1 \over X} + {\lambda_2 \over X^2} + {aX+b \over X^2+1}
-        $$
-        - **On commence par $\lambda_2$** en multipliant pat $X^2$
-          $$
-          {X^2+X+1 \over (X^2+1)} = \lambda_2 + X^2 \Big({\lambda_1 \over X} + {aX+b \over X^2+1} \Big)
-          $$
-          Et en $0$ : $\boxed{1 = \lambda_2}$
-        - **Pour trouver le $\lambda_1$, on passe le ${\lambda_2 \over X^2}$ de l'autre côté** :
-          $$
-          \begin{array}{lr}
-          {X^2 + X + 1 \over X^2(X^2 + 1)} - {1 \over X^2} & = & {\lambda_1 \over X} + {aX + b \over X^2 + 1} \\
-          & = & {X \over X^2(X^2 + 1)} \\
-          & = & {1 \over X(X^2 + 1)}
-          \end{array}
-          $$
-          Donc on a ${1 \over X(X^2+1)} = {\lambda_1 \over X} + {aX+b \over X^2-1}$ et $\boxed{\lambda_1 = 1}$
-        - **Pour $a$ et $b$** on multiplie par $X^2+1$ :
-          $$
-          {1 \over X} = aX+b + {X^2+1 \over X}
-          $$
-          $i$ est une racine de $X^2 + 1$, on évalue donc en $i$
-          $$
-          {1 \over i} = ai+b \Rightarrow -i = ai+b \Rightarrow
-          \begin{cases}
-          a = 1\\
-          b = 0\\
-          \end{cases}
-          $$
-          Ainsi, ${X^2+X+1 \over X^2(X^2+1)} = {1 \over X} + {1 \over X^2} - {X \over X^2+1}$
-
-          > *Remarque.* Pour trouver les coefficients dans la décomposition en éléments simples, tous les coups sont permis !
+        > *Remarque.* Pour trouver les coefficients dans la décomposition en éléments simples, tous les coups sont permis !
 
 - Il ne reste donc plus qu'à intégrer les éléments simples :
   $$
@@ -398,18 +396,18 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
   \int {dx \over X - \alpha^n}  = ln|X - \alpha_i| + Cte
   $$
 
-  Pour les éléments de seconde espèce, on a besoin de l'$\arctan$ :
+  Pour les éléments de seconde espèce, on a besoin de l' $\arctan$ :
 
-    - fonction réciproque de $\tan$
-    - fonction impaire
-    - $\tan(\arctan\underset{x \in \mathbb{R}}{(x)}) = x$
-    - $\arctan(x) + \arctan({1 \over x}) =
-    \begin{cases}
-    {\pi \over 2} \text{ si } x > 0\\
-    -{\pi \over 2} \text{ si } x < 0\\
-    \end{cases}
-    $
-    - $\arctan'(x) = {1 \over 1+X^2}$
+  - fonction réciproque de $\tan$
+  - fonction impaire
+  - $\tan(\arctan\underset{x \in \mathbb{R}}{(x)}) = x$
+  - $$\arctan(x) + \arctan({1 \over x}) =
+  \begin{cases}
+  {\pi \over 2} \text{ si } x > 0\\
+  -{\pi \over 2} \text{ si } x < 0\\
+  \end{cases}
+  $$
+  - $\arctan'(x) = {1 \over 1+X^2}$
 
   Si on a un élément de seconde espèce :
 
@@ -421,7 +419,7 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
 
   *Exemple.*
   $$
-  \begin{array}{lr}
+  \begin{array}{lcr}
   {X + 1 \over X^2 + 2X + 5} & = & {X + 1 \over (X + 1)^2 - 1 + 5} \\
   & = & {X + 1 \over (X + 1)^2 + 4} \\
   & = & {1 \over 4} {X + 1 \over ({X + 1 \over 2})^2 + 1}
@@ -431,7 +429,7 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
   Donc
 
   $$
-  \begin{array}{ll}
+  \begin{array}{lcl}
   \int_{0}^{1} {X + 1 \over X^2 + 2X - 5}\ dx & = &{1 \over 4}\int_{0}^{1} {X + 1 \over ({X + 1 \over })^2 + 1}\ dx\\
   & = & {1 \over 4} \int_{y(0)}^{y(1)} {2y \over y^2 + 1}\ dy\\
   & = & {1 \over 2} \int_{1 \over 2}^{3 \over 2} {2y \over (y^2 + 1)}\ dy\\
@@ -444,13 +442,13 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
 
   **En général**
   $$
-  \begin{array}{ll}
+  \begin{array}{lcl}
   \int {ay + b \over y^2 + 1}dy & = & {a \over 2}\int {2y \over y^2 + 1}dy + b\int {dy \over y^2 + 1} \\
   & = & {a \over 2}\ln|y^2 + 1| + b \arctan(y) + Cte
   \end{array}
   $$
 
-  > Remarque : $\boxed{\int {dx \over X^2 + a} = {1 \over a} \arctan\Big({X \over a}\Big) + Cte},\ (a > 0)$
+  > Remarque : $\boxed{\int {dx \over X^2 + a} = {1 \over a} \arctan \Big({X \over a}\Big) + Cte},\ (a > 0)$
 
   *Exemple.* $\int_{0}^{1/2} {2X^5+X+1 \over X^3-1}\ dx$
 
@@ -486,20 +484,20 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
         Et
 
         $$
-        \begin{array}{ll}
+        \begin{array}{lcl}
         \int_{0}^{1/2} 2X^2\ dx & = & \Big[{2X^3 \over 3}\Big]^{1/2}_0\\
         & = & {1 \over 12} \\
         \end{array}
         $$
         $$
-        \begin{array}{ll}
+        \begin{array}{lcl}
         \int_{0}^{1/2} {4 \over 3} {dx \over X-1} & = & {4 \over 3} \Big[\ln|X-1|\Big]^{1/2}_0\\
         & = & {4 \over 3} \ln(1-1/2)\\
         & = & -{4 \over 3} \ln(2)
         \end{array}
         $$
         $$
-        \begin{array}{ll}
+        \begin{array}{lcl}
         \int_{0}^{1/2} {(2X+1)dx \over X^2+X+1} & = & \int_{0}^{1/2} {(2X+1)dx \over (X+1/2)^2 + 3/4}\\
         & = & \int_{y(0)}^{y(1/2)} {2y\ dy \over y^2+3/4}\\
         & = & \int_{1/2}^{1} {2y\ dy \over y^2 + 3/4}\\
@@ -511,7 +509,7 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
 
         Ainsi,
         $$
-        \begin{array}{lr}
+        \begin{array}{lcr}
         \int_{0}^{1 \over 2} f(x)dx & = & {1 \over 12} - {4 \over 3}ln(2) + {1 \over 3}(ln(7) - 2ln(2)) \\
         & = & \boxed{{1 \over 12} + {1 \over 3}ln(7) - 2ln(2)}
         \end{array}
@@ -519,16 +517,16 @@ Donc $\boxed{J = {\pi^2 \over 4} - 1}$
 
 ## 6 ) Integrales generalisées
 
-**Définition** $f : \left\{\begin{array}{rl} [a ,b[ & \rightarrow & \mathbb{R}\end{array}\right.$ continue (par morceaux) où $b \int \mathbb{R} \cup \{+ \infty\}$
-On dit que l'intégrale $\\int_{a}^{b} f(t) dt$ **converge** si $\\int_{a}^{x} f(t) dt$ converge quand $x \rightarrow b^{-}$.
+**Définition** $f : \left\{\begin{array}{rcl} [a ,b[ & \rightarrow & \mathbb{R}\end{array}\right.$ continue (par morceaux) où $b \int \mathbb{R} \cup \{+ \infty\}$
+On dit que l'intégrale $\int_{a}^{b} f(t) dt$ **converge** si $\int_{a}^{x} f(t) dt$ converge quand $x \rightarrow b^{-}$.
 On a la même des à gauche pour $F : ]a, b] \rightarrow \mathbb{R}$ avec $a \in \mathbb{R} \cup \{-\infty\}$
 
-*Exemple.* Soit $f : \left\{\begin{array}{rl} [1,+\infty[ & \rightarrow & \mathbb{R}\\X & \mapsto & 1/X^2\end{array}\right.$, est-ce que $\int_{1}^{+\infty} {dX \over X^2}$ converge ?
+*Exemple.* Soit $f : \left\{\begin{array}{rcl} [1,+\infty[ & \rightarrow & \mathbb{R}\\X & \mapsto & 1/X^2\end{array}\right.$, est-ce que $\int_{1}^{+\infty} {dX \over X^2}$ converge ?
 
   Soit $X > 1$,
 
   $$
-  \begin{array}{ll}
+  \begin{array}{lcl}
   \int_{1}^{X} {dt \over t^2} & = & \big[-{1 \over t}\big]^X_1\\
   & = & -{1 \over X} + 1 \xrightarrow[X \to +\infty]{} 1\\
   \end{array}
@@ -541,7 +539,7 @@ On a la même des à gauche pour $F : ]a, b] \rightarrow \mathbb{R}$ avec $a \in
   Soit $X > 1$,
 
   $$
-  \begin{array}{ll}
+  \begin{array}{lcl}
   \int_{1}^{X} {dt \over t} & = & \big[\ln(t)\big]^X_1\\
   & = & \ln(X) \xrightarrow[X \to +\infty]{} +\infty\\
   \end{array}
@@ -552,16 +550,109 @@ On a la même des à gauche pour $F : ]a, b] \rightarrow \mathbb{R}$ avec $a \in
 *Exemple.* $\int_{0}^{1} {dt \over t^2}$ cv ?
 Soit $x \in ]0, 1[$
 $$
-\begin{array}{lr}
+\begin{array}{lcr}
 \int_{x}^{1} {dt \over t^2} =
+\end{array}
 $$
 
 *Exemple.* $\int_{0}^{1} {dt \over \sqrt{t}}$ cv ?
 Soit $x \in ]0, 1[$
 
+*Exemple.* Est ce que $\int_{0}^{1} {ln(t) \over t} dt$ cv ?
+Soit $\epsilon \in ]0, 1[$,
+$$
+\int_{\epsilon}^{1} {ln(t) \over t} dt = [{1\over 2}(ln(t))^2]^1_\epsilon = -{1 _over 2} ln(\epsilon)^2 \xrightarrow[\epsilon \to 0]{} -\infty
+$$
+Donc $\int_{0}^{1} {ln(t) \over t} dt$ diverge.
 
+Soit $A>0$,
 
+$$
+\begin{array}{lcl}
+\int_{0}^{A} e^{-\lambda t} dt & = & \Big[-{e^{-\lambda t} \over \lambda}\Big]_0^A\\
+ & = & -{e^{-\lambda A} \over \lambda} + {1 \over \lambda} \xrightarrow[A \to +\infty]{} {1 \over \lambda}\\
+\end{array}
+$$
 
+Donc $\boxed{\int_{0}^{+\infty} e^{-\lambda t} dt}$
 
+**Définition.** $f : ]a,b[ \rightarrow \mathbb{R}$ continue (par morceaux) avec $a \in \mathbb{R} \cup \{-\infty\}$ et $b \in ]a,+\infty[ \cup \{+\infty\}$. On dit que $\int_{a}^{b} f(t) dt$ converge si $\exists c \in ]a, b[$ tq $\int_{a}^{c} f(t) dt$ CV et $\int_{c}^{b} f(t) dt$ CV.
 
-.
+*Exemple.*
+$$
+\int_{0}^{+ \infty} {dt \over t^2} = \stackrel{??}{\int_{0}^{1} {dt \over t^2}}  + \stackrel{CV}{\int_{1}^{+ \infty} {dt \over t^2}}
+$$
+
+Problème en $0$ et $+\infty$ !
+
+Est ce que $\int_{0}^{1} {dt \over t^2}$ CV ?
+Soit $x \in ]0, 1[$,
+$$
+\int_{x}^{1} {dt \over t^2} = [{-1 \over t}]^1_x = -1 + {1 \over x} \xrightarrow[x \to 0]{} + \infty
+$$
+
+Donc $\int_{0}^{1} {dt \over t^2}$ DV et $\int_{0}^{+\infty} {dt \over t^2}$ DV.
+
+*Exemple.*
+$$
+\int_{0}^{+ \infty} cos(t) dt
+$$
+
+Soit $A>0$,
+
+$$
+\begin{array}{lcl}
+\int_{0}^{A} \cos(t) dt & = & \Big[\sin(t)\Big]_0^A\\
+ & = & \sin(A)\\
+\end{array}
+$$
+
+or $A \mapsto sin(A)$ n'a pas de limite quand $A \rightarrow + \infty$. Donc $\int_{0}^{+ \infty} cos(t) dt$ ne CV pas.
+
+> **Attention.** Ne pas converger ne veut pas dire $\rightarrow +\infty$ ou $-\infty$ !
+
+> *Remarque.* Par contre si $f \geq 0$, $\int_{a}^{b} f(t) dt$ CV ou est $+ \infty$
+
+![Schéma de l'aire sous une courbe entre 1 et A]()
+
+**Définition.** $f :]a, b[ \rightarrow \mathbb{R}$ continue (par morceaux).
+On dit que f est **integrable** (sur $]a, b[$) si $\int_{a}^{b} |f(t)| dt$ CV.
+
+**Proposition** Si $f$ est integrable sur $]a, b[$, alors $\int_{a}^{b} f(t) dt$ CV et $|\int_{a}^{b} f(t) dt| \leq \int_{a}^{b} |f(t)| dt$
+
+> **Attention.** Si $\int_{a}^{b} f(t) dt$ CV, on n'a pas forcément $f$ intégrable !
+>
+> intégrable $\Rightarrow$ CV mais CV $\nRightarrow$ intégrable
+
+*Exemple.* $t \mapsto {\sin(t) \over t}$ n'est pas intégrable mais $\int_{0}^{+\infty} {\sin(t) \over t} dt$ CV.
+
+En général, pour montrer qu'une intégrale CV, on essaie de montrer que la fonction est intégrable en utilisant par exemple le résultat de comparaison suivant :
+
+**Théorème.** (comparaison)
+Soit $f : ]a, b[ \rightarrow \mathbb{R}$ et $g : ]a, b[ \rightarrow \mathbb{R}$.
+On suppose que $f$ et $g$ sont à valeurs positive et que $\forall x \in ]a, b[, f(x) \leq g(x)$ :
+
+- Si $\int_{a}^{b} g(t) dt$ CV, alors $\int_{a}^{b} f(t) dt$ CV et $\int_{a}^{b} f(t) dt \leq \int_{a}^{b} g(t) dt$
+- Si $\int_{a}^{b} f(t) dt$ DV, alors $\int_{a}^{b} g(t) dt$ DV.
+
+![Schéma des courbes des fonctions f et g]()
+
+*Exemple.* Soit $f(t) = {1+\cos(t)^2+\sin(t) \over t^2}$, est-ce que $\int_{1}^{+\infty} f(t) dt$ CV ?
+
+Essayons de voir si $f$ est integrable :
+$$
+\begin{array}{rcl}
+|f(t)| & = & {|1 + cos^2(t) + sin(t)| \over t^2}\\
+ & \leq & {|1| + |cos^2(t)| + |sin(t)| \over t^2}\\
+ & \leq & {\epsilon \over t^2}
+\end{array}
+$$
+or $\int_{1}^{+ infty} {3dt \over t^2}$ CV
+Donc $f$ est intégrable et $\int_{1}^{+\infty} f(t) dt$ CV
+
+**Propriété. Intégrales de Riemann.**
+
+- $\int_{1}^{+\infty} {dt \over t^\alpha}$ CV ssi $\alpha > 1$
+- $\int_{0}^{1} {dt \over t^\alpha}$ CV ssi $\alpha < 1$
+
+*Exemple important.* $\int_{0}^{+\infty} e^{-\lambda t} dt$ CV ssi $\lambda > 0$
