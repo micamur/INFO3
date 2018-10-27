@@ -204,7 +204,7 @@ Bijection $\begin{cases}
 $$
 \begin{cases}
 j \text{ entier entre } 2 \text{ et } N\\
-i \text{ vaut } T[j]\\
+T[i] \text{ vaut } T[j]\\
 Clef \text{ vaut } T[j]\\
 T \text{ contient } \{\overline{t_1},\dots,\overline{t_n}\}
 \end{cases}
