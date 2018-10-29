@@ -16,12 +16,13 @@ do
 
   else
     echo "File $f found"
-    pandoc $f -o `basename $f md`pdf $OPTIONS
+    OUT="${f%%.*}.pdf"
+    pandoc $f -o $OUT $OPTIONS
 
     if (($? == 0))
     then
-      git add $f `basename $f md`pdf
-      echo "Files $f and `basename $f md`pdf added"
+      git add $f $OUT
+      echo "Files $f and $OUT added"
     fi
   fi
 done
