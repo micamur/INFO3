@@ -396,7 +396,7 @@ x_k \neq 0\\
 
 D'où $0 + 1.b^k \leq \underbrace{\sum\limits_{i=0}^k x_ib^i} \leq \sum\limits_{i=0}^{k} (b-1)b^i\ (=b^{k + 1} - 1 < b^{k + 1})$ or,
 $$
-\begin{array}{ll}
+\begin{array}{lcl}
 \sum\limits_{i=0}^k (b-1)b^i & = & (b-1) + (b^2 - b) + (b^3 - b^2) + \dots + (b^{k + 1} - b^k)\\
 & = & b^{k + 1} - 1 \text{ (somme télescopique) }\\
 \end{array}
@@ -414,5 +414,3 @@ Donc la taille de $n$ en base $b$ est $\boxed{1 + \lfloor \log_bn \rfloor}$.
 
 *Exemple.* On veut écrire le nombre d'humains sur Terre (environ 7 milliards = $7 \times 10^9$) sur des bits, cherchons de combien de bits on a besoin :
 $$\log_2(7 \times 10^9) = \log_2(7) + \log_2(10^9) \approx 3 + 30\ (= 33)$$
-
-# 2) Fonctions et codage
