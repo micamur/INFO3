@@ -182,13 +182,13 @@
 # Arrays
   'Equation system':
     'prefix': 'sys'
-    'body': '\\\\left\\\\{\\\\begin{array}{rl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}\\\\right.$0'
+    'body': '\\\\left\\\\{\\\\begin{array}{lcl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}\\\\right.$0'
   'Equation system without {}':
     'prefix': 'syssimple'
-    'body': '\\\\begin{array}{ll}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}$0'
+    'body': '\\\\begin{array}{lcl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}$0'
   'Function':
     'prefix': 'fun'
-    'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{rl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
+    'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{lcl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
   'Cases':
     'prefix': 'cases'
     'body': '\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}$0'
