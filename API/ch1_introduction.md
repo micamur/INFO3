@@ -2,6 +2,13 @@
 % Georges-Pierre BONNEAU (cours) - Mica MURPHY (note) - Antoine SAGET (note)
 % Lundi 1er Octobre 2018
 
+# 0. Informations pratiques
+
+- Évaluation
+  - Théorique : examen final
+  - Pratique : TPs et projet
+  - Note finale : ${2 \over 3}E + {1 \over 3}\big[{1 \over 2}(TP + P)\big]$
+
 # 1. Centralisation des ressources
 
 **Unix** : système d'exploitation de ressources informatiques amenées à être partagées
