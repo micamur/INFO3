@@ -9,7 +9,7 @@ Discret est l'opposé de continu, et il peut y avoir un nombre fini ou infini de
 # 1) Mots
 
 ## a) Alphabets et mots
- 
+
 **Définition.** Un **alphabet** est un ensemble fini de symboles.
 
 *Exemples.*
@@ -390,4 +390,29 @@ x_k \neq 0\\
 
 *Notation.* On écrit $(x_k \dots x_0)_b$ pour noter la base
 
-**Définition.** si $b^k \leq n < b^{k + 1}$ alors **la taille de n en base $b$** est le nombre de chiffres qu'il faut pour l'écrire en base $b$, ici $k + 1$.
+**Définition.** Si $b^k \leq n < b^{k + 1}$ alors **la taille de $n$ en base $b$** est le nombre de chiffres qu'il faut pour l'écrire en base $b$, ici $k + 1$.
+
+*Démonstration.* Chaque $x_i$ est compris entre $0$ et $b - 1$ et $x_k \geq 1$.
+
+D'où $0 + 1.b^k \leq \underbrace{\sum\limits_{i=0}^k x_ib^i} \leq \sum\limits_{i=0}^{k} (b-1)b^i\ (=b^{k + 1} - 1 < b^{k + 1})$ or,
+$$
+\begin{array}{ll}
+\sum\limits_{i=0}^k (b-1)b^i & = & (b-1) + (b^2 - b) + (b^3 - b^2) + \dots + (b^{k + 1} - b^k)\\
+& = & b^{k + 1} - 1 \text{ (somme télescopique) }\\
+\end{array}
+$$
+
+> *Rappel.* $\sum\limits_{i=0}^{k} b^i = {b^{k+1} - 1 \over b - 1}$
+
+On appelle $\log_b$ (logarithme en base b) une fonction croissante sur $\mathbb{R}^*_+$ telle que $\log_b(b^k) = k$.
+
+On peut la définir par $\boxed{\log_b x = {\ln x \over \ln b}}$.
+
+Alors immédiatement, si $n$ s'écrit sur $k + 1$ chiffres en base $b$, alors $k = \lfloor \log_bn \rfloor$.
+
+Donc la taille de $n$ en base $b$ est $\boxed{1 + \lfloor \log_bn \rfloor}$.
+
+*Exemple.* On veut écrire le nombre d'humains sur Terre (environ 7 milliards = $7 \times 10^9$) sur des bits, cherchons de combien de bits on a besoin :
+$$\log_2(7 \times 10^9) = \log_2(7) + \log_2(10^9) \approx 3 + 30\ (= 33)$$
+
+# 2) Fonctions et codage
