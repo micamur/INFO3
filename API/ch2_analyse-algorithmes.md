@@ -209,7 +209,14 @@ Pour k allant de p à r:
 - G = {$1,3,4,8,+\infty$} et D = {$2,5,6,9,11,+\infty$}
 - $k$ de $1$ à $9$ : {$1,2,3,4,5,6,8,9,11$}
 
-
+\begin{algorithm}
+$n \leftarrow0 $ \;
+$u \leftarrow 3081,45 $ \;
+\Tq{$u<k$}{
+$u \leftarrow 1,04 \times u $ \;
+$n \leftarrow n+1 $ \;
+}
+\end{algorithm}
 
 
 
