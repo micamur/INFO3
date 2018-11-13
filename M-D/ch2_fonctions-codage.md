@@ -116,6 +116,112 @@ Autrement dit $Im(f) = Y$
 
 **Propriété.** Si **il existe une surjection** de $X$ vers $Y$, alors $\boxed{card\ X \geq card\ Y}$
 
+**Propriété.** Une fonction est une **bijection** ssi elle est à la dois une injection et une surjection.
+
+> _Remarque._ Cette propriété est principalement utilisée pour montrer qu'une fonction n'est pas une bijection
+
+*Exemples.*
+- $\sin : \mathbb{R} \rightarrow [-1; 1]$ n'est pas une bijection car elle n'est pas injective : $sin(\pi) = sin(0)$
+- $\sin : [-{\pi \over 2};{\pi \over 2}] \rightarrow \mathbb{R}$ n'est pas une bijection car elle n'est pas surjective : $2$ n'a pas d'antécédent
+- $\sin : [-{\pi \over 2};{\pi \over 2}] \rightarrow [-1; 1]$ est une bijection
+
+# 2) Codes
+
+## a) Définitions
+
+Soient $A$ et $B$ deux alphabets.
+
+Un **code** ou **codage** de $A$ vers $B$ est une fonction $C : A^* \rightarrow  B^*$
+(ou éventuellement $C : X \rightarrow Y$ avec $X \subseteq A^*$ et $Y \subseteq B^*$)
+
+*Exemple.*
+Numéro de sécurité sociale : $2,\ 53,\ 07,\ 75,\ 073,\ 004,\ 83$ :
+$13$ chiffres signifiants + clé sur $2$ chiffres
+
+$K : \{0, \dots, 9\}^{13} \rightarrow \{0, 9\}^2$
+$K(x)$ est calculé tel que : $x + K(x)$ soit divisible par $97$ **et** $K(x) < 97$ (pour que $K$ soit une fonction)
+
+> *Remarque.* 97 est le plus grand nombre premier sur 2 digits
+
+Si on cherche à **retrouver** l'information $x$ à partir de son code $C(x)$, il **faut** que $C$ soit injective (sinon il y a ambiguïté au moment du décodage).
+
+*Exemple.* Somme de contrôle ($MD5$, $CRC$, ...) pour de gros fichiers. Ce n'est pas un code injectif.
+
+## b) Communications
+
+```
+                    |------canal-------|
+message  > encodage >      >>>>>       > décodage > message
+                    |------------------|
+     émetteur       |  message encodé  |      récepteur
+```
+
+Plusieurs propriétés peuvent être demandées à l'encodage :
+1. Peu gourmand en longueur de message : code **compresseur**
+2. Confidentialité : code **secret**
+3. code **détecteur ou correcteur d'erreurs** pour compenser les imperfections du canal
+
+En général, on applique ces 3 étapes :
+- dans cet ordre à la compression
+- dans le sens inverse à la réception
+
+## c) Codes alphabétiques
+
+Pour définir un code **alphabétique**, on part d'une fonction $C : A \rightarrow  B^*$ et on prolonge $C$ sur $A^*$ de sorte que $C(a_1a_2 \dots a_n) = C(a_1)C(a_2)\dots C(a_n)$
+
+Autrement dit $C$ est un **homomorphisme de monoïdes** de $(A^*, . )$ vers $(B^*, .)$
+
+*Exemple.* Code morse : $\{A,B,\dots,Z,0,1,\dots,9\} \rightarrow \{\cdot, -\}$ avec par exemple $M(S) = ---$ et $M(O) = \cdot \cdot \cdot$ d'où $M(SOS) = --- \cdot \cdot \cdot ---$, mais $M(E) = \cdot$, d'où ambiguïté $M(O) = M(EEE)$. En fait on ajoute une pause entre les caractères qui doit être considéré comme un troisième symbole (on peut le noter $|$).
+
+*Exemple.* Code ASCII $\{A, \dots, Z, a, \dots, z, 0, \dots, 9, +, -, /, *, :, ;, ,, ., \dots\} \rightarrow \{0, 1\}^7$
+
+Il est clairement injectif car chaque groupe de 7 bits code un caractère
+
+# 3) Codes compresseurs
+
+L'idée est de construire un code alphabétique efficace en donnant un code plus court aux symboles les plus fréquents.
+
+Pour faciliter le décodage, on construira un code **préfixe** : un code tel que $\forall x, y \in A, C(x) \not \sqsubseteq C(y)$
+
+*Exemple.*
+- $f: \{a,b,c\} \rightarrow {0,1}^*$, $f(a) = 0$, $f(b) = 10$, $f(c) = 110$ est un code préfixe
+- $g: \{a,b,c\} \rightarrow {0,1}^*$, $g(a) = 01$, $g(b) = 010$, $g(c) = 110$ n'est pas un code préfixe car $g(a) \sqsubseteq g(b)$
+
+**Propriété.** $\boxed{\text{Tout code préfixe est injectif}}$
+
+## Algorithme de **Huffman**
+
+Soit un alphabet $A$ où chaque symbole  $x$ est associé à un poids $p(x)$ qui est sa fréquence (ou son nombre d'occurences dans le texte à code)
+
+L'agorithme de Huffman va produire le code préfixe alphabétique **le plus court** pour cet alphabet.
+
+On va contruire un **arbre de codage** :
+- Initialement, on construit une feuille pour **chaque** symbole $x$ affectée du poids $p(x)$
+- Tant qu'il reste plus d'un nœud sans père :
+  - Soient $x$ et $y$ les deux nœuds de poids minimal
+  - Construire un nouveau nœud $n$ dont :
+    - les fils sont $x$ et $y$
+    - le poids $p(n) = p(x) + p(y)$
+
+Le code d'un symbole $x$ est le chemin de la racine à la feuille qui porte $x$ avec comme valeur $0$ lorsqu'on passe à gauche et $1$ lorsqu'on passe à droite.
+- Si $p(x) \geq p(y)$ alors le code de $x$ est plus court que celui de $y$
+- C'est un code préfixe car tous les symboles sont dans des feuilles
+
+## Codage et décodageage
+
+> **Attention.** Cet algorithme peut produire des codes très variés pour le même alphabet.
+
+En général on transmet le message compressé  + la table des codes.
+
+**Codage :** évident : il suffit de concaténer les codes des symboles du message initial : $C(bbad) = 0000001001$
+
+**Décodage :** on utilise l'arbre (comme un automate)
+- à chaque bit lu, on suit une branche de l'arbre
+- à chaque fois qu'on arrive sur une feuille, on écrit le symbole correspondant et on repart de la racine pour la suite
+
+
+
+
 
 
 
