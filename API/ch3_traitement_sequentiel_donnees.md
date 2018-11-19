@@ -1,4 +1,4 @@
-FinDeSéque% Chapitre 3 - Traitement séquentiel des données
+% Chapitre 3 - Traitement séquentiel des données
 % Georges-Pierre BONNEAU (cours) - Mica MURPHY (note) - Antoine SAGET (note)
 % Lundi 12 Novembre 2018
 
@@ -148,7 +148,9 @@ La séquence de caractères est données en **Modèle 1**, pour y accéder on a 
 - `ECCar`
 - `FdSCar`
 
-Séquence des longueurs des motes en **Modèle 1** et **2** :
+Séquence des longueurs des mots en **Modèle 1** et **2** :
+
+#### Modèle 1
 
 ```
 ___--____------__----_____
@@ -168,7 +170,7 @@ ___--____------__----_____
 ei
 ef
 
-IgnorerEspace : une action
+IgnorerEspaces : une action
 {État initial : FdSCar ou alors ECCar est le i-ème caractère}
 {État final : FdSCar ou alors ECCar est la 1ère leetre dut mot suivant}
 
@@ -198,6 +200,128 @@ CalculerLongueur : une action (le résultat Long : un entier)
 }
 ```
 
+```
+Variables partagées par DemLong, AvLong, ECLong, et FdSLong :
+{Lexique :
+  - FinLong : un booléen
+  - Long : un entier
+}
+```
+
+```
+DemLong : une action
+{État initial : indifférent}
+{État final :
+  - FinLong
+  OU
+  - Long est la longueur du 1er mot ET (FdsCar OU ECCar est l'espace suivant le 1er mot)
+}
+
+{Algorithme :
+  DemCar
+  IgnorerEspaces
+  Selon FdSCar :
+    - FdSCar : FinLong <- vrai
+    - Non FdSCar :
+        CalculerLong(Long)
+        FinLong <- faux
+}
+```
+
+```
+AvLong : une action
+{État initial :
+  - Non FinLong ET Long est la longueur du i-ème mot
+  ET
+  - FdSCar ou ECCar est l'espaec suivant le i-ème mot
+}
+{État final :
+  - FinLong
+  OU
+  - Long est la longueur du (i + 1)-ème mot ET (FdsCar OU ECCar est l'espace suivant le (i + 1)-ème mot)
+}
+
+{Algorithme :
+  IgnorerEspaces
+  Selon FdSCar :
+    - FdSCar : FinLong <- vrai
+    - Non FdSCar :
+        CalculerLong(Long)
+        FinLong <- faux
+}
+```
+
+```
+ECLong : la fonction -> un entier
+{Algorithme : retourne (Long)}
+```
+
+```
+FdSLong : la fonction -> un booléen
+{Algorithme : retourne (FinLong)}
+```
+
+Calcul de la somme des longueurs des mots :
+
+```
+{Lexique : Somme : un entier}
+
+{Algorithme :
+  DemLong
+  Somme <- 0
+
+  Tant que Non FdSLong :
+    Somme <- Somme + ECLong
+    AvLong
+}
+```
+
+#### Modèle 2
+
+La séquence des caractère est toujours en modèle 1
+
+On cherche à créer les fonctions `InitLong`, `AvLong`, `ECLong`, `EstDernierLong`
+
+```
+Variables partagées par InitLong, AvLong, ECLong, et EstDernierLong :
+{Lexique : Long : un entier}
+```
+
+```
+InitLong : une action
+{État initial : indifférent}
+{État final : FdSCar OU ECCar est la 1ère lettre du 1er mot}
+
+{Algorithme :
+  DemCar
+  IgnorerEspaces
+}
+```
+
+```
+AvLong : une action
+{État initial : Non FdSCar ET ECCar est la 1ère lettre du i-ème mot}
+{État final :
+  - Long vaut la longueur du i-ème mot
+  ET
+  - FdSCar OU (ECCar est la 1ère lettre du (i + 1)-ème mot)
+}
+
+{Algorithme :
+  CalculerLongueur(Long)
+  IgnorerEspaces
+}
+```
+
+```
+ECLong : une fonction -> entier
+{Algorithme : retourner (Long)}
+```
+
+```
+EstDernierLong : une fonction -> un booléen
+{Algorithme : retourner (FdSCar)}
+```
 
 
 
