@@ -178,6 +178,15 @@
   'sin':
     'prefix': 'sin'
     'body': '\\\\sin($1)$0'
+  'lambda':
+    'prefix': 'lambd'
+    'body': '\\\\lambda'
+  'epsilon':
+    'prefix': 'epsilo'
+    'body': '\\\\epsilon'
+  'vertical bar':
+    'prefix': '|'
+    'body': '\\\\ |\\\\ '
 
 # Arrays
   'Equation system':
@@ -194,18 +203,69 @@
     'body': '\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}$0'
 
 # Matrices
-  'Matrix []':
-    'prefix': 'matrix[]'
-    'body': '\\\\begin{bmatrix}\n$1 & $2\\\\\\\\\n\\\\end{bmatrix}$0'
-  'Matrix ()':
-    'prefix': 'matrix()'
-    'body': '\\\\begin{pmatrix}\n$1 & $2\\\\\\\\\n\\\\end{pmatrix}$0'
-  'Matrix ||':
-    'prefix': 'matrix||'
-    'body': '\\\\begin{vmatrix}\n$1 & $2\\\\\\\\\n\\\\end{vmatrix}$0'
-  'Matrix {}':
-    'prefix': 'matrix{}'
-    'body': '\\\\begin{Bmatrix}\n$1 & $2\\\\\\\\\n\\\\end{Bmatrix}$0'
+  'Matrix':
+    'prefix': 'matrix'
+    'body': '\\\\mathcal{M}_n(\\\\mathbb{R})'
+  'Matrix 2x1 []':
+    'prefix': 'matrix21[]'
+    'body': '\\\\begin{bmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n\\\\end{bmatrix}$0'
+  'Matrix 2x1 ()':
+    'prefix': 'matrix21()'
+    'body': '\\\\begin{pmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n\\\\end{pmatrix}$0'
+  'Matrix 2x1 ||':
+    'prefix': 'matrix21||'
+    'body': '\\\\begin{vmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n\\\\end{vmatrix}$0'
+  'Matrix 2x1 {}':
+    'prefix': 'matrix21{}'
+    'body': '\\\\begin{Bmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n\\\\end{Bmatrix}$0'
+  'Matrix 3x1 []':
+    'prefix': 'matrix31[]'
+    'body': '\\\\begin{bmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n$3 \\\\\\\\\n\\\\end{bmatrix}$0'
+  'Matrix 3x1 ()':
+    'prefix': 'matrix31()'
+    'body': '\\\\begin{pmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n$3 \\\\\\\\\n\\\\end{pmatrix}$0'
+  'Matrix 3x1 ||':
+    'prefix': 'matrix31||'
+    'body': '\\\\begin{vmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n$3 \\\\\\\\\n\\\\end{vmatrix}$0'
+  'Matrix 3x1 {}':
+    'prefix': 'matrix31{}'
+    'body': '\\\\begin{Bmatrix}\n$1 \\\\\\\\\n$2 \\\\\\\\\n$3 \\\\\\\\\n\\\\end{Bmatrix}$0'
+  'Matrix 2x2 []':
+    'prefix': 'matrix22[]'
+    'body': '\\\\begin{bmatrix}\n$1 & $2 \\\\\\\\\n$3 & $4 \\\\\\\\\n\\\\end{bmatrix}$0'
+  'Matrix 2x2 ()':
+    'prefix': 'matrix22()'
+    'body': '\\\\begin{pmatrix}\n$1 & $2 \\\\\\\\\n$3 & $4 \\\\\\\\\n\\\\end{pmatrix}$0'
+  'Matrix 2x2 ||':
+    'prefix': 'matrix22||'
+    'body': '\\\\begin{vmatrix}\n$1 & $2 \\\\\\\\\n$3 & $4 \\\\\\\\\n\\\\end{vmatrix}$0'
+  'Matrix 2x2 {}':
+    'prefix': 'matrix22{}'
+    'body': '\\\\begin{Bmatrix}\n$1 & $2 \\\\\\\\\n$3 & $4 \\\\\\\\\n\\\\end{Bmatrix}$0'
+  'Matrix 3x3 []':
+    'prefix': 'matrix33[]'
+    'body': '\\\\begin{bmatrix}\n$1 & $2 & $3 \\\\\\\\\n$4 & $5 & $6 \\\\\\\\\n$7 & $8 & $9 \\\\\\\\\n\\\\end{bmatrix}$0'
+  'Matrix 3x3 ()':
+    'prefix': 'matrix33()'
+    'body': '\\\\begin{pmatrix}\n$1 & $2 & $3 \\\\\\\\\n$4 & $5 & $6 \\\\\\\\\n$7 & $8 & $9 \\\\\\\\\n\\\\end{pmatrix}$0'
+  'Matrix 3x3 ||':
+    'prefix': 'matrix33||'
+    'body': '\\\\begin{vmatrix}\n$1 & $2 & $3 \\\\\\\\\n$4 & $5 & $6 \\\\\\\\\n$7 & $8 & $9 \\\\\\\\\n\\\\end{vmatrix}$0'
+  'Matrix 3x3 {}':
+    'prefix': 'matrix33{}'
+    'body': '\\\\begin{Bmatrix}\n$1 & $2 & $3 \\\\\\\\\n$4 & $5 & $6 \\\\\\\\\n$7 & $8 & $9 \\\\\\\\\n\\\\end{Bmatrix}$0'
+  'Matrix 4x4 []':
+    'prefix': 'matrix44[]'
+    'body': '\\\\begin{bmatrix}\n$1 & $2 & $3 & $4 \\\\\\\\\n$5 & $6 & $7 & $8 \\\\\\\\\n$9 & $10 & $11 & $12 \\\\\\\\\n$13 & $14 & $15 & $16\n\\\\end{bmatrix}$0'
+  'Matrix 4x4 ()':
+    'prefix': 'matrix44()'
+    'body': '\\\\begin{pmatrix}\n$1 & $2 & $3 & $4 \\\\\\\\\n$5 & $6 & $7 & $8 \\\\\\\\\n$9 & $10 & $11 & $12 \\\\\\\\\n$13 & $14 & $15 & $16\n\\\\end{pmatrix}$0'
+  'Matrix 4x4 ||':
+    'prefix': 'matrix44||'
+    'body': '\\\\begin{vmatrix}\n$1 & $2 & $3 & $4 \\\\\\\\\n$5 & $6 & $7 & $8 \\\\\\\\\n$9 & $10 & $11 & $12 \\\\\\\\\n$13 & $14 & $15 & $16\n\\\\end{vmatrix}$0'
+  'Matrix 4x4 {}':
+    'prefix': 'matrix44{}'
+    'body': '\\\\begin{Bmatrix}\n$1 & $2 & $3 & $4 \\\\\\\\\n$5 & $6 & $7 & $8 \\\\\\\\\n$9 & $10 & $11 & $12 \\\\\\\\\n$13 & $14 & $15 & $16\n\\\\end{Bmatrix}$0'
 
 # Type only the letter(s), not the symbol or the end will be doubled:
   'big ()':
