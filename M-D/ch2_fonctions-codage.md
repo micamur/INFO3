@@ -207,7 +207,7 @@ Le code d'un symbole $x$ est le chemin de la racine à la feuille qui porte $x$ 
 - Si $p(x) \geq p(y)$ alors le code de $x$ est plus court que celui de $y$
 - C'est un code préfixe car tous les symboles sont dans des feuilles
 
-## Codage et décodageage
+## Codage et décodage
 
 > **Attention.** Cet algorithme peut produire des codes très variés pour le même alphabet.
 
@@ -218,6 +218,93 @@ En général on transmet le message compressé  + la table des codes.
 **Décodage :** on utilise l'arbre (comme un automate)
 - à chaque bit lu, on suit une branche de l'arbre
 - à chaque fois qu'on arrive sur une feuille, on écrit le symbole correspondant et on repart de la racine pour la suite
+
+# 4) Codes détecteurs et correcteurs d'erreur
+
+**Principe :**
+```
+mot u -codage-> mot v codé --transmission--> mot w codé avec erreur --> v --> u
+        émetteur           |---------------|              récepteur
+```
+
+**Idée :** ajouter dans le message de la **redondance** pour pouvoir reconstituer `u` malgré certaines erreurs de transmission
+
+*Exemple.* Numéros avec "clé" numéro de Sécurité Sociale, RIB, code-barres
+
+*Exemple.* Codes à répétition : on répéte chaque bit $k$ fois.
+- Si $k = 2$ : on peut détecter (mais pas corriger) une erreur sur 2 bits consécutifs
+- Si $k = 3$ : on peut corriger 1 erreur sur 3 bits par une règle de majorité
+
+*Exemple subtil.* Bit de parité : pour chaque groupe de $k$ bits on rajoute 1 bit égal à leur "ou exclusif"
+Il y a alors un nombre pair de 1. Une erreur parmi $k$ bits est détectée car elle donne un nombre impair de 1
+
+**Application** ASCII sur 7 bits + 1 bit de parité
+
+**Hypothèse** Aucun bit n'est perdu ou ajouté, la seule erreur possible est l'échange d'un 1 en 0 ou d'un 0 et 1. De plus en général on suppose un certain taux d'erreurs maximal (1 erreur pour k bits transmis).
+
+## Notion de distance minimale d'un code.
+
+Soit $C : A^* \rightarrow B^*$. La distance minimale de $C$, notée $d_C$ est la plus petite distance entre deux mots $C(a_1)$ et $C(a_2)$ pour $a_1$ et $a_2$ dans $A^*$. Elle vaut toujours au moins $1$ (sinon $C$ est ambigü).
+
+De plus,
+- on peut détecter une erreur ssi $d_C \ge 2$ et on peut corriger une erreur ssi $d_C \ge 3$.
+- on peut corriger une erreur ssi $d_C \ge 3$
+- plus généralement, on peut détecter $d_C-1$ erreurs et corriger $\Big\lfloor {d_C-1 \over 2} \Big\rfloor$
+
+## Code de Hamming (Minitel)
+
+### Principe
+
+On code chaque mot de 4 bits $x_1x_2x_3x_4$ sur 7 bits avec
+$x_5 = x_1 + x_2 + x_4$, $x_6 = x_1 + x_3 + x_4$  et $x_7 = x_2 + x_3 + x_4$
+
+Il permet de corriger 1 erreur sur 7 bits
+
+Une matrice $n \times p$ à coefficients dans un ensemble $A$ est un "tableau" de $n$ lignes et $p$ colonnes éléments pris dans $A$. Pour faire du calcul sur ces matrices, on demande que l'ensemble $A$ soit un **anneau** donc qu'il possède deux opérations :
+- une opération $+$ : associative, commutative, avec un élément neutre, chaque élément possède un opposé
+- une opération $\times$ : associative, avec un élément neutre et distributive sur la somme: $x \times (y + z) = x \times y + x \times z$
+
+*Exemple.* $(\mathbb{R},+,\times)$ OK, $(\mathbb{Z},+,\times)$ OK, $(\mathbb{N},+,\times)$ NOK, $(\{0,1\}, \text{or}, \text{and})$, $\boxed{(\{0,1\}, \text{xor}, \text{and})}$
+
+Opérations sur les matrices :
+- Somme : $A_{np} + B_{np} = (a_{ij} + b_{ij})_{1 \le i \le n, 1 \le j \le p}$
+- Produit : $(A_{np} \times B_{pq})_{ij} = a_{i1} \times b{1j} + \cdots + a_{ip} \times b_{pj}$
+
+### Construction du code de Hamming [4, 7]
+
+Pour représenter le calcul des 3 bits de redondance, on utilise la matrice génératrice G :
+$$
+G_{4, 7} = \begin{pmatrix}
+1 & 0 & 0 & 0 & & 1 & 1 & 0\\
+0 & 1 & 0 & 0 & & 1 & 0 & 1\\
+0 & 0 & 1 & 0 & & 0 & 1 & 1\\
+0 & 0 & 0 & 1 & & 1 & 1 & 1\\
+\end{pmatrix}
+$$
+
+Pour coder un message $U_{1,4} = (x_1, x_2, x_3, x_4)$
+On calcul $U \times G = V_{1, 7}$
+
+### Correction d'erreur
+
+Le récepteur utilise la matrice de contrôle $H_{3, 7} = \begin{pmatrix}
+ 1 & 1 & 0 & 1 & 1 & 0 & 0\\
+ 1 & 0 & 1 & 1 & 0 & 1 & 0\\
+ 0 & 1 & 1 & 1 & 0 & 0 & 1\\
+\end{pmatrix}$
+
+Il calcule $W \times\ ^tH = S_{1,3}$ le syndrome :
+- si $S = (000)$ alors il n'y a pas d'erreur
+- sinon, $S$ est une des colonnes de $H$ qui donne la position de l'erreur
+
+Ensuite il suffit de ne garder que les 4 premiers bits du message corrigé
+
+**Preuve.**
+- $G \times \, ^tH = 0$ en effet $G = (I_4 | G_0)$ et $H = (^tG_0 | I_3)$
+  d'où $G \times\ ^tH = (I_4 | G_0) \times \big({G_0 \over I_3}\big) = I_4 \times G_0 + G_0 \times I_3 = 2G_0 = 0$ (car $1+1=0$)
+- Donc si $v$ est transmis sans ereur, $s = w \times\ ^tH = v \times ^tH = u \times G \times\ ^tH = u \times 0 = 0$
+- Et s'il y a une erreur sur le bit numéro $i$ : $w = v+(0\cdots0\underset{i}{1}0\cdots0)$ et $w \times\ ^tH = (v+(0\cdots010\cdots0)) \times\ ^tH = v \times\ ^tH + (0\cdots010\cdots0) \times\ ^tH$
+
 
 
 
