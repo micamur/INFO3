@@ -322,10 +322,3 @@ ECLong : une fonction -> entier
 EstDernierLong : une fonction -> un booléen
 {Algorithme : retourner (FdSCar)}
 ```
-
-
-
-
-
-
-.

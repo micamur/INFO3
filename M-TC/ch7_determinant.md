@@ -514,7 +514,7 @@ Donc $S_P(A) = \{1,2\}$
 
 ### Calcul des espaces propres
 
-$$E_2 = \{X \in \mathbb{R}^2\ |\ \underset{(A-2I_2)X = 0}{AX = 2X}\}$$
+$$E_2 = \{X \in \mathbb{R}^2\ |\ \underset{(A-2I_2)X = 0}{AX = 2X}\}$$
 
 $$
 \left\{\begin{array}{lcl}
@@ -534,7 +534,7 @@ $$
 
 Et
 
-$$E_1 = \{X \in \mathbb{R}^2\ |\ \underset{(A-I_2)X = 0}{AX = X}\}$$
+$$E_1 = \{X \in \mathbb{R}^2\ |\ \underset{(A-I_2)X = 0}{AX = X}\}$$
 
 $$
 \left\{\begin{array}{lcl}
@@ -605,7 +605,7 @@ $$
 Donc $S_P(A) = \{-1,2\}$
 
 $$
-E_2 = \{X \in \mathbb{R}^2\ |\  (A - 2I_3)X = 0\}
+E_2 = \{X \in \mathbb{R}^2\ |\  (A - 2I_3)X = 0\}
 $$
 
 $$
@@ -674,9 +674,9 @@ E_{-1} & = & \{\begin{pmatrix}
 -y -z\\ y\\ z
 \end{pmatrix} |\; (y, z) \in \mathbb{R}^2\} \\
 & = & \{y \begin{pmatrix}
--1\\ 1\\ 0
+-1\\ 1\\ 0
 \end{pmatrix} + z \begin{pmatrix}
--1\\ 0\\ 1
+-1\\ 0\\ 1
 \end{pmatrix} |\; (y, z) \in \mathbb{R}^2\}
 \end{array}
 $$
@@ -707,7 +707,7 @@ $$
 X & -\lambda\\
 -\epsilon_b & X\\
 \end{vmatrix}
-= X^2 - \lambda \epsilon_b = (X - \sqrt{\lambda \epsilon_b}) (X + \sqrt{\lambda \epsilon_b})
+= X^2 - \lambda \epsilon_b = (X - \sqrt{\lambda \epsilon_b}) (X + \sqrt{\lambda \epsilon_b})
 $$
 
 $$
