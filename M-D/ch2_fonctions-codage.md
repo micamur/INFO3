@@ -207,7 +207,7 @@ Le code d'un symbole $x$ est le chemin de la racine à la feuille qui porte $x$ 
 - Si $p(x) \geq p(y)$ alors le code de $x$ est plus court que celui de $y$
 - C'est un code préfixe car tous les symboles sont dans des feuilles
 
-## Codage et décodageage
+## Codage et décodage
 
 > **Attention.** Cet algorithme peut produire des codes très variés pour le même alphabet.
 
@@ -218,6 +218,247 @@ En général on transmet le message compressé  + la table des codes.
 **Décodage :** on utilise l'arbre (comme un automate)
 - à chaque bit lu, on suit une branche de l'arbre
 - à chaque fois qu'on arrive sur une feuille, on écrit le symbole correspondant et on repart de la racine pour la suite
+
+# 4) Codes détecteurs et correcteurs d'erreur
+
+**Principe :**
+```
+mot u -codage-> mot v codé --transmission--> mot w codé avec erreur --> v --> u
+        émetteur           |---------------|              récepteur
+```
+
+**Idée :** ajouter dans le message de la **redondance** pour pouvoir reconstituer `u` malgré certaines erreurs de transmission
+
+*Exemple.* Numéros avec "clé" numéro de Sécurité Sociale, RIB, code-barres
+
+*Exemple.* Codes à répétition : on répéte chaque bit $k$ fois.
+- Si $k = 2$ : on peut détecter (mais pas corriger) une erreur sur 2 bits consécutifs
+- Si $k = 3$ : on peut corriger 1 erreur sur 3 bits par une règle de majorité
+
+*Exemple subtil.* Bit de parité : pour chaque groupe de $k$ bits on rajoute 1 bit égal à leur "ou exclusif"
+Il y a alors un nombre pair de 1. Une erreur parmi $k$ bits est détectée car elle donne un nombre impair de 1
+
+**Application** ASCII sur 7 bits + 1 bit de parité
+
+**Hypothèse** Aucun bit n'est perdu ou ajouté, la seule erreur possible est l'échange d'un 1 en 0 ou d'un 0 et 1. De plus en général on suppose un certain taux d'erreurs maximal (1 erreur pour k bits transmis).
+
+## Notion de distance minimale d'un code.
+
+Soit $C : A^* \rightarrow B^*$. La distance minimale de $C$, notée $d_C$ est la plus petite distance entre deux mots $C(a_1)$ et $C(a_2)$ pour $a_1$ et $a_2$ dans $A^*$. Elle vaut toujours au moins $1$ (sinon $C$ est ambigü).
+
+De plus,
+- on peut détecter une erreur ssi $d_C \ge 2$ et on peut corriger une erreur ssi $d_C \ge 3$.
+- on peut corriger une erreur ssi $d_C \ge 3$
+- plus généralement, on peut détecter $d_C-1$ erreurs et corriger $\Big\lfloor {d_C-1 \over 2} \Big\rfloor$
+
+## Code de Hamming (Minitel)
+
+### Principe
+
+On code chaque mot de 4 bits $x_1x_2x_3x_4$ sur 7 bits avec
+$x_5 = x_1 + x_2 + x_4$, $x_6 = x_1 + x_3 + x_4$  et $x_7 = x_2 + x_3 + x_4$
+
+Il permet de corriger 1 erreur sur 7 bits.
+
+Une matrice $n \times p$ à coefficients dans un ensemble $A$ est un "tableau" de $n$ lignes et $p$ colonnes éléments pris dans $A$. Pour faire du calcul sur ces matrices, on demande que l'ensemble $A$ soit un **anneau** donc qu'il possède deux opérations :
+- une opération $+$ : associative, commutative, avec un élément neutre, chaque élément possède un opposé
+- une opération $\times$ : associative, avec un élément neutre et distributive sur la somme: $x \times (y + z) = x \times y + x \times z$
+
+*Exemple.* $(\mathbb{R},+,\times)$ OK, $(\mathbb{Z},+,\times)$ OK, $(\mathbb{N},+,\times)$ NOK, $(\{0,1\}, \text{or}, \text{and})$, $\boxed{(\{0,1\}, \text{xor}, \text{and})}$
+
+Opérations sur les matrices :
+- Somme : $A_{np} + B_{np} = (a_{ij} + b_{ij})_{1 \le i \le n, 1 \le j \le p}$
+- Produit : $(A_{np} \times B_{pq})_{ij} = a_{i1} \times b{1j} + \cdots + a_{ip} \times b_{pj}$
+
+### Construction du code de Hamming [4, 7]
+
+Pour représenter le calcul des 3 bits de redondance, on utilise la matrice génératrice G :
+$$
+G_{4, 7} = \begin{pmatrix}
+1 & 0 & 0 & 0 & & 1 & 1 & 0\\
+0 & 1 & 0 & 0 & & 1 & 0 & 1\\
+0 & 0 & 1 & 0 & & 0 & 1 & 1\\
+0 & 0 & 0 & 1 & & 1 & 1 & 1\\
+\end{pmatrix}
+$$
+
+Pour coder un message $U_{1,4} = (x_1, x_2, x_3, x_4)$
+On calcul $U \times G = V_{1, 7}$
+
+### Correction d'erreur
+
+Le récepteur utilise la matrice de contrôle $H_{3, 7} = \begin{pmatrix}
+ 1 & 1 & 0 & 1 & 1 & 0 & 0\\
+ 1 & 0 & 1 & 1 & 0 & 1 & 0\\
+ 0 & 1 & 1 & 1 & 0 & 0 & 1\\
+\end{pmatrix}$
+
+Il calcule $W \times\ ^tH = S_{1,3}$ le syndrome :
+- si $S = (000)$ alors il n'y a pas d'erreur
+- sinon, $S$ est une des colonnes de $H$ qui donne la position de l'erreur
+
+Ensuite il suffit de ne garder que les 4 premiers bits du message corrigé
+
+**Preuve.**
+- $G \times \, ^tH = 0$ en effet $G = (I_4 | G_0)$ et $H = (^tG_0 | I_3)$
+  d'où $G \times\ ^tH = (I_4 | G_0) \times \big({G_0 \over I_3}\big) = I_4 \times G_0 + G_0 \times I_3 = 2G_0 = 0$ (car $1+1=0$)
+- Donc si $v$ est transmis sans ereur, $s = w \times\ ^tH = v \times ^tH = u \times G \times\ ^tH = u \times 0 = 0$
+- Et s'il y a une erreur sur le bit numéro $i$ : $w = v+(0\cdots0\underset{i}{1}0\cdots0)$ et $w \times\ ^tH = (v+(0\cdots010\cdots0)) \times\ ^tH = v \times\ ^tH + (0\cdots010\cdots0) \times\ ^tH$
+
+# 5) Codes secrets
+
+## Contexte et objectif
+
+```
+      émetteur --> message codé c --> récepteur
+       écrit m           ^            reçoit c
+    (clé k) v         espion           v (clé k)
+message codé c                        message (décodé) m
+```
+
+$k$ = clé, secret partagé entre l'émetteur et le récepteur
+
+- L'émetteur **chiffre** $m$ à l'aide de $k$
+- Le récepteur **déchiffre** $c$ à l'aide de $k$
+- L'espion essaye de **décrypter** $c$ sans l'aide de $k$
+
+*Exemple.* Code de César : remplacer chaque lettre par celle 3 rangs plus loin pour chiffrer et reculer de 3 lettres pour déchiffrer.
+
+Inconvénients :
+- facile à décrypter
+- en particulier car une lettre est toujours codée de la même façon
+- une seule lettre suffit à connaître le décalage
+
+*Exemple.* Code de Vernam : une code binaire.
+- message $m$ sur n bits
+- clé $k$ de même longueur
+- message codé $c = m \oplus k$ bit par bit
+
+C'est un code parfait impossible à décrypter.
+
+Inconvénients :
+- taille de la clé >= taille du message à coder
+- elle ne peut être utilisée qu'une seule fois = jetable
+
+## Entiers modulo (très utilisés en cryptographie)
+
+**Définition.** Soit un entier $N \ge 2$. Si $x$ et $y \in \mathbb{Z}$ ont le même reste dans la division par $N$, on considère que $x$ et $y$ sont équivalentS.
+
+![Visualisation pour N = 6]()
+
+On peut imaginer enrouler la droite des entiers relatifs sur  un cercle de circonférence 6.
+
+Les éléments aux mêmes endroits sur le cercle forment une **classe** (= tous les entiers qui ont le même reste).
+On note $\overline{x}$ la classe de $x$.
+
+$$
+\overline{x} = \{x + kN \text{ pour } k \in \mathbb{Z} \}
+$$
+
+En général on privilégie un représentant : celui entre $0$ et $N-1$ (reste de la division euclidienne).
+
+Deux entiers ont la même classe ssi ils ont le même reste dans la division par $N$.
+
+On note $\mathbb{Z} /_{N \mathbb{Z}}$ l'ensemble des classes modulo $N$.
+
+$$
+\mathbb{Z} /_{N \mathbb{Z}} = \{\overline{0}, \overline{1}, \overline{2}, \dots, \overline{N - 1}\}
+$$
+$$
+\overline{x} \in \mathbb{Z} /_{N \mathbb{Z}} \text{ et } \overline{x} \subseteq \mathbb{Z}
+$$
+
+**Propriété.** Si $\overline{x} = \overline{x'}$ et $\overline{y} = \overline{y'}$ alors
+- $\overline{x+y} = \overline{x'+y'}$
+- $\overline{x-y} = \overline{x'-y'}$
+- $\overline{x*y} = \overline{x'*y'}$
+
+On définit donc des opérations sur $\mathbb{Z} /_{N \mathbb{Z}}$ :
+$$
+\overline{x} + \overline{y} = \overline{x + y}
+$$
+
+$$
+\overline{x} \times \overline{y} = \overline{x \times y}
+$$
+
+$$
+\overline{x} - \overline{y} = \overline{x - y}
+$$
+
+## Rapport avec les codes secrets
+
+- César manipule des entiers modulo 26
+  - chiffrer = ajouter 3
+  - déchiffrer = soustraire 3
+- Vernam travaille dans $\mathbb{Z} /_{2 \mathbb{Z}}$ car le $\oplus$ est $+$ dans $\mathbb{Z} /_{2 \mathbb{Z}}$
+
+
+# 6) Théorème des bergers
+
+**Théorème.** Soit une fonction $f = X \rightarrow Y$. Alors les ensembles $f^{-1}({y})$ (= antécédents de $y$) pour $y \in Im(f)$ forment une partition de $X$.
+
+$$
+\boxed{X = \sum\limits_{y \in Im(f)} f^{-1}(y)}
+$$
+
+_($X$ sont les moutons, $Y$ sont leurs bergers : chaque mouton appartient à un et un seul berger)_
+
+On classe les éléments de $X$ selon leur image par $f$.
+
+**Corrollaire.** Si $X$ est fini,
+$$
+\boxed{card\ X = \sum_{y \in Im(f)} card(f^{-1}(y))}
+$$
+
+En particulier, si chaque $y \in Im(f)$ a le même nombre $k$ d'antécédents, alors
+$$
+\boxed{card X = k \times card(Im(f))}
+$$
+
+*Exemple.*
+- Classer les mots binaires de longueur 3 par leur premier bit :
+  $$
+  f : \left\{\begin{array}{lcl} \{0, 1\}^3 & \rightarrow & {0, 1}\\xyz & \mapsto & x\end{array}\right.
+  $$
+  $$
+  \{0, 1\}^3 = \{000, 001, 010, 011\} + \{100, 101, 110, 111\}
+  $$
+- Classer les mots binaires de longueur 3 par le nombre de bits distincts qu'ils contiennent :
+  $$
+  \begin{cases}
+  f(000) = f(111) = 1\\
+  f(001) = f(010) = \dots = f(110) = 2\\
+  \end{cases}
+  $$
+  $$
+  \{0, 1\}^3 = \{000, 111\} + \{001, 010, 011, 100, 101, 110\}
+  $$
+- Classer les entiers selon leur $parité :\mathbb{Z} \rightarrow \{0,1\}$ et $\mathbb{Z} = Pairs + Impairs$
+- Classer les mots de $A^*$ selon leur $longueur : A^* \rightarrow  \mathbb{N}$
+  $$
+  A^* = \{\epsilon\} + \{a, b, c, \dots\} + \{aa, ab, ba, ac, \dots \} + \dots
+  $$
+
+- Classer les élèves d'INFO3 selon leur année de naissance
+- Un **prédicat** $p : X \rightarrow \{vrai, faux\}$ permet de classer les éléments de $X$ selon la réponse à une **question fermée**.
+
+## Ensembles de fonctions
+
+On note $Y^X$ l'ensemble des fonctions de $X$ dans $Y$ (par exemple $\{vrai, faux\}^X$ est l'ensemble des prédicats sur $X$).
+
+- Si $X$ et $Y$ sont finis, $\boxed{card(Y^X) = (card Y)^{(card X)}}$
+
+> *Remarque.* Soit $P$ une partie de $X$. Il lui correspond **un unique** prédicat $p : X \rightarrow \{vrai, faux\}$ tq $p(x) = vrai$ ssi $x \in P$.
+>
+> On vient d'établir une bijection entre $\mathcal{P}(X)$ et $\{vrai, faux\}^X$.
+>
+> On retrouve donc $\boxed{card\ \mathcal{P}(X) = 2^{card\ X}}$
+
+- Si $X$ et $Y$ sont finis, il y a $(card X)!$ bijections de $X$ dans $X$ et $A^n_p = {n! \over p! (n-p)!} = n\times(n-1)\times\cdots\times(n-(p-1))$ injections de $X$ vers $Y$, où $card\ X = p \le card\ Y = n$.
+
+
+
 
 
 
