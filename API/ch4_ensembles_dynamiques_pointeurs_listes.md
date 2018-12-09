@@ -128,13 +128,107 @@ Suppression : action
 }
 ```
 
+### Insertion (en tête de liste)
+
+```
+Insertion-tête : action
+  (la donnée-résultat L : un AdTriplet ; la donnée X : un AdTriplet)
+
+{État initial :
+- L pointe vers la tête de liste
+- X pointe vers un objet (donc x!= Nil)}
+{État final : L pointe vers la tête de liste de liste avec x inséré en tête}
+
+{Algorithme :
+  succ de X↑ <- L
+  Si L != Nil alors : pred de L↑ <- X
+  pred de X↑ <- Nil
+  L <- X
+}
+```
 
 Complexité asyptotique dans des listes ou tableaux de $N$ éléments :
 
 Opération   | Complexité asymptotique : liste | Complexité asymptotique : tableau
 ------------|---------------------------------|----------------------------------
-Recherche   | $O(N)$                          | $O(N)$
-Suppression | $O(N)$                          | $O(1)$
+Recherche   | $O(N)$                          | $O(i) = O(N)$
+Suppression | $O(1)$                          | $O(N-i) = O(N)$
+Insertion   | $O(1)$                          | $O(1)$
+
+## Rajout d'élément fictif dans une liste
+
+**Fictif** : c'est un vrai objet, mais dont la valeur sera ignorée (MonNil).
+
+Le successeur du dernier élément devient l'élément fictif. Le prédecesseur du premier élément devient l'élément fictif.
+
+Le successeur de l'élément fictif est le premier élément. Le prédecesseur de l'élément fictif est le dernier élément.
+
+```
+Insertion-tête : action
+  (la donnée-résultat MonNil : un AdTriplet ; la donnée X : un AdTriplet)
+
+{Algorithme :
+  succ de X↑ <- succ de MonNil↑
+  pred de X↑ <- MonNil
+  pred (succ MonNil↑)↑ <- X
+  succ de MonNil↑ <- X
+}
+```
+
+
+```
+Supprimer : action
+  (la donnée-résultat MonNil : un AdTriplet ; la donnée X : un AdTriplet)
+
+{Algorithme :
+  succ de (pred de X↑)↑ <- succ de X↑
+  pred de (succ de X↑)↑ <- pred de X↑
+}
+
+{Remarque : pred/succ de X↑ != Nil même si X est en début/fin de liste.}
+```
+
+## Piège
+
+```
+DernierElement : action
+  (dernier L : un AdDoublet ; résultat X : un AdDoublet)
+
+{État initial : L pointe vers la tête de liste}
+{État final : (X vaut Nil) ou alors (X pointe vers le dernier élément de la liste)}
+
+{Algorithme FAUX (renvoie Nil) :
+  X <- L
+  Tant que X != Nil faire :
+    X <- succ de X↑
+}
+
+{Algorithme FAUX (ne marche pas quand la liste est vide) :
+  X <- L
+  Tant que succ de X↑ != Nil faire :
+     X <- succ de X↑
+}
+
+{Algorithme CORRECT :
+  Si L = Nil alors X <- Nil
+  Sinon :
+    X <- L
+    Tant que succ de X↑ != Nil faire :
+      X <- succ de X↑
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
