@@ -74,7 +74,7 @@ On peut également compter les bijections : si $card\ X = card\ Y = n$ alors il 
 - Soient $X = \{a, b, c\}$ et $Y = \{1,2,3\}$
   alors il y a des bijections $X \rightarrow Y$
 
-  par exemple $f : \left\{\begin{array}{ll}
+  par exemple $f : \left\{\begin{array}{lcl}
   a & \mapsto & 1\\
   b & \mapsto & 5\\
   c & \mapsto & 2\\
@@ -456,14 +456,3 @@ On note $Y^X$ l'ensemble des fonctions de $X$ dans $Y$ (par exemple $\{vrai, fau
 > On retrouve donc $\boxed{card\ \mathcal{P}(X) = 2^{card\ X}}$
 
 - Si $X$ et $Y$ sont finis, il y a $(card X)!$ bijections de $X$ dans $X$ et $A^n_p = {n! \over p! (n-p)!} = n\times(n-1)\times\cdots\times(n-(p-1))$ injections de $X$ vers $Y$, où $card\ X = p \le card\ Y = n$.
-
-
-
-
-
-
-
-
-
-
-.
