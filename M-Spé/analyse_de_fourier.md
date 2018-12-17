@@ -380,7 +380,7 @@ $$
 >
 > $$|f(t)e^{-it\xi}| = |f(t)|\underset{=\; 1}{|e^{-i \stackrel{\in \mathbb{R}}{t\xi}}|} = |f(t)|$$
 
-## 2. Proprités
+## 2. Propriétés
 
 - **linéarité** $\alpha, \beta \in \mathbb{C}$$ et $f, g$ intégrable $\stackrel{\wedge}{\alpha f + \beta g} = \alpha \stackrel{\wedge}{f} + \beta \stackrel{\wedge}{g}$
 

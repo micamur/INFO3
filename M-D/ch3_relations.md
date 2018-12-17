@@ -118,3 +118,179 @@ Soit une relation $L$ telle que $u\; L\; v$ ssi $lg(u) \le lg(v)$.
 Elle est clairement réflexive, non symétrique, transitive et non antisymétrique.
 
 Elle n'est pas antisymétrique : $0 L 1$ et $1 L 0$.
+
+# 2) Construction des relations de préordre
+
+**Principe :** partir d'une "petite" relation puis ajouter autant de couples que nécessaire pour en faire un préordre.
+
+**Définition.** Soit $R$ une relation binaire sur $X$. On appelle relation de préordre engendré par $R$ la plus petite relation réflexive transitive qui contient $R$. On la note $R^*$.
+
+**Principe de construction :** on définit la **relation itérée $k$ fois de $R$** notée $R^k$ comme :
+$$
+xR^ky \text{ ssi } \exists x_1,x_2,\dots,x_{k-1} \text{ tq : } xRx_1 \text{ et } x_1Rx_2 \text{ et } \dots  \text{ et } x_{k-1}Ry
+$$
+$$
+\text{ (on passe de $x$ à $y$ en $k$ étapes de $R$) }
+$$
+
+Par convention $R^1 = R$, $R^0 = I = \{(x, x)\; |\; x \in X\}$
+
+**Propriété.** Pour toute relation $R$ :
+$$
+\boxed{
+R^* = R^0 \cup R^1 \cup R^2 \cup \dots \cup R^n = \bigcup\limits_{k \in \mathbb{N}}  R^k
+}
+$$
+
+En pratique il suffit d'un nombre fini d'itérations si $X$ est fini.
+
+*Exemples.*
+
+- $X = \mathbb{N}$, $x R (x + 1) \forall x \in \mathbb{N}$ alors :
+
+  $R^2 = \{(x, x + 2)\; |\; x \in \mathbb{N}\}$
+
+  $R^k = \{(x, x + k)\; |\; x \in \mathbb{N}\}$
+
+  $R^* = "\leq"$ ($x R^* y$ ssi $x \leq y$)
+- $X = \mathbb{R}$, $x R y$ ssi $y - 1 \leq x \leq y + 1$
+
+  $x R^k y$ ssi $y - k \le x \le y + k$
+
+  $x R^* y$ pour tous réels $x$ et $y$
+
+## b) Construction de $R^k$ à l'aide de matrices booléenes
+
+Sur les matrices de relations, on définit les opérations suivantes :
+
+$+$     | **$0$** | **$1$**
+--------|---------|--------
+**$0$** | $0$     | $1$
+**$1$** | $1$     | $1$
+
+$\times$ | **$0$** | **$1$**
+---------|---------|--------
+**$0$**  | $0$     | $0$
+**$1$**  | $0$     | $1$
+
+> **Attention.** $1$ n'a pas d'opposé : on ne peut pas faire de soustraction. Les fègles de calcul sont différentes de celles du code de Hamming
+
+Le calcul matriciel avec ces règles donne :
+
+- $\boxed{M(R \cup R') = M(R) + M(R')}$
+- $\boxed{M(R^k) = M(R)^k}$
+
+> *Remarque.* $a_{ij} = 1$ ssi il existe au moins un $k$ tel que $m_{ik} \times m_{kj} = 1 \Leftrightarrow m_{ik} = m_{kj} = 1$
+>
+> Autrement dit : $x_i R x_k$ et $x_k R x_j \Leftrightarrow \exists$ un chemin de longueur $2$ entre $x_i$ et $x_j \Leftrightarrow x_i R^2 x_j$ (même princips pour $R^k$)
+>
+> D'où $\boxed{M(R^*) = \sum_{k = 0}^{n - 1}M(R)^k}$
+>
+> Dans la pratique on s'arrête dès que $M(R)^k$ ne contient pas de "nouveau" simple.
+
+*Exemple.* $X = \{a, b, c, d, e\}$, $R = \{(a, a), (a, b), (b, c), (c, d), (d, e), (e, d)\}$
+
+$$
+R =
+\begin{pmatrix}
+1 & 1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+\end{pmatrix}
+R^2 = \begin{pmatrix}
+1 & 1 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+\end{pmatrix}
+R^4 = \begin{pmatrix}
+1 & 1 & 1 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+\end{pmatrix} = R^5
+$$
+
+$$
+\text{D'où } R^* = \begin{pmatrix}
+1 & 1 & 1 & 1 & 1\\
+0 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1\\
+0 & 0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1 & 1\\
+\end{pmatrix} = I + M(R) + M(R)^2 + M(R)^3 + M(R)^4
+$$
+
+On peut également la calculer d'une autre manière : $R^* = (R+I)^k$
+
+## c) Relation d'équivalence engendrée
+
+On peut d'une relation $R$ et on construit la plus petite relation réflexive, transitive, symétrique qui contient $R$.
+
+**Construction :**
+1. Construire la relations $R_s$ symétrique qui contient $R$
+2. Puis calculer $(R_s)^*$ le préordre engendré par $R_s$
+
+> **Attention.** Calculer $R^*$ puis la symétriser est en général **faux**.
+>
+> *Exemple.* Soit $R$ tel que $1 R 2$ et $1 R 3$
+> - $R_s : R \cup 2R1,3R1$ et $(R_s)^* = R_s \cup 2R3,3R2,1R1,2R2,3R3$.
+> - mais $R^* : R \cup 1R1,2R2,3R3$ et $(R^*)_s = R^* \cup 2R1,3R1$
+> - On a bien $1R1,2R2,3R3,1R2,2R1,1R3,3R1$,**$2R3,3R2$** $\ne 1R1,2R2,3R3,1R2,2R1,1R3,3R1$
+
+> *Remarque.* il n'existe en général pas "d'ordre engendré" par une relation $R$. Car, si $R$ n'est pas antisymétrique, on ne peut pas la rendre antisymétrique en la complétant
+
+# 3) Transitivité
+
+Pour savoir si une relation $R$ est transitive, il suffit de vérifier si $\boxed{R^2 \subseteq R}$.
+
+$$
+\begin{array}{lcl}
+\text{En effet : }R^2 \subseteq R & \Leftrightarrow & \forall (x, z) \in R^2, (x, z) \in R\\
+ & \Leftrightarrow & (\text{ si } xR^2z \text{ alors } xRz)\\
+ & \Leftrightarrow & \forall x,z, (\exists y \text{ tq } xRy \text{ et } yRz) \Rightarrow xRz\\
+ & \Leftrightarrow & R \text{ transitive }
+\end{array}
+$$
+
+Concrètement, on calcule $M(R)^2$ et on vérifie si, à chaque fois qu'il y a un $1$ dans cette matrice il y en a un aussi dans celle de $R$.
+
+*Exemple.* R n'est pas transitive car il y a des $1$ dans $M(R^2)$ qui ne sont pas dans $M(R)$ (l'inverse peut être vrai ou non, peu importe).
+
+$$
+R =
+\begin{pmatrix}
+1 & 1 & 0. & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+\end{pmatrix}
+R^2 = \begin{pmatrix}
+1 & 1 & 1. & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+\end{pmatrix}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.

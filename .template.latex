@@ -342,7 +342,7 @@ $if(logo)$
 $endif$
 $endif$
 
-\usepackage[linesnumbered, french]{algorithm2e}
+\usepackage[linesnumbered, french, ruled,vlined]{algorithm2e}
 
 \begin{document}
 $if(title)$
