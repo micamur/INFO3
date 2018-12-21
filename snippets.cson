@@ -118,27 +118,24 @@
   'right arrow':
     'prefix': 'ra'
     'body': '\\\\rightarrow '
-  'Exponent':
-    'prefix': '^'
-    'body': '^{$1}$0'
+  'Exp':
+    'prefix': 'exp'
+    'body': 'e^{$1}$0'
   'Index':
     'prefix': '_'
     'body': '_{$1}$0'
   'Text A under text B':
     'prefix': 'undertext'
-    'body': '\\\\underset{${1:text under}}{${2:normal text}}$0'
+    'body': '\\\\underset{${2:text under}}{${1:normal text}}$0'
   'Text A over text B':
     'prefix': 'overtext'
-    'body': '\\\\stackrel{${1:text over}}{${2:normal text}}$0'
-  'Underbrace':
-    'prefix': 'underbrace'
-    'body': '\\\\stackrel{${1:normal text}}{${2:text under}}$0'
+    'body': '\\\\stackrel{${2:text over}}{${1:normal text}}$0'
   'Boxed':
     'prefix': 'boxed'
     'body': '\\\\boxed{$1}$0'
   'Limit text style':
     'prefix': 'limt'
-    'body': '\\\\lim_{${1:x} \\\\to ${2:0}} ${3:f(x)} = $0'
+    'body': '\\\\lim\\\\limits_{${1:x} \\\\to ${2:0}} ${3:f(x)} = $0'
   'Limit arrow style':
     'prefix': 'lima'
     'body': '\\\\xrightarrow[${1:x} \\\\to ${2:0}]{} $0'
@@ -162,7 +159,7 @@
     'body': '\\\\exists ${1:x} \\\\in ${2:\\\\mathbb{R\\}} $0'
   'Square root':
     'prefix': 'sqrt'
-    'body': '\\\\sqrt{$1} $0'
+    'body': '\\\\sqrt{$1}$0'
   'Curly brackets':
     'prefix': '{'
     'body': '\\\\{$0\\\\'
@@ -187,6 +184,9 @@
   'vertical bar':
     'prefix': '|'
     'body': '\\\\ |\\\\ '
+  'wedge function':
+    'prefix': 'wedge'
+    'body' : '\\\\stackrel{\\\\wedge}{${1:f}}(${2:\\\\xi})$0'
 
 # Arrays
   'Equation system':
@@ -197,7 +197,7 @@
     'body': '\\\\begin{array}{lcl}\n$1 & = & $2\\\\\\\\\n$3 & = & $4\\\\\\\\\n\\\\end{array}$0'
   'Function':
     'prefix': 'fun'
-    'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{lcl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
+    'body': '${1:f} : \\\\left\\\\{\\\\begin{array}{rcl} ${2:\\\\mathbb{R\\}} & \\\\rightarrow & ${3:\\\\mathbb{R\\}}\\\\\\\\${4:x} & \\\\mapsto & ${5:f(x)}\\\\end{array}\\\\right.$0'
   'Cases':
     'prefix': 'cases'
     'body': '\\\\begin{cases}\n$1\\\\\\\\\n$2\\\\\\\\\n\\\\end{cases}$0'
