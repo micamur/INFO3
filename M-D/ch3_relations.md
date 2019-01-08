@@ -68,6 +68,8 @@ Pour tout couple $(x, y)$ dans $R$, on trace un arc de $x$ vers $y$.
 > *Remarque.* Dans une relation d'équivalence, on aura des groupes de sommets tous reliés entre eux (composantes connexes complètes)
 > ![Graphe d'une équivalence entre 4 éléments]()
 
+\newpage
+
 ## c) Représentation par une matrice
 
 On choisit un ordre sur $X = x_1 < x_2 < \dots < x_n$. On a $M_{i,j} = 1$ ssi $x_i\; R\; xj$
@@ -119,6 +121,8 @@ Elle est clairement réflexive, non symétrique, transitive et non antisymétriq
 
 Elle n'est pas antisymétrique : $0 L 1$ et $1 L 0$.
 
+\newpage
+
 # 2) Construction des relations de préordre
 
 **Principe :** partir d'une "petite" relation puis ajouter autant de couples que nécessaire pour en faire un préordre.
@@ -158,6 +162,8 @@ En pratique il suffit d'un nombre fini d'itérations si $X$ est fini.
   $x R^k y$ ssi $y - k \le x \le y + k$
 
   $x R^* y$ pour tous réels $x$ et $y$
+
+\newpage
 
 ## b) Construction de $R^k$ à l'aide de matrices booléenes
 
@@ -227,6 +233,8 @@ $$
 
 On peut également la calculer d'une autre manière : $R^* = (R+I)^k$
 
+\newpage
+
 ## c) Relation d'équivalence engendrée
 
 On peut d'une relation $R$ et on construit la plus petite relation réflexive, transitive, symétrique qui contient $R$.
@@ -238,6 +246,7 @@ On peut d'une relation $R$ et on construit la plus petite relation réflexive, t
 > **Attention.** Calculer $R^*$ puis la symétriser est en général **faux**.
 >
 > *Exemple.* Soit $R$ tel que $1 R 2$ et $1 R 3$
+>
 > - $R_s : R \cup 2R1,3R1$ et $(R_s)^* = R_s \cup 2R3,3R2,1R1,2R2,3R3$.
 > - mais $R^* : R \cup 1R1,2R2,3R3$ et $(R^*)_s = R^* \cup 2R1,3R1$
 > - On a bien $1R1,2R2,3R3,1R2,2R1,1R3,3R1$,**$2R3,3R2$** $\ne 1R1,2R2,3R3,1R2,2R1,1R3,3R1$
