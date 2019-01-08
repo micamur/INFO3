@@ -36,6 +36,8 @@ On appelle :
   - $f^{-1}(3) = \{aaa, aab, aba, abb, baa, bab, bba, bbb\}$ (antécédents de 3)
   - $y \in Y$ n'a pas d'antécédent ssi $f^{-1}(y) = \emptyset$ ssi $y \notin Im(f)$
 
+\newpage
+
 ## b) Notion de bijection
 
 Une **bijection** de $X$ dans $Y$ est une fonction telle que **chaque** élément de $Y$ a **exactement un** antécédent.
@@ -84,6 +86,8 @@ On peut également compter les bijections : si $card\ X = card\ Y = n$ alors il 
 
 - $\lg : A^* \rightarrow \mathbb{N}$ n'est pas une bijection (sauf si $A$ ne contient qu'un seul symbole)
 
+\newpage
+
 ## c) Injectivité, Surjectivité
 
 **Définition.** Une **injection** de $X$ vers $Y$ est une fonction $f$ telle que chaque élément de $X$ ait **au maximum un** antécédent.
@@ -124,6 +128,8 @@ Autrement dit $Im(f) = Y$
 - $\sin : \mathbb{R} \rightarrow [-1; 1]$ n'est pas une bijection car elle n'est pas injective : $sin(\pi) = sin(0)$
 - $\sin : [-{\pi \over 2};{\pi \over 2}] \rightarrow \mathbb{R}$ n'est pas une bijection car elle n'est pas surjective : $2$ n'a pas d'antécédent
 - $\sin : [-{\pi \over 2};{\pi \over 2}] \rightarrow [-1; 1]$ est une bijection
+
+\newpage
 
 # 2) Codes
 
@@ -177,6 +183,8 @@ Autrement dit $C$ est un **homomorphisme de monoïdes** de $(A^*, . )$ vers $(B^
 
 Il est clairement injectif car chaque groupe de 7 bits code un caractère
 
+\newpage
+
 # 3) Codes compresseurs
 
 L'idée est de construire un code alphabétique efficace en donnant un code plus court aux symboles les plus fréquents.
@@ -218,6 +226,8 @@ En général on transmet le message compressé  + la table des codes.
 **Décodage :** on utilise l'arbre (comme un automate)
 - à chaque bit lu, on suit une branche de l'arbre
 - à chaque fois qu'on arrive sur une feuille, on écrit le symbole correspondant et on repart de la racine pour la suite
+
+\newpage
 
 # 4) Codes détecteurs et correcteurs d'erreur
 
@@ -393,6 +403,7 @@ $$
   - déchiffrer = soustraire 3
 - Vernam travaille dans $\mathbb{Z} /_{2 \mathbb{Z}}$ car le $\oplus$ est $+$ dans $\mathbb{Z} /_{2 \mathbb{Z}}$
 
+\newpage
 
 # 6) Théorème des bergers
 
