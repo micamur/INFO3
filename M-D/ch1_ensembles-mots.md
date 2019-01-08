@@ -39,6 +39,8 @@ $$lg(\epsilon) = 0$$
 
 Dans $A^*$ on retrouve chaque symbole de $A$ sous la forme d'un mot de longueur $1$.
 
+\newpage
+
 *Exemples.*
 
 - alphabet latin à 26 lettres
@@ -87,6 +89,8 @@ alors $u \sqsubseteq v$ si et seulement si $u_1 = v_1, u_2 = v_2, \dots , u_n = 
 
 **Propriété.** Si $u \sqsubseteq v$ alors $lg\ u \leq lg\ v$ et si $u \sqsubset v$ alors $lg\ u < lg\ v$
 
+\newpage
+
 On dit que $u$ est un :
 
 - **suffixe** de $v$ s'il existe un mot $w$ tel que $v=wu$.
@@ -99,8 +103,6 @@ On dit que $u$ est un :
 - ses facteurs sont $\epsilon,\ b,\ ba,\ baa,\ baac,\ baaca,\ a,\ aa,\ aac,\ aaca,\ ac,\ aca,\ c,\ ca$
 
 **Propriété.** Si $u$ est un mot de longueur $n$, il admet exactement $n + 1$ préfixes distincts, $n + 1$ suffixes distincts et au moins $n + 1$ facteurs (souvent plus).
-
-\pagebreak
 
 **Propriétés.**
 
@@ -139,6 +141,8 @@ $$d(u, v) \leq d(u, w) + d(w, v)$$
 On peut donc se focaliser sur un seul symbole à la fois :
 - si $u_i = v_i$ alors $d(u_i,v_i) = 0 \leq d(u_i,w_i) + d(w_i,v_i)$
 - si $u_i \neq v_i$ alors $d(u_i, v_i) = 1$ et $w_i$ est différent d'au moins un des deux. $d(u_i, w_i) + d(w_i, v_i) = 1 + 0\ ou\ 0 + 1\ ou\ 1 + 1$
+
+\newpage
 
 # 2) Ordre lexicographique
 
@@ -389,6 +393,8 @@ x_k \neq 0\\
 **Propriété.** **L'écriture en base $b$ d'un entier $n$ existe toujours et elle est unique**
 
 *Notation.* On écrit $(x_k \dots x_0)_b$ pour noter la base
+
+\newpage
 
 **Définition.** Si $b^k \leq n < b^{k + 1}$ alors **la taille de $n$ en base $b$** est le nombre de chiffres qu'il faut pour l'écrire en base $b$, ici $k + 1$.
 
