@@ -5,6 +5,7 @@
 # Introduction
 
 Opération sur un ensemble dynamique :
+
 - **Énuméraion** des valeurs de l'ensemble
 - **Insertion** de valeur
 - **Supression** de valeur
@@ -18,6 +19,7 @@ Opération sur un ensemble dynamique :
 - Pointeur vers un objet : repère, adresse de l'objet
 
 Analogie avec les tableaux :
+
 - Soit $T$ un tableau de comptes bancaires
 - $T[i]$ un compte bancaire d'indice $i$
 - $p$ : un **pointeur** vers un compte bancaire
@@ -27,16 +29,20 @@ Analogie avec les tableaux :
 
 Deux opéraitons fondamentales sur les pointeurs
 
-`Allouer(p)`                                                           | `Libérer(p)`
------------------------------------------------------------------------|-------------
-Recherche d'un espace mémoire suffisamment grand pour stocket un objet | Indique au système d'exploitation que l'espace mémoire pointé par p peut être utilisé
-L'adresse de l'espace mémoire est écrite dans $p$                      |
+`Allouer(p)`                                      | `Libérer(p)`
+--------------------------------------------------|------------------------------------
+Recherche d'un espace mémoire suffisamment        | Indique au système d'exploitation
+grand pour stocker un objet. L'adresse            | que l'espace mémoire pointé par
+de l'espace mémoire est écrite dans $p$.          | $p$ peut être utilisé.
 
 - `Nil` : une valeur spéciale du pointeur, signfiant qu'il ne pointe vers aucun objet
 
 Types :
+
 - `Objet` : un type quelconque
 - `AdObjet` : un type pointeur vers un type Objet
+
+\pagebreak
 
 ## Pièges classiques des pointeurs
 
@@ -75,21 +81,21 @@ Représentation Non Contigue des objets en mémoire. Avec les tableaux, les obje
 ## Définition de types pour les listes
 
 Simplement chaînée :
+
 - **Objet** : type quelconque
 - **Doublet** : le type \<**O** : un Objet; **Succ** : un AdDoublet>
 - **AdDoublet** : le type pointeur vers un **Doublet**
 
 Doublement chaînées :
+
 - **Objet** : type quelconque
 - **Triplet** : le type \<**O** : un Objet; **Succ** : un AdTriplet; **Pred** : un AdTriplet>
 - **AdTriplet** : le type pointeur vers un **Triplet**
 
 ## Recherche, Insertion, Suppression
 
-### Recherche
-
+**Recherche** : action
 ```
-Recherche : action
   (la donnée L : un AdTriplet ; la donnée O : un objet ;
   le résultat x : un AdTriplet)
 
@@ -106,10 +112,8 @@ Recherche : action
 }
 ```
 
-### Suppresion
-
+**Suppression** : action
 ```
-Suppression : action
   (la donnée-résultat L : un AdTriplet ; la donnée X : un AdTriplet)
 
 {État initial :
@@ -128,10 +132,8 @@ Suppression : action
 }
 ```
 
-### Insertion (en tête de liste)
-
+**Insertion-tête** : action
 ```
-Insertion-tête : action
   (la donnée-résultat L : un AdTriplet ; la donnée X : un AdTriplet)
 
 {État initial :
@@ -146,6 +148,8 @@ Insertion-tête : action
   L <- X
 }
 ```
+
+\pagebreak
 
 Complexité asyptotique dans des listes ou tableaux de $N$ éléments :
 
@@ -188,6 +192,8 @@ Supprimer : action
 {Remarque : pred/succ de X↑ != Nil même si X est en début/fin de liste.}
 ```
 
+\pagebreak
+
 ## Piège
 
 ```
@@ -217,20 +223,3 @@ DernierElement : action
       X <- succ de X↑
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.

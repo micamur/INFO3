@@ -5,20 +5,21 @@
 # Introduction
 
 **Avant**
+
 - Variables entières : N, i, j
 - Tableau : T[i]
 
 **Maintenant**
+
 - Modèle abstrait d'accès aux données :
   on dispose d'un ensemble d'**actions** et de **fonction** permettant d'accéder aux données.
 - Pas d'accès direct aux données :
   i -> T[i] pas possible avec le modèle abstrait à venir.
 
-**Applications**
-- Données sur des supports ne permettant pas un accès direct
-  (_ex_ : support magnétique à bande, données en streaming sur un réseau).
+**Applications** : données sur des supports ne permettant pas un accès direct (_ex_ : support magnétique à bande, données en streaming sur un réseau).
 
 # Principe général
+
 1. On initialise la séquence,
 2. On accède aux éléments l'un après l'autre dans la séquence,
 3. On s'arrêt "proprement" à la fin de la séquence.
@@ -26,6 +27,7 @@
 ## Solutions
 
 2 solutions pour repérer les fins de séquences $\rightarrow$ 2 modèles abtraits d'accès séquentiel :
+
 - Modèle 1 : on place une marque (virtuelle) **après** le dernier élément.
 - Modèle 2 : on place la marque **sur** le dernier élément.
 
@@ -38,6 +40,8 @@
 
 - Avantage du modèle 1 : pas de problème
 - Inconvénient du modèle 2 : on est obligé de rajouter un élément virtuel, l'amroce, situé avant le $1^{er}$ élément
+
+\pagebreak
 
 ## Accès aux éléments de la séquence
 
@@ -83,6 +87,8 @@ Initialiser
 Avancer
 Afficher(ElementCourant)
 ```
+
+\pagebreak
 
 ### Parcours d'une séquence non vide
 
@@ -130,6 +136,8 @@ Tant que (Non EstDernier) faire
 - En modèle 1 : appeler `EC` avant d'avoir vérifié `FinDeSéquence`
 - En modèle 2 : appeler `EC` avant d'avoir fait `Avancer` au moins une fois
 
+\pagebreak
+
 ## Construction de séquences
 
 On part d'une séquence de caractères, lettres ou espace
@@ -143,6 +151,7 @@ On va définir la séquence de la longueur des mots
 _Exemple_ : '_ _ une _ _ _ séquence _' -> {3, 8}
 
 La séquence de caractères est données en **Modèle 1**, pour y accéder on a :
+
 - `DemCar`
 - `AvCar`
 - `ECCar`
@@ -169,8 +178,10 @@ ___--____------__----_____
 ^
 ei
 ef
+```
 
-IgnorerEspaces : une action
+**IgnorerEspaces** : une action
+```
 {État initial : FdSCar ou alors ECCar est le i-ème caractère}
 {État final : FdSCar ou alors ECCar est la 1ère leetre dut mot suivant}
 
@@ -182,8 +193,10 @@ IgnorerEspaces : une action
 {Remarque : rien ne se passe si ECCar n'est pas un espace en état initial}
 ```
 
+\pagebreak
+
+**CalculerLongueur** : une action (le résultat Long : un entier)
 ```
-CalculerLongueur : une action (le résultat Long : un entier)
 {État initial : Non FdSCar et ECCar est la 1ère lettre d'un mot}
 {État final :
   - Long vaut la longueur du mot
@@ -200,16 +213,16 @@ CalculerLongueur : une action (le résultat Long : un entier)
 }
 ```
 
-```
 Variables partagées par DemLong, AvLong, ECLong, et FdSLong :
+```
 {Lexique :
   - FinLong : un booléen
   - Long : un entier
 }
 ```
 
+**DemLong** : une action
 ```
-DemLong : une action
 {État initial : indifférent}
 {État final :
   - FinLong
@@ -228,8 +241,10 @@ DemLong : une action
 }
 ```
 
+\pagebreak
+
+**AvLong** : une action
 ```
-AvLong : une action
 {État initial :
   - Non FinLong ET Long est la longueur du i-ème mot
   ET
@@ -251,18 +266,17 @@ AvLong : une action
 }
 ```
 
+**ECLong** : la fonction -> un entier
 ```
-ECLong : la fonction -> un entier
 {Algorithme : retourne (Long)}
 ```
 
+**FdSLong** : la fonction -> un booléen
 ```
-FdSLong : la fonction -> un booléen
 {Algorithme : retourne (FinLong)}
 ```
 
 Calcul de la somme des longueurs des mots :
-
 ```
 {Lexique : Somme : un entier}
 
@@ -276,19 +290,21 @@ Calcul de la somme des longueurs des mots :
 }
 ```
 
+\pagebreak
+
 #### Modèle 2
 
 La séquence des caractère est toujours en modèle 1
 
 On cherche à créer les fonctions `InitLong`, `AvLong`, `ECLong`, `EstDernierLong`
 
-```
 Variables partagées par InitLong, AvLong, ECLong, et EstDernierLong :
+```
 {Lexique : Long : un entier}
 ```
 
+**InitLong** : une action
 ```
-InitLong : une action
 {État initial : indifférent}
 {État final : FdSCar OU ECCar est la 1ère lettre du 1er mot}
 
@@ -298,8 +314,8 @@ InitLong : une action
 }
 ```
 
+**AvLong** : une action
 ```
-AvLong : une action
 {État initial : Non FdSCar ET ECCar est la 1ère lettre du i-ème mot}
 {État final :
   - Long vaut la longueur du i-ème mot
@@ -313,12 +329,12 @@ AvLong : une action
 }
 ```
 
+**ECLong** : une fonction -> entier
 ```
-ECLong : une fonction -> entier
 {Algorithme : retourner (Long)}
 ```
 
+**EstDernierLong** : une fonction -> un booléen
 ```
-EstDernierLong : une fonction -> un booléen
 {Algorithme : retourner (FdSCar)}
 ```

@@ -5,11 +5,13 @@
 # Pourquoi faire des arbres (triés) ?
 
 Coûts avantageux :
+
 - Insertion : $O(1)$
 - Suppresion : $O(1)$
 - Recherche : $O(log(N))$
 
 Structure de données hiérarchique :
+
 - les objets sont stockés dans des nœuds
 - nœud spécial : le nœud racine, tout en haut de la hiérarchie
 - tous les autres noœuds n'ont qu'un seul nœud parent
@@ -32,6 +34,8 @@ C'est un arbre dans lequel chaque nœud a au plus 2 nœuds enfants.
 ## Représentation chaînée des arbres $n$-aires
 
 Triplet : le type \<0 : un objet ; Enfant1, Soeur : un adTriplet >
+
+\pagebreak
 
 # Parcours des abres binaires
 
@@ -72,6 +76,8 @@ Algo :
     Afficher(Objet de A↑)
     ParcoursInFixé(droite de A↑)
 ```
+
+\pagebreak
 
 ## Exemples
 
@@ -131,6 +137,8 @@ Algo :
   Sinon retourne 1 + NbNœud(gauche de A↑) + NbNœud(doite de A↑)
 ```
 
+\pagebreak
+
 ### Nombre de feuilles d'un arbre
 
 ```
@@ -168,9 +176,8 @@ on va vouloir rajouter des nœuds en **début** et en **fin** de liste.
 3. On supprime la tête de liste
 4. On recommence jusqu'à ce que la liste soit vide
 
-
 ```
-  Objet: type quelconque (les objets dans les nœuds)
+  Objet : type quelconque (les objets dans les nœuds)
 
   Triplet : <O : un objet ; gauche, droit : AdTriplet>
 
@@ -179,9 +186,12 @@ on va vouloir rajouter des nœuds en **début** et en **fin** de liste.
   Doublet : <Info : un AdTriplet; suc : un AdDoublet>
 
   Ad Doublet : type pointeur vers un Doublet
+```
 
-ParcoursParNiveau : action(donnée A : un AdTriplet)
+\pagebreak
 
+**ParcoursParNiveau** : action(donnée A : un AdTriplet)
+```
 Lexique :
   X, T, Q : un AdDoublet
   Courant : un AdTriplet
@@ -227,6 +237,8 @@ Objectif : accélérer la recherche (si il existe une **relation d'ordre** entre
   - gauche de A↑ et droit de $A↑$ sont des ABR
   - $\forall g$ nœud dans le sous-arbre gauche, clé de $g↑ \le$ clé de $A↑$
   - $\forall d$ nœud dans le sous-arbre droit, clé de $d↑ >$ clé de $A↑$
+
+\pagebreak
 
 ## Recherche d'une clé avec les ABR
 
@@ -285,9 +297,11 @@ Insérer(34, a)
 
 Le nouveau noeud est une feuille de l'arbre et le chainage est dû à la récursivité.
 
+\pagebreak
+
 ## Suppression d'une clé dans un ABR
 
-\begin{algorithm}
+<!-- \begin{algorithm}
 \SetKwInput{Desc}{Description}
 \SetKwInput{Lex}{Lexique}
 \SetKwInput{DonneesR}{Données résultats}
@@ -310,7 +324,7 @@ Le nouveau noeud est une feuille de l'arbre et le chainage est dû à la récurs
   }
 }
 \caption{Suppression($x$, $A$)}
-\end{algorithm}
+\end{algorithm} -->
 
 ```
 Supprimer : action(donné x : un entier, donnée-résultat A : un AdTriplet)

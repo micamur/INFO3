@@ -143,13 +143,14 @@ Algorithme :
 
 \pagebreak
 
-## Factoriel
+## Factoriel
 
 - l'action : (état =) donnée N (entier) et résultat R (entier)
 - état initial : (assertion =) N entier naturel, R indéfini
 - état final : R vaut N!
 - lexique : K (entier naturel) *$\leftarrow$ variables inutiles dans la spécification de l'action*
 - algorithme :
+
     ```
     R <- 1
     K <- N
@@ -171,11 +172,14 @@ Algorithme :
 > Les assertions et les invariants se prouvent.
 
 > Pour les invariants, ici on fait une **preuve par récurrence** comme ils se trouvent dans une boucle
+>
 > - vrai à la $1^{\text{ère}}$ itération ?
 > - supposer que l'assertion est vraie à une itération donnée
 >   $\rightarrow$ montrer que l'assertion est vraie à l'itération suivante (pas forcément $P(n)$, $P(n+1)$)
 
 > **Important** : la signification de l'invariant à la sortie de l'itération
+
+\pagebreak
 
 ## Algorithme de tri par insertion
 
@@ -201,10 +205,7 @@ Bijection $\begin{cases}
   2 \rightarrow 5\\
 \end{cases}$ de $\{1, \dots, 5\}$ sur $\{1, \dots, 5\}$ (**= permutations**)
 
-### Démonstration d'un invariant
-
-- Initialisation
-- Conservation
+## Démonstration d'un invariant : initialisation et conservation
 
 ### État initial
 
@@ -228,6 +229,7 @@ $$
     - Voir document PDF
 
 > Terminaison (facultatif) : que peut-on affirmer en sortie de boucle ?
+>
 >  - on sait que l'invariant est vérifié à la dernière itération
 >  - on sait qu'on est sortis de la boucle :
 >     - soit $i=0$ et alors :
@@ -235,4 +237,4 @@ $$
 >         - $Clef <  \overline{t_1}$
 >     - soit $i \ge 1$ et $T[i] \le Clef$ :
 >         - $T$ vaut $[\overline{t_1}, \dots, \overline{t_{i}}, \overline{t_{i + 1}}, \overline{t_{i + 1}}, \dots, \overline{t_{j - 1}}, \overline{t_{j + 1}}, \dots, \overline{t_N}]$
->         - $Clef \ge T[1 \dots i]$ et $Clef < T[i+1 \dots j-1]$
+>         - $Clef \ge T[1 \dots i]$ et $Clef < T[i+1 \dots j-1]$

@@ -5,7 +5,6 @@
 # Introduction
 
 - **Prévoir les ressources nécessaires à l'exécution d'un algorithme** : **temps**, mémoire, énergie, bande passante / réseau
-
 - **Hypohèse** : modèle de calcul générique, "machine à accès aléatoire" **RAM** ou **Random Access Memory**
     - Instructions arithmétiques en temps constant
     - Instructions de transfert de données en temps constant
@@ -16,6 +15,7 @@
 # Analyse de complexité - Tri par insertion
 
 Le temps d'exécution va changer en fonction de :
+
 - la taille du tableau
 - le contenu du tableau
 
@@ -37,11 +37,13 @@ Soit $\ Temps(T)$ le temps de calcul total pour le tableau $T$
 $\ Temps(T) = C_1 + C_2 \times N + (C_3 + C_4 + C_8 + C_9) \times (N - 1) + C_5 \times A + (C_6 + C_7) \times (A - 1)$
 
 **Temps de calcul minimum** (tableau déjà trié):
-  - $t_j = 1$
-  - $A = N - 1$
-  - $\ Temps(N) =\ Constante \times N +\ Constante'$
+
+- $t_j = 1$
+- $A = N - 1$
+- $\ Temps(N) =\ Constante \times N +\ Constante'$
 
 **Temps de calcul maximum** (tableau déjà trié mais dans le sens inverse) :
+
 - $t_j = j$ : comparaison de $Clef$ avec $T[j-1 \dots 1]$ et à la fin on vérifie $i = 0 < 1$
 - $A = \sum\limits_{j=2}^N j = {N(N + 1) \over 2} - 1$
 - $\ Temps(N) =\ Constante \times N^2 +\ Constante' \times N +\ Constante''$
@@ -92,6 +94,8 @@ $$
 
 > *Remarque.* La complexité est donc primordiale !
 
+\pagebreak
+
 # Méthodes Diviser (récursivité) pour Régner
 
 > *Remarque.* Tri par insertion : algorithme incrémental
@@ -116,22 +120,6 @@ Soit $T$ un tableau de taille $N$
 1) **Division :** $N = \Big\lfloor{N \over 2}\Big\rfloor + \Big\lceil{N \over 2}\Big\rceil$
 2) On trie les sous tableaux par appels récursifs
 3) Fusion des 2 parties triées pour obtenir le tableau entier trié
-
-```
-Fusion : action (la donnée résultat A : un tableau de 1 à N d'entiers
-                 les données p, q, r :  3 entiers)
-{
-État initial :
-   - 1 <= p <= q  < r <= N
-   - les valeurs Ap, ..., Aq sont triées
-   - les valeurs Aq+1, ..., Ar son triées
-}
-{
-État final :
-  - les valeurs Ap, ..., Ar sont triées
-  - les autres valeurs sont inchangés
-}
-```
 
 ```
 Tri-Fusion : action (la donnée résultat A : un tableau 1 à N d'entiers
@@ -163,17 +151,24 @@ Algo :
 
 ![Schéma du découpage du tableau {5,2,4,7,1,3,2,6} et appels en fonction des paquets]
 
-```
-Fusion(A, p, q, r)
+\pagebreak
 
+**Fusion**
+
+```
+Fusion : action (la donnée résultat A : un tableau de 1 à N d'entiers
+                 les données p, q, r :  3 entiers)
 {
 État initial :
-  - 1 <= p < r <= N
-  - Ap, ..., Aq trié
-  - Aq+1, ..., Ar trié
+   - 1 <= p <= q  < r <= N
+   - les valeurs Ap, ..., Aq sont triées
+   - les valeurs Aq+1, ..., Ar son triées
 }
-
-{ État final : Ap, ..., Ar trié }
+{
+État final :
+  - les valeurs Ap, ..., Ar sont triées
+  - les autres valeurs sont inchangés
+}
 
 {
 Lexique :
@@ -203,9 +198,11 @@ Pour k allant de p à r:
   Sinon :
     A[k] <- D[j]
     j <- j + 1
+}
 ```
 
 *Exemple.* Tableau A={1,3,4,8,2,5,6,9,11}
+
 - G = {$1,3,4,8,+\infty$} et D = {$2,5,6,9,11,+\infty$}
 - $k$ de $1$ à $9$ : {$1,2,3,4,5,6,8,9,11$}
 
@@ -217,10 +214,3 @@ $u \leftarrow 1,04 \times u $ \;
 $n \leftarrow n+1 $ \;
 }
 \end{algorithm}
-
-
-
-
-
-
-.
