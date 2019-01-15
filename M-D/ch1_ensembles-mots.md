@@ -146,18 +146,20 @@ On peut donc se focaliser sur un seul symbole à la fois :
 
 # 2) Ordre lexicographique
 
-**Idée** : comme l'odre du dictionnaire.
+**Idée** : comme l'ordre du dictionnaire.
 
-Soit $A$ un alphabet quelcoqnue, $A = \{a_1, a_2, \dots, a_k\}$
+Soit $A$ un alphabet quelconque, $A = \{a_1, a_2, \dots, a_k\}$
 
 On dit que $A$ est **ordonné** si on fixe un ordre $<$ sur les symboles, par exemple, $a_1 < a_2 < \dots < a_k$
 
-Soient $u$ et $v$ deux mots de $A^*$, $u$ est **avant $v$ dans l'odre lexicographiqe** (noté $u \leq_{\text{lex}} v$) si :
+Soient $u$ et $v$ deux mots de $A^*$, $u$ est **avant $v$ dans l'ordre lexicographiqe** (noté $u \leq_{\text{lex}} v$) si :
+
 - $u$ est un préfixe de $v$
   OU
 - il existe un mot $w$ et deux symboles $x<y$ tels que $wx \sqsubseteq u$ et $wy \sqsubseteq v$
 
 Autrement dit si $u = u_1 u_2 \dots u_n$, $v = v_1 v_2 \dots v_p$ :
+
 - $n \leq p$ et $u_1=v_1,\ \cdots,\ u_n=v_n$
   OU
 - $\exists k$ tel que $u_1 = v_1, \dots u_k = v_k$ e $u_{k + 1} < v_{k + 1}$
@@ -179,7 +181,7 @@ $$
 
 **Propriété.** $\leq_{\text{lex}}$ est **un ordre total** : quels que soient $u$ et $v \in A^*$ on a toujours $u <_{\text{lex}}$ ou $u >_{\text{lex}}$ ou $u = v$. Par exemple, ce n'est pas le cas pour $\sqsubseteq$.
 
-> *Remarque.*  L'odre lexicographique n'est pas commode à définir, par contre on peut écrire un **algorithme** pour décider si $u \leq_{\text{lex}} v$ *(cf. TD3)*
+> *Remarque.*  L'ordre lexicographique n'est pas commode à définir, par contre on peut écrire un **algorithme** pour décider si $u \leq_{\text{lex}} v$ *(cf. TD3)*
 
 # 3) Ensembles et dénombrement
 

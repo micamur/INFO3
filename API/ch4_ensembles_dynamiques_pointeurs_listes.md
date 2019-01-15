@@ -198,7 +198,7 @@ Supprimer : action
 
 ```
 DernierElement : action
-  (dernier L : un AdDoublet ; résultat X : un AdDoublet)
+  (donnée L : un AdDoublet ; résultat X : un AdDoublet)
 
 {État initial : L pointe vers la tête de liste}
 {État final : (X vaut Nil) ou alors (X pointe vers le dernier élément de la liste)}

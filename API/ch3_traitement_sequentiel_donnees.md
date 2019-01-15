@@ -51,7 +51,7 @@ fonction ElementCourant          | 1,2    | retourne l'élément courant
 action Avancer                   | 1,2    | permet d'avancer d'une unité dans la séquence
 fonction booléenne FinDeSéquence | 1      | retourne vrai ssi on a dépassé le dernier élément
 fonction booléenneEstDernier     | 2      | retourne vrai ssi l'élément courant est le dernier élément de la séquence
-action Démarrer                  | 1      | nous place sur le $1^{er}$ élément de la séquence$
+action Démarrer                  | 1      | nous place sur le $1^{er}$ élément de la séquence
 action Initialiser               | 2      | nous place sur l'amorce (pas le $1^{er}$ élément)
 
 Modèle 1                         | Modèle 2

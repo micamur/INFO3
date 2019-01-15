@@ -103,6 +103,7 @@ $$
 Soit $P(E)$ avec $E$ un ensemble à $N$ éléments et $P$ un problème.
 
 **Méthode :**
+
 1) On découpe $E$ en au moins $2$ sous-ensembles $A_1,\dots, A_k$ ($k \ge 2$)
 2) On résoud $P(A_1), \dots, P(A_k)$
 3) On construit une sélection de $P(E)$ à partir des solutions de $P(A_1), \dots, P(A_k)$
@@ -123,7 +124,7 @@ Soit $T$ un tableau de taille $N$
 
 ```
 Tri-Fusion : action (la donnée résultat A : un tableau 1 à N d'entiers
-                     les données p, q, r : 2 entiers)
+                     les données p, r : 2 entiers)
 
 { État initial :  A contient A1, ..., AN, 1 <= p <= r <= N }
 
