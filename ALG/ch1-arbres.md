@@ -14,6 +14,8 @@ Principe du TP : un code source à compléter où les entrées sorties sont déj
 
 Compiler avec `-Wall` et donner un Makefile.
 
+Mail : jean-francois.mehaut@inria.fr
+
 # 1 - Arbres
 
 - **Arbre** : ensemble de **nœuds** (admettant un **niveau**) reliés par des **arêtes**

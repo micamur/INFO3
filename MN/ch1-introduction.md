@@ -1,6 +1,8 @@
+% Chapitre 1 - Introduction
+% Jean-François MÉHAUT (cours) - Mica MURPHY (note) - Antoine SAGET (note)
+% Jour numéro Mois année
 
-
-# Informations
+# Informations
 
 8 semaines TD / TP
 
