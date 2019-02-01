@@ -137,16 +137,59 @@ Les processeurs ont en général autant de registres de pile que de modes. Donc 
 - Duplication du registre `SP`
 - Duplication d'autres registres et/ou utilisation de la pile privilégiée
 
-USR     | FIQ  | IRQ  | SVC
---------|------|------|-----
-R0-R7   |      |      |
-R8-R12  | dup  |      |
-R13-R14 | dup  | dup  | dup
-R15     |      |      |
-CPSR    |      |      |
-        | SPSR | SPSR | SPSR
+USR     | FIQ     | IRQ     | SVC
+--------|---------|---------|--------
+R0-R7   |         |         |
+R8-R12  | R8-R12  |         |
+R13-R14 | R13-R14 | R13-R14 | R13-R14
+R15     |         |         |
+CPSR    |         |         |
+        | SPSR    | SPSR    | SPSR
 
 _Sauvegarde des registres en fonction des modes dans un processeur ARM_
+
+```ARM
+traitant_ARM:
+  stmfd sp!, {r0-r11, fp, lr}
+  bl    vrai_traitant
+  ldmfd sp!, {r0-r11, fp, lr}
+  sub   pc, lr, #4
+```
+
+### 3) Autorisation et masquage
+
+```
+   (Rinst <- [PC])
+          |
+          v
+ (décode Rinst/PC++)
+    |     |     |
+    v     v     v
+  (add, (bl,b) (ldr,
+   sub)   |     str)
+    |     |     |
+    └-----┼-----┘
+       ┌--┴--┐
+pas    |     |
+d'intr |     | interruption
+et I=0 |     | et bit I = 1
+       v     |
+     début   |
+             v
+       (SPSR <- CPSR,
+        CPSR <- mode IRQ,
+        LR   <- PC,
+        PC   <- 018)
+             |
+             v
+           début
+```
+
+```
+CPSR :
+|ZNCV| ... |F|I|mode| I permet d'empêcher une interruption pendant qu'une autre est en cours
+```
+
 
 
 

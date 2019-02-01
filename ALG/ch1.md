@@ -14,7 +14,7 @@ Principe du TP : un code source à compléter où les entrées sorties sont déj
 
 Compiler avec `-Wall` et donner un Makefile.
 
-# 1 - Arbres
+# 1 - ABR
 
 - **Arbre** : ensemble de **nœuds** (admettant un **niveau**) reliés par des **arêtes**
 - Un nœud admet 0 ou plusieurs **fils** qui sont soit des nœuds **internes** soit des **feuilles** et peut contenir une **clé**
@@ -50,7 +50,12 @@ Différents parcours :
 - **postfixé**/postOrder
 - **par niveau**/levelOrder (file)
 
+# 2 - AVL
 
+**Définition.** Arbre AVL (Adelson-Velskii et Landis) : un ABR tel que la différence des hauteurs du sous-arbre gauche et droit de la racine est d'au plus 1 **et** les sous-arbres gauche et droit sont des AVL (équilibrage nécessaire).
+
+
+biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 
 

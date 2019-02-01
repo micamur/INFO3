@@ -20,7 +20,7 @@ Programme :
 
 Bibliographie: Mahé (CN), Tannenbaum (CN), Kurose & Ross (TPN)
 
-Cours sur moodle
+Cours sur Moodle et sur son site : http://www.cedric-richard.fr/courses1.html ou http://www.cedric-richard.fr/coursIT/
 
 # 1 - Data communications
 
@@ -74,3 +74,6 @@ A **physical protocol** manages transmission, data, communication channel adapta
 - **IETF.org**: the Internet Engineering Task Force is an open standards organization, which develops and promotes voluntary Internet standards
 - **ADSL**: 4kHz - 1GHz $\rightarrow$ Internet / 300 - 3kHz $\rightarrow$ Téléphonie
   Atténuation par la longueur du cable qui n'est pas fait pour les haute fréquence --> plus l'armoire est proche plus le débit est haut
+
+# Théorie de l'information
+j

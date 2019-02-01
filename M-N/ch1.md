@@ -81,7 +81,9 @@ $50.25$ | $+ x$ | $+ 25x^2$ | $+ x^3$
 
 *Exemple.* Polynôme problématique avec cette représentation : $x^{258} + 2x + 3$
 
-adieu, je suis à 2% :'('
+> Liste des 500 ordinateurs les plus puissants au monde (LINPACK benchmark) : https://top500.org/statistics/sublist/
+
+
 
 
 .
