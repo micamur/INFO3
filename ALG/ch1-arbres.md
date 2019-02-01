@@ -13,8 +13,9 @@ Cours des arbres sur la conv INFO3
 Principe du TP : un code source à compléter où les entrées sorties sont déjà faites, on s'occupe du reste (affichage couché dans les TPs)
 
 Compiler avec `-Wall` et donner un Makefile.
+Mail : jean-francois.mehaut@inria.fr
 
-# 1 - ABR
+# 1 - Arbres
 
 - **Arbre** : ensemble de **nœuds** (admettant un **niveau**) reliés par des **arêtes**
 - Un nœud admet 0 ou plusieurs **fils** qui sont soit des nœuds **internes** soit des **feuilles** et peut contenir une **clé**
