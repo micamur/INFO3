@@ -19,7 +19,7 @@ Cours sur Moodle
 cat /proc/cpuinfo # pour voir les informations du processeur
 lstopo # show the topology of the system
 time PROG # affiche le temps d'exécution d'un programme
-perf PROG # affiche les cycles à l'exécution d'un programme
+perf PROG # affiche les cycles à l'exécution d'un programme
 cat /usr/include/limits.h # limites min et max des différents types d'entiers
 htop # état du processeur et de la mémoire
 ```
@@ -54,7 +54,7 @@ faudra lui dire à la fin du cours
 - Un cycle = une période d'horloge
 - Pipeline : permet d'exécuter plusieurs instructions en un cycle (Intel : hauteur 9)
 - 1 cœeur :
-  - $128 \times 10^9$ cycles à 3,373 GHz
+  - $128 \times 10^9$ cycles à 3,373 GHz
   - $200 \times 10^9$ instructions soit 1,57 inst/cyc
   - $69 \times 10^9$ branches dont $2 \times 10^9$ branch-misses (3,80%)
 
@@ -84,6 +84,25 @@ $50.25$ | $+ x$ | $+ 25x^2$ | $+ x^3$
 *Exemple.* Polynôme problématique avec cette représentation : $x^{258} + 2x + 3$
 
 > Liste des 500 ordinateurs les plus puissants au monde (LINPACK benchmark) : https://top500.org/statistics/sublist/
+
+# Linkers et librairies
+
+2 types de bibliothèques : **statiques** ou **dynamiques** (https://www.learncpp.com/cpp-tutorial/a1-static-and-dynamic-libraries/)
+
+Une collection de fonctions et procédures pour développer des programmes.
+
+**Linking** (édition de liens) : résoud les références (appels de fonctions définies ailleurs)
+
+`ldd` donne pour un programme donnée l'ensemble des librairies dynamiques utilisées
+
+## Statiques
+
+- Avantages : facile à utiliser, pas de problèmes de dépendance à la compilation
+- Inconvénients : le fichier exécutable sera plus gros et si la bibliothèque est modifiée requiert de re-linker tous les programmes qui l'utilisent.
+
+## Dynamiques
+
+
 
 
 
