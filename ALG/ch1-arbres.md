@@ -55,11 +55,9 @@ Différents parcours :
 
 **Définition.** Arbre AVL (Adelson-Velskii et Landis) : un ABR tel que la différence des hauteurs du sous-arbre gauche et droit de la racine est d'au plus 1 **et** les sous-arbres gauche et droit sont des AVL (équilibrage nécessaire).
 
+# 3 - Arbres 2.3.4
 
-biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-
-
-
+**Définition:** Un arbre 2.3.4 est un arbre de recherche dont les noeuds sont de trois types, 2-noeuds, 3-noeuds, 4-noeuds" et dont toute les feuilles sont situées au même niveau.
 
 
 

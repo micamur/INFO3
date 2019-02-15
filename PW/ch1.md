@@ -204,7 +204,9 @@ Format robuste et générique
 
 Outils : éditeurs (`kate`, `xmlcopyeditor`), validation en ligne (http://www.utilities-online.info/xsdvalidation/), en ligne de commande (`xmllint`)
 
+# 7 - API, webservices, etc.
 
+Bases de données, métadonnées, `curl`
 
 
 
