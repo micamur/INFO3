@@ -190,8 +190,54 @@ CPSR :
 |ZNCV| ... |F|I|mode| I permet d'empêcher une interruption pendant qu'une autre est en cours
 ```
 
+## V - La gestion mémoire
 
+### 1) Objectifs
 
+Protection/sécurité : user/kernel et entre processus
+
+### 2) Principes
+
+#### a. Segmentation
+
+On ajoute au processeur une MMU (Memory Managment Unit) qui contrôle le bus d'adresse
+
+```
+ldr r0, s1:0x20
+
+  if (adr_logique >= taille)
+    exception()
+  else if (mode_demande incompatible perm)
+    exception()
+  else
+    accès(base + adr_logique)
+```
+
+Le mécanisme de segmentation est vite limité par le nombre de segments et augmenter ce nombre n'est pas non plus une bonne solution car ce serait trop coûteux en mémoire.
+
+#### b. Pagination
+
+On découpe la mémoire en pages (frames) de taille égale (souvent de 4kio = 2^12).
+
+Le processus découpe lui aussi sa mémoire en pages logiques de même taille.
+
+Il reste juste à associer chaque page logique utilisé par le processus à une page de la mémoire.
+
+Pour obtenir le numéro de la page associée à une adresse il suffit de diviser (division entière) l'adresse par la taille de la page. C'est facile puisque la taille d'une page est en puissance de 2.
+
+Au final le numéro de la page correspond aux bits 31 à 12 de l'adresse logique. Puis les bits 11 à 0 correspondent au déplacement dans la page (position dans la page).
+
+Pour les adresses physiques le déplacement est le même. Il reste à trouver le numéro de page physique.
+
+Pour transformer l'adresse logique en adresse physique on peut imaginer un tableau (de taille 2^20) associatif qui associe chaque indice (adresse logique) à l'adresse (numéro de page) physique (sur 20 bits) correspondante et perm (sur 12 bits). Au total le tableau fait 4 Mio. Il faut un tableau pour chaque processus.
+
+4Mio est trop lourd surtout que la plupart des processus n'utiliseront pas autant de pages. On découpe donc le tableau en 1024 tables de 1024 lignes et une 1025ème table qui est chargée de lier les 1024 autres tables (de 4kio).
+
+La 1025ème table contient l'adresse vers les autres tables (numéro de page physique pour économiser de la mémoire. Possible car chaque sous-table est stocké dans une page exactement) ainsi qu'un bit de présence. Si ce bit est à 0, il n'y a pas de sous table à cette entrée : on économise énormément de sous-tables.
+
+Puisqu'une sous-table est de 4kio on utilise une page pour stocker une sous-table.
+
+Le registre CR3 contient la page de la 1025ème table du processus en cours.
 
 
 
