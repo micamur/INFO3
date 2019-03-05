@@ -76,4 +76,21 @@ A **physical protocol** manages transmission, data, communication channel adapta
   Atténuation par la longueur du cable qui n'est pas fait pour les haute fréquence --> plus l'armoire est proche plus le débit est haut
 
 # Théorie de l'information
-j
+
+# Codage de Canal
+
+La distance minimal d'un code est définis par le minimum de la distance de Hamming pour chacun de ses mots.
+
+Un code (n, M d) est un code de longueur n, de taille M et de distance minimale d.
+
+Un code $C$ qui détecte $t$-erreurs doit avoir une distance $d \geq t+1$.
+
+Un code $C$ qui corrige $t$-erreurs doit avoir une distance $d = 2t + 1$ ou $d = 2t + 2$.
+
+# Les codes linéaires
+
+# Détection et correction d'erreur
+
+Pour détecter ou corriger les erreurs il faut faire de la redondance.
+
+.

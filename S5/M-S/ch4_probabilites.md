@@ -81,14 +81,205 @@ $$
 
 > *Remarque.* $e^\lambda = \sum {\lambda^k \over k!}$
 
+On s'intéresse, dans un premier temps aux variables prenant un nombre dénombrable de valeurs ($\mathbb{N}$)
+
+**Loi de probabilité, fonction de répartition.** La loi de probabilité est la donnée de toute les probabilités $P(X=x_k)$.
+
+**Définition.** La fonction de répartition est définie par
+$$
+F_X(x) = P(X \leq x)
+$$
+
+**Théorème.**  La fonction de répartition détermine entièrement une loi de probabilité.
 
 
+# 3 - Espérance, variance, écart-type
 
+**Définition.** La valeur moyenne des résultats de l'expérience $X$ est nommée **espérance** de $X$, notée $E[X]$ ou $EX$
 
+$$
+EX = \sum\limits_{i\ge1} x_i \times P(X=x_i)
+$$
 
+> *Remarque.* $EX$ est la valeur que prendrait $X$ si l'expérience n'était pas aléatoire. Si $a \in \mathbb{R}$ est une constante $Ea = a$.
 
+**Propriété.** La moyenne est **linéaire** : $X$, $Y$ variables aléatoire, $\lambda$, $\beta$, $\gamma \in \mathbb{R}$
 
+$$
+E[\lambda X + \beta Y + \gamma] \lambda EX + \beta EX + \gamma
+$$
 
+**Définition.**  **L'écart-type** est la distance moyenne entre les valeurs de $X$ et son espérance.
+
+$$
+\sigma_x = \sqrt{\sum_{i \geq 1} (x_i - EX)^2 P(X = x_i)}
+$$
+
+> *Remarque.* Formule de la distance dans $\mathbb{R}^3$ : $\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$
+
+$$
+Var X = \sigma_x^2
+$$
+
+**Théorème du transfert.** $E\varphi(X) = \sum\limits_{i \geq 1} \varphi(x_i)P(X = x_i)$
+
+> *Remarque.* $VarX = E(X - EX)^2 = E(X^2) - (EX)^2$
+
+**Propriété.** $Var(\alpha X + \beta) = \alpha^2Var X$
+Si $X$ et $Y$ sont indépendantes : $Var(X + Y) = VarX + VarY$
+
+**Inégalité de Bienaymé-Tchebychev.** $P( |X - EX| > t) \leq {VarX \over t^2}$
+
+Posons $t = a\sigma$
+$$
+P(|X - EX| > a\sigma) \leq {VarX \over a^2 \sigma^2} = {1 \over a^2}
+$$
+
+Inégalité loin d'être optimale
+
+# 4 - Retour sur les lois usuelles
+
+## Loi de Bernouilli : $X \sim \mathcal{B}(p)$
+
+$$
+\begin{array}{lcl}
+F_X(x) & = & P(X \le x)\\
+ & = & \left\{\begin{array}{lcl}
+ 0 & \text{ si } & x < 0\\
+ P & \text{ si } & 0 \le x < 1\\
+ 1 & \text{ si } & x \ge 1
+ \end{array}\right.\\
+& = & p 1_{|[0,1[}(x) + 1_{|[1,+\infty[}(x)
+\end{array}
+$$
+
+> *Remarque.* $1_{|A}(x) = 1$ si $x \in A$, $0$ sinon.
+
+$$
+EX = 1 \times P(X = 1) + 0 \times P(X = 0) = P
+$$
+
+$$
+\begin{array}{lcl}
+VarX & = & E[(X - EX)^2]\\
+& = & (1 - p)^2P(X = 1) + (0 - p)^2P(X = 0)\\
+& = & (1 - p)^2p + p^2(1 - p) \\
+& = & p - p^2\\
+& = & p(1-p)
+\end{array}
+$$
+
+## Loi Binomiale : $X \sim \mathcal{B}(n, p)$
+
+$X_1, \dots, X_n$ lois de Bernouilli de paramètre $p$ _indépendantes_.
+
+$$
+X = \sum\limits_{i=1}^{n} X_i
+$$
+
+$$
+EX = E \sum\limits_{i=1}^{n} X_i = \sum\limits_{i=1}^{n} EX_i = np \text{ (par linéarité)}
+$$
+
+$$
+\begin{array}{lcl}
+Var X & = & Var \sum\limits_{i=1}^{n} X_i\\
+& = & \sum\limits_{i=1}^{n} Var X_i = np(1 - p)
+\end{array}
+$$
+
+**Théorème.** Soit $X \sim \mathcal{B}(n, p)$ et $V \sim \mathcal{B}(m, p)$ indépendantes :
+
+$$
+X + Y \sim \mathcal{B}(n+m, p)
+$$
+
+## Loi géométrique : $X \sim \mathcal{G}(p)$
+
+$$
+P(X = k) = p(1 - p)^{k - 1}
+$$
+
+$$
+EX = {1 \over p}
+$$
+
+$$
+VarX = {1 - p \over p}
+$$
+
+$$
+F_x(k) = 1-(1 - p)^k
+$$
+
+## Loi de Poisson : $X \sim \mathcal{P}(\lambda)$
+
+$$
+P(X = k) = e^{- \lambda} {\lambda^k \over k! }, k \geq 0
+$$
+
+$$
+\begin{array}{lcl}
+EX & = & \sum\limits_{k \geq 0} k e^{- \lambda} {\lambda^k \over k!}\\
+& = & e^{-\lambda} \sum\limits_{k \geq 1} {k \lambda^k \over k!}
+\end{array}
+$$
+
+$$
+e^{\lambda} = \sum\limits_{k \geq 0} {\lambda^k \over k!}
+$$
+
+$$
+\begin{array}{lcl}
+{\partial e^\lambda \over \partial \lambda} & = & \sum\limits_{k \ge 0} {\partial \lambda (k/k!) \over \partial \lambda}\\
+ & = & \sum\limits_{k \ge 0} k {\lambda^{k-1} \over k!}\\
+\end{array}
+$$
+
+$$
+e^\lambda = \sum\limits_{k \ge 1} k{\lambda^{k-1} \over k!}
+$$
+
+$$
+\begin{array}{lcl}
+\lambda e^\lambda & = & \sum\limits_{k \ge 1} k{\lambda^{k-1} \over k!}\\
+& = & \sum k {\lambda \lambda^{k-1} \over k!}\\
+& = & \sum {k\lambda^{k} \over k!}
+\end{array}
+$$
+
+$$
+EX = e^{-\lambda} \times \lambda e^\lambda = \lambda
+$$
+
+Tous calculs faits
+$$
+Var X = \lambda
+$$
+
+En pratique, une loi discrète dont l'espérance est très proche de sa variance ($EX = Var X = \lambda$) se modélise par une loi de Poisson.
+
+**Théorème.** Si $X \sim \mathcal{P}(\lambda)$ et $Y \sim \mathcal{P}(\mu)$ indépendantes :
+
+$$
+X + Y \sim \mathcal{P}(\lambda + \mu)
+$$
+
+**Rappel.** $X \sim \mathcal{B}(n, p)$, $EX = np$, $Var X = np(1-p)$
+
+Si $p$ est petit ($n$ grand) alors $(1 - p) \approx 1$. $EX \approx Var X$
+
+D'où le théorème suivant.
+
+**Théorème.** Si $n$ est grand (en pratique $n \ge 50$) et $p$ petit (en pratique $p < 0,1$) alors :
+
+$$
+\mathcal{B}(n, p) \simeq \mathcal{P}(np)
+$$
+
+> *Note.* On considère une loi $\mathcal{B}(n,p)$ avec $p$ grand ($p \ge 0,1$), on peut plutôt compter les échecs par une loi Binomiale $\mathcal{B}(n, 1-p)$ avec $1-p$ petit. On utilise alors le théorème précédent.
+
+rooooooooooooose
 
 
 .
