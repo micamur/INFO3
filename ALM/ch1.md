@@ -137,14 +137,14 @@ Les processeurs ont en général autant de registres de pile que de modes. Donc 
 - Duplication du registre `SP`
 - Duplication d'autres registres et/ou utilisation de la pile privilégiée
 
-USR     | FIQ     | IRQ     | SVC
---------|---------|---------|--------
-R0-R7   |         |         |
-R8-R12  | R8-R12  |         |
-R13-R14 | R13-R14 | R13-R14 | R13-R14
-R15     |         |         |
-CPSR    |         |         |
-        | SPSR    | SPSR    | SPSR
+Registres \ Modes | USR | FIQ | IRQ | SVC
+-----------------:|:---:|:---:|:---:|:---:
+R0-R7             | x   |     |     |
+R8-R12            | x   | x   |     |
+R13-R14           | x   | x   | x   | x
+R15               | x   |     |     |
+CPSR              | x   |     |     |
+SPSR              |     | x   | x   | x
 
 _Sauvegarde des registres en fonction des modes dans un processeur ARM_
 
@@ -187,7 +187,8 @@ et I=0 |     | et bit I = 1
 
 ```
 CPSR :
-|ZNCV| ... |F|I|mode| I permet d'empêcher une interruption pendant qu'une autre est en cours
+|ZNCV| ... |F|I|mode| I permet d'empêcher une
+interruption pendant qu'une autre est en cours
 ```
 
 ## V - La gestion mémoire
