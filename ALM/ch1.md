@@ -187,7 +187,8 @@ et I=0 |     | et bit I = 1
 
 ```
 CPSR :
-|ZNCV| ... |F|I|mode| I permet d'empêcher une interruption pendant qu'une autre est en cours
+|ZNCV| ... |F|I|mode| I permet d'empêcher une
+interruption pendant qu'une autre est en cours
 ```
 
 ## V - La gestion mémoire
@@ -239,10 +240,65 @@ Puisqu'une sous-table est de 4kio on utilise une page pour stocker une sous-tabl
 
 Le registre CR3 contient la page de la 1025ème table du processus en cours.
 
+```
+[     l     | offset ]
+[  i  |  j  | offset ]
+  10    10      12
 
+l = n° page logique
+i = reste de l/1024
+i = quotient l%1024
+l = i*1024 + j
+```
 
+```
+Dans les 12 bits (pas pour l'offset de l'adresse logique, mais pour le 12 bits restants dans les sous tables) :
+P, bit de présence
+R/W, lecture / écriture
+U/S, utilisateur / superuser
+... (page 173 du manuel sur moodle)
+```
 
+#### c. Translation Look-aside Buffer (TLB)
 
+C'est un cache pour les correspondances page logique / page physique
+
+page logique | page physique | info
+:-: | :-: | :-:
+...  |   |  
+...  |   |  
+
+Au changement de contexte (passer d'un processus à un autre) on dois recalculer la table de correspondances.
+
+Cette table compte en général environ 10 entrées.
+
+Pour utiliser le processeur au meilleur de ses capacités il faut utiliser régulièrement les mêmes pages.
+
+# 2 - Les caches
+
+## I - Introduction
+
+Tout ne fonctionne pas à la même vitesse donc on essaye d'accélérer ce qui est lent.
+
+## II - Principe général
+
+### 1) Principes sous-jacent
+
+- localité temporelle ( ? )
+- localité spatiale (on accède souvent aux adresses contiguës)
+
+### 2) Fonctionnement général
+
+Schéma
+
+L'algorithme Last Recently Used permet de choisir quelle information enlever du cache quand il est pleins (on cherche à trouver quelle information seras utilisée le plus loin dans le futur. Pour ça on s'inspire du passé et on enlève ce qui n'a pas été utilisé récemment dans le passé). Cet algorithme, pour rester très rapide fais beaucoup d'approximations.
+
+## III - Caches mémoire des processeurs
+
+TODO : Traduire une adresse logique en une adresse physique avec du code C.
+TODO : Trouver les caractéristiques du cache de notre processeur (`cat /proc/cpuinfo`).
+
+_Mercredi de la rentrée, contrôle en début de cours ?_
 
 
 
