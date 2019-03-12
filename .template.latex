@@ -344,6 +344,7 @@ $endif$
 
 \usepackage[linesnumbered, french, ruled,vlined]{algorithm2e}
 \usepackage{ bbold }
+\usepackage{mathrsfs}
 
 \begin{document}
 $if(title)$
