@@ -293,12 +293,74 @@ Schéma
 
 L'algorithme Last Recently Used permet de choisir quelle information enlever du cache quand il est pleins (on cherche à trouver quelle information seras utilisée le plus loin dans le futur. Pour ça on s'inspire du passé et on enlève ce qui n'a pas été utilisé récemment dans le passé). Cet algorithme, pour rester très rapide fais beaucoup d'approximations.
 
+À faire : Traduire une adresse logique en une adresse physique avec du code C.
+À faire : Trouver les caractéristiques du cache de notre processeur (`cat /proc/cpuinfo`).
+
+_Mercredi de la rentrée, contrôle en début de cours_
+
 ## III - Caches mémoire des processeurs
 
-TODO : Traduire une adresse logique en une adresse physique avec du code C.
-TODO : Trouver les caractéristiques du cache de notre processeur (`cat /proc/cpuinfo`).
+```
+adr  ------------------------>
+data <----------------------->
+PROC <- L1 <- L2 <- L3 <- RAM
+```
 
-_Mercredi de la rentrée, contrôle en début de cours ?_
+On aimerait bien combiner la taille du L3 et la vitesse du L1 mais c'est trop cher et ça consomme trop. Le L1 est quasi aussi rapide que le processeur.
+
+### 1) Principes de fonctionnement
+
+Un cache peut être considéré comme un grand tableau et chaque entrée est appelée une ligne de cache. Chaque ligne fait quelques dizaines d'octets, 128 octets de données par exemple + une adresse + bit de validité.
+
+Exemple :
+
+- L1 : 32 kio de cache -> 256 lignes de 128 octets
+- L2 : 8 Mio -> ~ 16000 lignes de 128 octets
+
+Une adresse ne peut être mise qu'à quelques lignes du cache, ainsi on fait peu de comparaisons à chaque couche.
+
+### 2) Différents types de cache
+
+- **direct** : chaque adresse ne peut aller que dans une ligne du cache.
+
+```
+adresse : 31 (tag/étiquette) 10 | 9 (ligne) 7 | 6 --- 0
+```
+
+On commence par regarder la ligne, puis le bit de validité, puis le tag.
+
+Le problème principal de ce système, c'est que deux variables peuvent se battre pour la même ligne de cache, le rendant complètement inefficace.
+
+- **associatif** : chaque adresse peut aller dans n'importe quelle ligne de cache (ce serait bien mais en pratique on n'y arrive pas)
+
+- **associatif par ensemble** : chaque adresse peut aller dans un groupe de ligne de cache. Par exemple on peut faire deux groupes pour diviser par deux le nombre de comparaisons à faire
+
+```
+adresse : 31 tag 8 | 7 ensemble | 6 --- 0
+```
+
+Cache à 8 voie = Groupe de taille 8 lignes -> 8 comparaisons à faire à chaque fois
+
+### 3) Défauts de cache
+
+Quand l'information n'est pas dans le cache on a un défaut de cache.
+
+- **obligatoire** : le premier accès, forcément la valeur n'est pas encore dans le cache
+- **capacitif** : cache plein, il a dû être vidé
+- **conflictuel** : un ensemble est plein, une valeur a été écrasée
+- **cohérence** (uniquement en multiprocesseur) : une ligne de cache peut être invalidée par un autre processeur
+
+### 4) Écriture
+
+- **immédiate** (_write-through_) : on écrit localement et pas dans la mémoire (bien pour la vidéo)
+- **différée** (_write-back_) :
+- pour le matériel on ne met surtout pas dans le cache, on ne peut pas prévoir
+
+
+
+
+
+
 
 
 

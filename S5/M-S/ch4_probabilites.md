@@ -269,7 +269,7 @@ $$
 
 Si $p$ est petit ($n$ grand) alors $(1 - p) \approx 1$. $EX \approx Var X$
 
-D'où le théorème suivant.
+D'où le théorème suivant :
 
 **Théorème.** Si $n$ est grand (en pratique $n \ge 50$) et $p$ petit (en pratique $p < 0,1$) alors :
 
@@ -279,7 +279,286 @@ $$
 
 > *Note.* On considère une loi $\mathcal{B}(n,p)$ avec $p$ grand ($p \ge 0,1$), on peut plutôt compter les échecs par une loi Binomiale $\mathcal{B}(n, 1-p)$ avec $1-p$ petit. On utilise alors le théorème précédent.
 
-rooooooooooooose
+# 5 - Variables (absolument) continue
+
+Une varibale $X$ est dite à densité s'il existe une fonction $f_x$ telle que
+$$
+P(a \leq X \leq b) = \int_{a}^{b} f_x(x)dx \forall a,b \in \mathbb{R}
+$$
+
+- $P(X = a) = 0$
+- $f_X \ge 0$
+- $P(\Omega) = 1 = \int_{-\infty}^{+\infty} f_X(x)\;dx$
+
+## Fonction de répartition
+
+$$
+F_X(x) = P(X \leq x) = \int_{- \infty}^{x} f_x(x)dx
+$$
+
+C'est la primitive de $f_x$ qui a une limite nulle en $- \infty$.
+
+$$
+(F_X(x))' = f_X(x)
+$$
+
+## Espérance et variance
+
+$$
+E\;X = \int_{-\infty}^{+\infty} f_X(x)\;dx
+$$
+
+> Si $X$ discrète : $E\;X = \sum x_i P(X = x)$
+
+**Théorème. Transfert.** Soit $\varphi$ continue bornée,
+
+$$
+E\;\phi(X) = \int_{-\infty}^{+ \infty}  \varphi(x) f_x(x) dx
+$$
+
+$$
+Var\;X = E[(X - EX)^2]
+$$
+
+$$
+\sigma_x = \sqrt{VarX}
+$$
+
+Toutes les propriétés énoncées au paragraphe précédent restent vraies dans le cadre des variables continues.
+
+## 1) Variable **uniforme** sur $[a, b]$ : $X \sim \mathcal{U}([a, b])$
+
+Tout intervalle $I$ de longueur $l$ totalement inclus dans $[a, b]$ à la même probabilité.
+
+$$
+P(X \in I) = {l \over b - a}
+$$
+
+> $b-a$ longueur de $[a, b]$ et $l$ longueur de $I$.
+
+### Fonction de répartition
+
+$$
+F_X(x) = P(X \le x) = \left\{\begin{array}{lcl}
+0 & \text{si} & x \le a\\
+P(a \le X \le x) = {x - a \over b - a} & \text{si} & a \le x \le b\\
+1 & \text{si} & b \le x
+\end{array}\right.
+$$
+
+$$
+f_X(x) = {1 \over b - a} \mathbb{1}_{[a, b]}(x)
+$$
+
+### Espérance et variance
+
+$$
+\begin{array}{lcl}
+E\;X & = & \int_{a}^{b} x f_X(x)dx\\
+ & = & \int_{a}^{b} {x \over b - a} dx\\
+ & = & \Big[{x^2 \over 2(b-a)}\Big]^b_a\\
+ & = & {a + b \over 2}\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+Var\;X & = & E(X^2) - E(X)^2 \\
+& = & \int x^2f_X(x)dx - ({a + b \over 2})^2 \\
+& = & \int_{a}^{b} {x^2 \over b -a}dx - ({a + b \over 2})^2\\
+& = & [{x^3 \over 3(b - a)}]^b_a - ({a + b \over 2})^2\\
+& = & {(b -a)^2 \over 12}
+\end{array}
+$$
+
+> *Remarque.* La loi uniforme correspond à tous les générateurs "random" des outils numériques
+
+## 2) Loi exponentielle ! $T \approx \Large\varepsilon\small(\lambda)$
+
+$T$ est le temps avant défaillance (électronique / atomes ...) sur des dispositifs sans veillisement.
+
+$$
+f_T(t) = \lambda e^{- \lambda t} \mathbb{1}_{\mathbb{R}^+}(t)
+$$
+
+### Fonction de répartition
+
+Si $t \ge 0$
+
+$$
+\begin{array}{lcl}
+F_T(t) & = & P(T \le t) \\
+ & = & \int_{-\infty}^{t} f_T(t)\;dt \\
+ & = & \int_{0}^{t} \lambda e^{-\lambda t}\;dt \\
+ & = & \big[-e^{-\lambda t}\big]_{0}^{t} \\
+ & = & 1 - e^{-\lambda t}
+\end{array}
+$$
+
+Probabilité de défaillance avant $t \geq 0$.
+
+Comme on peut assimiler proba et fréquence sur un échantillon, $F_T(t)$ est aussi la proportion d'appareils défaillants avant T.
+
+### Fonction de survie
+
+$$
+P(T \ge t) = 1 - F_T(t) = e^{- \lambda t}
+$$
+
+### Temps de demi-vie $\mathscr{C}$
+
+$$
+P(R \leq \mathscr{C}) = 0.5
+$$
+
+$$
+F_T{\mathscr{C}} = 1 - e^{- \lambda \mathscr{C}} = 0.5
+$$
+
+$$
+e^{- \lambda \mathscr{C}} = 1/2 \Leftrightarrow -\lambda \mathscr{C} = \ln(1/2) \Leftrightarrow \mathscr{C} = {\ln(2) \over \lambda}
+$$
+
+### Espérance et variance
+
+$$
+EX = {1 \over \lambda }
+$$
+
+$$
+Var\; X = {1 \over \lambda ^2}
+$$
 
 
-.
+### Loi sans vieillissement
+
+$$
+\begin{array}{lcl}
+P_{T \geq t}(T \geq t + S) & = & {P(\{T \geq t + S\} \cap \{T \geq t\})\over P(T \geq t)}\\
+ & = & {P(T \geq t + S) \over P(T \geq t)}\\
+ & = & {e^{-\lambda (t + s)} \over e^{- \lambda t}}\\
+ & = & e^{-\lambda S}\\
+ & = & P(T \geq S)
+\end{array}
+$$
+
+
+**Théorème.** Si $T_1 \approx \Large\varepsilon\small(\lambda)$ et $T_2 \approx \Large\varepsilon\small(\mu)$ avec $T_1$ et $T_2$ indépendantes, $\boxed{\min(T_1 + T_2) \approx \Large\varepsilon\small(\lambda + \mu)}$
+
+## 3) Lois normales
+
+### Loi centrée réduite
+
+### Densité
+
+$$
+{1 \over \sqrt{2 \pi}} e^{-x^2/2} \text{ (peu utile)}
+$$
+
+En pratique, on utilise une table de la fonction de répartition.
+
+**Théorème.** Soit $a, b \in \mathbb{R}$, si $X$ suit une loi normale, $aX+b$ aussi.
+
+$$
+X \sim \mathcal{N}(m, \sigma)
+$$
+
+$$
+aX + b \sim \mathcal{N}(am + b, a\sigma)
+$$
+
+### Loi normale $\mathcal{N}(m, \sigma)$
+
+$$\mathcal{N}(m, \sigma) = \sigma \mathcal{N}(0, 1) + m$$
+
+### Si $X \sim \mathcal{N}(m, \sigma)$
+
+$$
+{X - m \over \sigma} \sim \mathcal{N}(0, 1)
+$$
+
+### Densité (anecdotique)
+
+$$
+f_X(x) = {1 \over \sqrt{2 \pi} \sigma} e^{{-(x - m)^2 \over 2 \sigma^2}}
+$$
+
+**Théorème.** La somme de plusieurs lois normales est une loi normale.
+
+Si $X_1 \sim \mathcal{N}(m, \sigma)$ et $X_2 \sim \mathcal{N}(m', \sigma ')$ indépendantes, alors $X_1 + X_2 \sim \mathcal{N}(m + m', \sqrt{\sigma^2 + \sigma'^2})$
+
+> *Remarque.* Si $X_1$ et $X_2$ indépendantes :$Var(X_1 + X_2) = Var\;X_1 + Var\;X_2$
+
+$$
+P(m - \sigma \leq X \leq m + \sigma) \approx 0.68
+$$
+
+$$
+P(m - 2\sigma \leq X \leq m + 2\sigma) \approx 0.95
+$$
+
+$$
+P(m - 3\sigma \leq X \leq m + 3\sigma) \approx 0.995
+$$
+
+À comparer avec l'inégalité de Bienaymé-Tchebichev : on voit que BT est loin d'être optimal.
+
+# 6 - Théorèmes limites
+
+**Théorème. Loi des grands nombres.**
+Soit $X_1, \dots, X_n$ identiquement distribués et indépendantes (IDD) :
+
+$$
+{X_1 + \dots + X_n \over n} \rightarrow EX_1
+$$
+
+(base des méthodes de Monte-Carlo)
+
+**Théorème Central limite (TCL).**
+
+$X_1, \dots, X_n$ variables IDD.
+
+$$
+EX_i = \mu
+$$
+
+$$
+\sigma_{X_i} = \sigma
+$$
+
+$$
+{\sum\limits_{i=1}^{n} X_i -n\mu \over \sqrt{n}\sigma} \xrightarrow[n \to \infty] {} \mathcal{N}(0, 1)
+$$
+
+Une loi normale résulte de la conséquence d'un grand nombre d'évènements indépendants (nature, manufacture).
+
+**Propriété.** On a vu que la loi binomiale $\mathscr{B}(n, p)$ est une somme de lois de Bernouilli IID. D'après le TCL : "$\mathscr{B}(n, p) \xrightarrow[n \to \infty]{} \mathcal{N}$". Pour $n$ grand ($n \ge 50$) et $p$ pas trop extrême ($0,4 \le p \le 0,6$ ou vérifier que $npq \ge 18$)
+
+
+$$
+\mathscr{B}(n, p) \approx \mathcal{N}(np, \sqrt{np(1 - p)})
+$$
+
+$$
+X \sim \mathscr{B}(n , p)
+$$
+
+$$
+Y \sim \mathcal{N}(np, \sqrt{np(1 - p)})
+$$
+
+$$
+X \approx Y
+$$
+
+$P(X =8) \neq 0$ mais $P(Y = 8) + 0$. Par contre, vrai en terme de fonctions de répartitions :
+$$
+P(X \leq 8) \approx P(Y \leq 8)
+$$
+
+On applique une "correction de continuité"
+$$
+P(X = 8) = P(X \leq 8.5) - P(X \leq 7.5) \approx P(Y \leq 8.5) - P(Y \leq 7.5) \approx P(7.5 \leq Y \leq 8.5)
+$$
+
+🎋🎋🐼🎋🎋🎋🎋🎋🐼🐼🎋🎋🎋🎋🎋🐼🎋🎋🎋🎋🎋🎋🐼🎋🎋🎋🎋🎋🎋🎋🎋🎋🐼🐼🎋🎋🎋🎋

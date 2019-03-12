@@ -343,6 +343,7 @@ $endif$
 $endif$
 
 \usepackage[linesnumbered, french, ruled,vlined]{algorithm2e}
+\usepackage{ bbold }
 
 \begin{document}
 $if(title)$

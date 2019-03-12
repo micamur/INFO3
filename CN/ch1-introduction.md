@@ -93,4 +93,8 @@ Un code $C$ qui corrige $t$-erreurs doit avoir une distance $d = 2t + 1$ ou $d =
 
 Pour détecter ou corriger les erreurs il faut faire de la redondance.
 
+
+
+
+
 .
