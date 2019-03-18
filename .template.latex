@@ -346,6 +346,13 @@ $endif$
 \usepackage{ bbold }
 \usepackage{mathrsfs}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{Cours écrit par Antoine Saget et Mica Murphy}
+\rfoot{Page \thepage}
+
 \begin{document}
 $if(title)$
 $if(beamer)$

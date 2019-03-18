@@ -324,7 +324,7 @@ Une adresse ne peut être mise qu'à quelques lignes du cache, ainsi on fait peu
 - **direct** : chaque adresse ne peut aller que dans une ligne du cache.
 
 ```
-adresse : 31 (tag/étiquette) 10 | 9 (ligne) 7 | 6 --- 0
+adresse : 31 (tag/étiquette) 10 | 9 (ligne) 7 | 6 --- 0
 ```
 
 On commence par regarder la ligne, puis le bit de validité, puis le tag.
@@ -355,6 +355,32 @@ Quand l'information n'est pas dans le cache on a un défaut de cache.
 - **immédiate** (_write-through_) : on écrit localement et pas dans la mémoire (bien pour la vidéo)
 - **différée** (_write-back_) :
 - pour le matériel on ne met surtout pas dans le cache, on ne peut pas prévoir
+
+# 3 - Le swap / mémoire d'échange
+
+## I - Qu'est-ce que le swap ?
+
+Le swap sert quand la ram est pleine ou quand l'on souhaite mettre un PC en hibernation. C'est parfois un gros fichier ou alors une partition dédiée.
+
+## II - Principe de fonctionnement
+
+On a les processus découpés en pages, mappés vers des pages physiques dans la RAM. Il se peut que les processus remplissent toutes les pages de la RAM, on utilise alors le swap :
+
+On libère une page physique que l'on déplace dans le swap. On peut alors allouer une nouvelle page dans la RAM. Au moment où l'on veut réutiliser la page déplacée, on déplace une autre page dans le swap et on a ainsi une page libre dans la mémoire dans laquelle on peut déplacer la page du swap.
+
+1. Traitant d'interruption : 200 ns
+2. Lire la page sur le disque : 8 ms
+
+1000 fois plus lent qu'un accès à la RAM classique
+
+## III  - MMU / Cache / swap
+
+Si on a beaucoup de processus et qu'ils dépassent la taille totale de la RAM alors une partie est dans le swap. Avec un ordonnanceur classique qui échange entre chaque processus, on va avoir énormément d'échanges avec le swap. Pour mieux faire, l'ordonnanceur va faire des groupes de processus fait de sorte qu'en ordonnançant un seul groupe on rentre dans la RAM. Ainsi, l'échange dans le swap est amorti parce qu'on peut "plus faire avancer les programmes" entre chaque swap.
+
+## IV - Algorithmes de remplacement
+
+
+
 
 
 

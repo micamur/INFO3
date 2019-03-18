@@ -569,11 +569,15 @@ $$
      \end{array}
      $$
 
+\pagebreak
+
   **Applications.**
   1. Application en équations différentielles
   2. Calcul de la TF (transformée de Fourier)
 
-     $$f : \left\{\begin{array}{lcl} \mathbb{R} & \rightarrow & \mathbb{R}\\t & \mapsto & e^{-t^2}\end{array}\right.$$
+     $$
+     f : \left\{\begin{array}{lcl} \mathbb{R} & \rightarrow & \mathbb{R}\\t & \mapsto & e^{-t^2}\end{array}\right.
+     $$
 
      $$
      \stackrel{\wedge}{f}(\xi) = \int_{\mathbb{R}} e^{-t^2}e^{-it\xi} dt
