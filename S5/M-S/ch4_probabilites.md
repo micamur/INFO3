@@ -16,6 +16,7 @@ $\mathcal{P}$ est une mesure :
 - $\mathcal{P}(\emptyset) = 0$ et $\mathcal{P}(\Omega) = 1$
 
 **Propriétés.**
+
 - $\mathcal{P}(A \cup B) = \mathcal{P}(A) + \mathcal{P}(B) - \mathcal{P}(A \cap B)$
 - $\mathcal{P}(A \cup B) \leq \mathcal{P}(A) + \mathcal{P}(B)$
 - $\mathcal{P}(A \backslash B) = \mathcal{P}(A) - \mathcal{P}(A \cap B)$
