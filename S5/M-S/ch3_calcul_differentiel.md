@@ -247,26 +247,26 @@ $$
 **Définition.** Rotationnel de $f$ en $X$ :
 
 $$
-Rot_x(f) = \nabla \land f = \begin{pmatrix}
+Rot_X(f) = \nabla \land f = \begin{pmatrix}
 {\partial \over \partial x} \\
 {\partial \over \partial y} \\
 {\partial \over \partial z} \\
 \end{pmatrix} \land \begin{pmatrix}
-f_1(x) \\
-f_2(x) \\
-f_3(x) \\
+f_1(X) \\
+f_2(X) \\
+f_3(X) \\
 \end{pmatrix} = \begin{pmatrix}
 {\partial f_3 \over y}(X) - {\partial f_2 \over z}(X)\\
 -{\partial f_3 \over y}(X) + {\partial f_1 \over z}(X)\\
 {\partial f_2 \over x}(X) - {\partial f_1 \over y}(X)\\
 \end{pmatrix} $$
 
-**Définition.** On dit que $f$ dérive d'un potentiel s'il existe une fonction $V : \mathbb{R}^2 \rightarrow \mathbb{R}$ tq.
+**Définition.** On dit que $f$ dérive d'un potentiel s'il existe une fonction $V : \mathbb{R}^3 \rightarrow \mathbb{R}^3$ tq.
 $$
 f(x, y, z) = grad_{(x, y, z)}V
 $$
 
-**Théorème.**  
+**Théorème.**
 - Si $f$ dérive d'un potentiel $Rot f = 0$
 - Si $f$  est définie sur la boule $\mathcal{B}$ avec $rot_x f = 0 \forall x \in \mathcal{B}$, alors sur $\mathcal{B}$, $f$ dérive d'un potentiel.
 
