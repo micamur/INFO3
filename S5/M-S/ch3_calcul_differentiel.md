@@ -167,6 +167,7 @@ $$
 $$
 
 **Théorème.** Jacobienne de composée de fonctions :
+
 - $f : \mathbb{R}^n \rightarrow  \mathbb{R}^p$ différentiable autour de $X$
 - $g : \mathbb{R}^p \rightarrow  \mathbb{R}^q$ différentiable autour de $f(X)$
 
@@ -267,6 +268,7 @@ f(x, y, z) = grad_{(x, y, z)}V
 $$
 
 **Théorème.**
+
 - Si $f$ dérive d'un potentiel $Rot f = 0$
 - Si $f$  est définie sur la boule $\mathcal{B}$ avec $rot_x f = 0 \forall x \in \mathcal{B}$, alors sur $\mathcal{B}$, $f$ dérive d'un potentiel.
 
